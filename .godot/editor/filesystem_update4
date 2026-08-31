@@ -9,3 +9,12 @@ res://scripts/main_scene.gd
 res://scenes/hud.tscn
 res://scripts/hud.gd
 res://default_bus_layout.tres
+res://scripts/enemy_spawner.gd
+res://scenes/maps/map_2.tscn
+res://scenes/maps/house_map.tscn
+res://scenes/main_menu.tscn
+res://scripts/main_menu.gd
+res://scenes/maps/defualt_map.tscn
+res://scenes/layer_2.tscn
+res://scenes/maps/courtyard.tscn
+res://scenes/maps/harbour.tscn

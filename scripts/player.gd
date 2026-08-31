@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var coins = 0
+var last_coins
 @export var speed = 500
 @onready var gun: Marker2D = $gun
 @onready var shoot_cooldown: Timer = $shoot_cooldown
@@ -25,12 +26,15 @@ func _ready() -> void:
 	hud.change_health(health)
 	gun_changed(weapon_equiped)
 func _physics_process(delta: float) -> void:
+	if last_coins!=coins:
+		$Camera2D/HUD.change_coins(coins)
 	print($power_up.time_left,"  ",$shoot_cooldown.wait_time,"    ",damage)
 	$Camera2D.rotation = move_toward($Camera2D.rotation, 0, 5 * delta)
 	hud.change_credits(cheese.credits)
 	cheese.player_pos = global_position
 	move(delta)
 	shoot(delta)
+	last_coins = coins
 func move(delta):
 	if can_dash==true:
 		if Input.is_action_just_pressed("dash"):
@@ -212,36 +216,9 @@ func change_sprite(D: Vector2) -> void:
 		[1, 1]:
 			print("Right/Down")
 			$Node2D.rotation_degrees = 45
-	#match [x, y]:
-		#[0, -1]:
-			#print("Up")
-			#$Node2D.rotation_degrees = 270
-			## sprite.texture = load("res://sprites/tank_up.png")
-		#[0, 1]:
-			#print("Down")
-			#$Node2D.rotation_degrees = 90
-			## sprite.texture = load("res://sprites/tank_down.png")
-		#[-1, 0]:
-			#print("Left")
-			#$Node2D.rotation_degrees = 180
-			## sprite.texture = load("res://sprites/tank_left.png")
-		#[1, 0]:
-			#print("Right")
-			#$Node2D.rotation_degrees = 0
-			## sprite.texture = load("res://sprites/tank_right.png")
-		#[-1, -1]:
-			#print("Left/Up")
-			#$Node2D.rotation_degrees = 270
-			## sprite.texture = load("res://sprites/tank_upleft.png")
-		#[1, -1]:
-			#print("Right/Up")
-			#$Node2D.rotation_degrees = 270
-			## sprite.texture = load("res://sprites/tank_upright.png")
-		#[-1, 1]:
-			#print("Left/Down")
-			#$Node2D.rotation_degrees = 270
-			## sprite.texture = load("res://sprites/tank_d	ownleft.png")
-		#[1, 1]:
-			#print("Right/Down")
-			#$Node2D.rotation_degrees = 270
-			## sprite.texture = load("res://sprites/tank_downright.png")
+	
+
+
+func _on_water_detect_body_entered(body: Node2D) -> void:
+	if body.is_in_group("water"):
+		die()

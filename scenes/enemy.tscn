@@ -25,11 +25,6 @@ radius = 17.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ra3w"]
 radius = 72.00694
 
-[sub_resource type="Gradient" id="Gradient_md0e3"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_4ra3w"]
-gradient = SubResource("Gradient_md0e3")
-
 [node name="enemy" type="CharacterBody2D" unique_id=1275416041 groups=["enemy"]]
 collision_layer = 2
 collision_mask = 4
@@ -79,10 +74,9 @@ shape = SubResource("CircleShape2D_4ra3w")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=563315315]
 
-[node name="Sprite2D" type="Sprite2D" parent="Marker2D" unique_id=865238526]
-position = Vector2(11, 0)
-scale = Vector2(0.515625, 0.0859375)
-texture = SubResource("GradientTexture2D_4ra3w")
+[node name="Line2D" type="Line2D" parent="Marker2D" unique_id=621958428]
+points = PackedVector2Array(28, 0, 0, 0)
+width = 2.48
 
 [node name="shoot_timer" type="Timer" parent="." unique_id=234108782]
 wait_time = 2.723

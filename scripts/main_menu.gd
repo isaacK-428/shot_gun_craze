@@ -6,7 +6,8 @@ var normal_float = preload("res://normal_hover.tres")
 var float_active = normal_float
 #preload("res://active_float.tres")
 var maps = [
-	preload("res://scenes/main_scene.tscn")
+	preload("res://scenes/maps/defualt_map.tscn"),
+	preload("res://scenes/maps/house_map.tscn")
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -64,3 +65,12 @@ func change_visuals(D):
 		$difficulties/hard.add_theme_stylebox_override("hover", float_active)
 		$difficulties/easy.add_theme_stylebox_override("hover", normal_float)
 		$difficulties/medium.add_theme_stylebox_override("hover", normal_float)
+
+
+func _on_house_pressed() -> void:
+	get_tree().change_scene_to_packed(maps[1])
+
+
+
+func _on_courtyard_pressed() -> void:
+	get_tree().change_scene_to_packed(maps[0])

@@ -47,6 +47,9 @@ scale_max = 1.5
 scale_curve = SubResource("CurveTexture_ur7pv")
 color_ramp = SubResource("GradientTexture1D_fjrip")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qlg0r"]
+radius = 11.338748
+
 [node name="player" type="CharacterBody2D" unique_id=156242723]
 scale = Vector2(1.16, 1.16)
 collision_mask = 12
@@ -67,7 +70,7 @@ shape = SubResource("RectangleShape2D_3vyb7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1011669799]
 ignore_rotation = false
-zoom = Vector2(1.42, 1.42)
+zoom = Vector2(1.83, 1.83)
 
 [node name="HUD" parent="Camera2D" unique_id=1822620139 instance=ExtResource("4_dqkch")]
 offset_left = -249.0
@@ -171,6 +174,12 @@ one_shot = true
 wait_time = 2.229
 one_shot = true
 
+[node name="water_detect" type="Area2D" parent="." unique_id=1129857741]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="water_detect" unique_id=1024977599]
+shape = SubResource("CircleShape2D_qlg0r")
+
 [connection signal="body_entered" from="enemy_detect" to="." method="_on_enemy_detect_body_entered"]
 [connection signal="body_exited" from="enemy_detect" to="." method="_on_enemy_detect_body_exited"]
 [connection signal="timeout" from="shoot_cooldown" to="." method="_on_shoot_cooldown_timeout"]
@@ -180,3 +189,4 @@ one_shot = true
 [connection signal="timeout" from="dash_visuals" to="." method="_on_dash_visuals_timeout"]
 [connection signal="timeout" from="delete_bullet" to="." method="_on_delete_bullet_timeout"]
 [connection signal="timeout" from="power_up" to="." method="_on_power_up_timeout"]
+[connection signal="body_entered" from="water_detect" to="." method="_on_water_detect_body_entered"]

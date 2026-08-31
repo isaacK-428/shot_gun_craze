@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 func change_health(health):
 	$health.text = "Health: "+ str(health)
 func change_credits(credits):
-	$credits.text = "score: "+ str(credits)
+	$score.text = "score: "+ str(credits)
 func new_wave(Wave):
 	if can_wave == true && Wave!=0:
 		if Wave!=1:
@@ -29,3 +29,5 @@ func new_wave(Wave):
 
 func _on_timer_timeout() -> void:
 	can_wave = true
+func change_coins(amount):
+	$coins.text = "Coins:" + str(amount)
