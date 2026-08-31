@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://yijwlrpio3jv"]
+
+[ext_resource type="Script" uid="uid://bls8itnl4cq47" path="res://scripts/settings.gd" id="1_5p8wc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_36l1p"]
+font_size = 50
+
+[node name="settings" type="Control" unique_id=1744182926]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5p8wc")
+
+[node name="Label" type="Label" parent="." unique_id=1830336602]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 5.0
+offset_right = 675.0
+offset_bottom = 74.0
+text = "Settings"
+label_settings = SubResource("LabelSettings_36l1p")
+
+[node name="Button" type="Button" parent="." unique_id=1234516780]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 12.0
+offset_right = 124.0
+offset_bottom = 62.0
+text = "back"
+
+[node name="master" type="HSlider" parent="." unique_id=52497035]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 291.0
+offset_right = 885.0
+offset_bottom = 307.0
+max_value = 1.0
+step = 0.01
+
+[node name="music" type="HSlider" parent="." unique_id=1557515879]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 360.0
+offset_right = 885.0
+offset_bottom = 376.0
+max_value = 1.0
+step = 0.01
+
+[node name="SFX" type="HSlider" parent="." unique_id=1630511722]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 430.0
+offset_right = 885.0
+offset_bottom = 446.0
+max_value = 1.0
+step = 0.01
+
+[node name="Label2" type="Label" parent="." unique_id=1027756260]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 248.0
+offset_right = 655.0
+offset_bottom = 287.0
+theme_override_font_sizes/font_size = 28
+text = "Master"
+
+[node name="Label3" type="Label" parent="." unique_id=1340124403]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 323.0
+offset_right = 655.0
+offset_bottom = 362.0
+theme_override_font_sizes/font_size = 28
+text = "Music"
+
+[node name="Label4" type="Label" parent="." unique_id=1510077195]
+layout_mode = 0
+offset_left = 571.0
+offset_top = 391.0
+offset_right = 666.0
+offset_bottom = 430.0
+theme_override_font_sizes/font_size = 28
+text = "SFX"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="SFX" to="." method="_on_sfx_value_changed"]

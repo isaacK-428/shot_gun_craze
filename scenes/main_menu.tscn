@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://2xstmnerai11"]
+
+[ext_resource type="Script" uid="uid://ctaang6c27f1a" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="StyleBox" uid="uid://dgx14qbb2l5c6" path="res://active.tres" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://btgy851opl4r7" path="res://assets/settings image.png" id="2_ekxnf"]
+[ext_resource type="StyleBox" uid="uid://btuhcg7n0r51" path="res://normal.tres" id="3_wu84c"]
+[ext_resource type="StyleBox" uid="uid://db0st4lxg6fwu" path="res://normal_hover.tres" id="4_8ln24"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0.34454858, 0.6472204, 0.7514278, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+bg_color = Color(0.35248992, 0.3076392, 0.75203544, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 6
+
+[node name="main_menu" type="Control" unique_id=2062541400]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="Panel" type="Panel" parent="." unique_id=191657013]
+layout_mode = 0
+offset_right = 1230.0
+offset_bottom = 633.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ln24")
+
+[node name="difficulties" type="Control" parent="." unique_id=542882737]
+anchors_preset = 0
+offset_left = 64.0
+offset_top = 27.0
+offset_right = 956.0
+offset_bottom = 186.0
+
+[node name="Panel" type="Panel" parent="difficulties" unique_id=711592032]
+layout_mode = 0
+offset_left = 882.0
+offset_top = 114.0
+offset_right = 1081.0
+offset_bottom = 357.0
+
+[node name="easy" type="Button" parent="difficulties" unique_id=1585821096]
+layout_mode = 0
+offset_left = 901.0
+offset_top = 145.0
+offset_right = 1060.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = ExtResource("2_bqqt6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+text = "easy"
+
+[node name="medium" type="Button" parent="difficulties" unique_id=17658115]
+layout_mode = 0
+offset_left = 901.0
+offset_top = 213.0
+offset_right = 1060.0
+offset_bottom = 269.0
+theme_override_styles/normal = ExtResource("3_wu84c")
+text = "medium"
+
+[node name="hard" type="Button" parent="difficulties" unique_id=1926020659]
+layout_mode = 0
+offset_left = 901.0
+offset_top = 282.0
+offset_right = 1060.0
+offset_bottom = 338.0
+theme_override_styles/normal = ExtResource("4_8ln24")
+text = "hard"
+
+[node name="play random" type="Button" parent="." unique_id=2139797028]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 6.0
+offset_right = 696.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 27
+text = "play random map"
+
+[node name="settings" type="Button" parent="." unique_id=1390589099]
+layout_mode = 0
+offset_left = 1062.0
+offset_top = 9.0
+offset_right = 1131.0
+offset_bottom = 73.0
+text = "      "
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1168395433]
+position = Vector2(1120, 111)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ekxnf")
+
+[node name="Button2" type="Button" parent="." unique_id=603116956]
+layout_mode = 0
+offset_left = 970.0
+offset_top = 407.0
+offset_right = 1114.0
+offset_bottom = 451.0
+text = "quit"
+
+[connection signal="pressed" from="difficulties/easy" to="." method="easy"]
+[connection signal="pressed" from="difficulties/medium" to="." method="medium"]
+[connection signal="pressed" from="difficulties/hard" to="." method="hard"]
+[connection signal="pressed" from="play random" to="." method="_on_play_random_pressed"]
+[connection signal="pressed" from="settings" to="." method="_on_button_2_pressed"]

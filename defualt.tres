@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://co07x2vlw72be"]
+
+[sub_resource type="FontVariation" id="FontVariation_kexbd"]
+
+[resource]
+default_font = SubResource("FontVariation_kexbd")
+default_font_size = 25

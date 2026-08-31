@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c36tsbfpew08s"]
+
+[ext_resource type="Script" uid="uid://5n73mdw861r8" path="res://scripts/blood.gd" id="1_fuol1"]
+
+[sub_resource type="Gradient" id="Gradient_ptkrj"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.5759606, 1.6966089e-06, 3.3691526e-07, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fuol1"]
+gradient = SubResource("Gradient_ptkrj")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8xpw"]
+size = Vector2(8, 8)
+
+[node name="blood" type="RigidBody2D" unique_id=1201055058]
+z_index = -98
+collision_layer = 32
+collision_mask = 4
+gravity_scale = 0.0
+script = ExtResource("1_fuol1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=580147087]
+scale = Vector2(0.12, 0.12)
+texture = SubResource("GradientTexture2D_fuol1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1500787543]
+shape = SubResource("RectangleShape2D_i8xpw")

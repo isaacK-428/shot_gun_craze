@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dta3dfg0kk385"]
+
+[ext_resource type="Script" uid="uid://dvk3gdi1rcitp" path="res://scripts/dash_visuals.gd" id="1_achba"]
+
+[sub_resource type="Gradient" id="Gradient_u8vuu"]
+offsets = PackedFloat32Array(0, 0.98493975)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3vyb7"]
+gradient = SubResource("Gradient_u8vuu")
+fill_to = Vector2(0.9978261, 0)
+
+[node name="dash_visuals" type="Sprite2D" unique_id=1645364770]
+scale = Vector2(0.34, 0.34)
+texture = SubResource("GradientTexture2D_3vyb7")
+script = ExtResource("1_achba")
+
+[node name="Timer" type="Timer" parent="." unique_id=1245584250]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

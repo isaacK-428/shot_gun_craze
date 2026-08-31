@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://ww2k6wvxy87m"]
+
+[ext_resource type="Script" uid="uid://sctxadjlvvs" path="res://scripts/bullet.gd" id="1_mkf8s"]
+
+[sub_resource type="Gradient" id="Gradient_h1aey"]
+offsets = PackedFloat32Array(0, 0.63554215)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.64705884, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mkf8s"]
+gradient = SubResource("Gradient_h1aey")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y25gk"]
+size = Vector2(46.153843, 15.384622)
+
+[sub_resource type="Curve" id="Curve_mkf8s"]
+_data = [Vector2(0.0033556968, 1), 0.0, 0.0, 0, 0, Vector2(0.82214767, 0.4443488), 0.0, 0.0, 0, 0, Vector2(1, 0.041594863), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_y25gk"]
+curve = SubResource("Curve_mkf8s")
+
+[sub_resource type="Gradient" id="Gradient_l5glv"]
+colors = PackedColorArray(1, 1, 1, 1, 0.7613624, 0.76136225, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eoqba"]
+gradient = SubResource("Gradient_l5glv")
+
+[sub_resource type="Curve" id="Curve_qncy5"]
+_data = [Vector2(0, 0.7016638), 0.0, 0.0, 0, 0, Vector2(1, 0.3436603), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tamys"]
+curve = SubResource("Curve_qncy5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_26lx3"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2, 1, 1)
+spread = 47.118
+initial_velocity_min = -30.769999
+initial_velocity_max = -30.769999
+gravity = Vector3(0, 0, 0)
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_tamys")
+color = Color(0.85514134, 1.7519593e-05, 0.3299527, 1)
+color_ramp = SubResource("GradientTexture1D_eoqba")
+alpha_curve = SubResource("CurveTexture_y25gk")
+
+[node name="bullet" type="Area2D" unique_id=190197655]
+rotation = 1.5707964
+scale = Vector2(0.16, 0.16)
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_mkf8s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1785514389]
+position = Vector2(0, -5.9604645e-08)
+rotation = 3.1415927
+scale = Vector2(1, 0.39062503)
+texture = SubResource("GradientTexture2D_mkf8s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=991018514]
+position = Vector2(9.1699457e-07, -2.2924871e-07)
+rotation = -3.1415925
+shape = SubResource("RectangleShape2D_y25gk")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=78009386]
+position = Vector2(-37.5, 1.639177e-06)
+amount = 300
+lifetime = 0.39
+process_material = SubResource("ParticleProcessMaterial_26lx3")
+
+[node name="Timer" type="Timer" parent="." unique_id=1392002853]
+wait_time = 0.353
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

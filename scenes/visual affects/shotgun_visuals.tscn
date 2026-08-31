@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cmgogd3udd1ns"]
+
+[ext_resource type="Script" uid="uid://c6u0krx5fqnaq" path="res://scripts/shotgun_visuals.gd" id="1_2k60b"]
+
+[sub_resource type="Curve" id="Curve_kqyqx"]
+_data = [Vector2(0.024875626, 0.036121607), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.96666676), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_2k60b"]
+_data = [Vector2(0.024875626, 0.036121607), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="shotgun_visuals" type="Node2D" unique_id=2077068590]
+script = ExtResource("1_2k60b")
+
+[node name="Line2D2" type="Line2D" parent="." unique_id=722054577]
+points = PackedVector2Array(0, 0, 97, -8)
+width_curve = SubResource("Curve_kqyqx")
+default_color = Color(1, 0.15294118, 0.08235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D3" type="Line2D" parent="." unique_id=1866075389]
+position = Vector2(-12, 0)
+points = PackedVector2Array(0, 0, 110, 0)
+width_curve = SubResource("Curve_2k60b")
+default_color = Color(1, 0.15294118, 0.08235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D4" type="Line2D" parent="." unique_id=981497037]
+position = Vector2(-11, -1)
+points = PackedVector2Array(0, 0, 109, 9)
+width_curve = SubResource("Curve_kqyqx")
+default_color = Color(1, 0.15294118, 0.08235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2

@@ -1,0 +1,29 @@
+extends Node
+var can_combo=false
+var combo_amount = 0
+var player_pos = null
+var difficulty = 1
+var total_alive_enemies = null
+var credits = 0
+var delta2 = 1
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	delta2=delta
+func change_credits(amount):
+	if can_combo:
+		combo_amount+=1
+	else:
+		combo_amount=1
+	credits+=amount*(round(combo_amount/1.5))
+	can_combo=true
+	$Timer.start()
+
+
+func _on_timer_timeout() -> void:
+	can_combo=false
+	combo_amount = 0

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://chva06vyshj1y"]
+
+[ext_resource type="Script" uid="uid://bkq5c2scgdmqc" path="res://scripts/hud.gd" id="1_ahhtf"]
+
+[node name="HUD" type="Control" unique_id=1822620139]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -6.0
+offset_right = -3.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ahhtf")
+
+[node name="health" type="Label" parent="." unique_id=856749654]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 140.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 21
+text = "Health: 0"
+
+[node name="credits" type="Label" parent="." unique_id=264877952]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 37.0
+offset_right = 138.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 20
+text = "credits: 0"
+
+[node name="Button" type="Button" parent="." unique_id=341786191]
+layout_mode = 0
+offset_left = 1025.0
+offset_top = 5.0
+offset_right = 1148.0
+offset_bottom = 58.0
+text = "Restart level"
+
+[node name="Control" type="Control" parent="." unique_id=594680571]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="." unique_id=2000290945]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_top = 69.0
+offset_right = 28.0
+offset_bottom = 92.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 39
+text = "Wave 1"

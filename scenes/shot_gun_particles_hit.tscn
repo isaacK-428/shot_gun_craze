@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cir2kapapwpju"]
+
+[ext_resource type="Script" uid="uid://bowp5e6nkedbk" path="res://scripts/particle.gd" id="1_dti5m"]
+
+[sub_resource type="Curve" id="Curve_1x2ce"]
+_data = [Vector2(0.07671958, 0.6052631), 0.0, 0.0, 0, 0, Vector2(0.9920634, 0.061403513), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_dti5m"]
+offsets = PackedFloat32Array(0, 0.94135803, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.05864197, 0, 0, 0, 0)
+
+[node name="shot gun particles hit" type="CPUParticles2D" unique_id=1406354960]
+emitting = false
+amount = 80
+lifetime = 0.28
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.85
+initial_velocity_max = 292.78
+scale_amount_min = 4.0
+scale_amount_max = 8.95
+scale_amount_curve = SubResource("Curve_1x2ce")
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("Gradient_dti5m")
+hue_variation_min = -0.13
+hue_variation_max = 0.23
+script = ExtResource("1_dti5m")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cvcp2hou3yc3n"]
+
+[ext_resource type="Script" uid="uid://buqrcd5d6aq7s" path="res://scripts/load.gd" id="1_2qpnl"]
+
+[node name="load" type="Node" unique_id=848711676]
+script = ExtResource("1_2qpnl")
+
+[node name="Timer" type="Timer" parent="." unique_id=877847228]
+wait_time = 1.0699999999999998
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

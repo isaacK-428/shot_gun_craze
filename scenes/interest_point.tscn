@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bumyycpihha8h"]
+
+[ext_resource type="Script" uid="uid://bkcoim8pq7y1r" path="res://scripts/interest_point.gd" id="1_h0rlq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5cpb7"]
+radius = 23.021729
+
+[node name="interest_point" type="Marker2D" unique_id=426563752 groups=["interest_point"]]
+script = ExtResource("1_h0rlq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1085875693]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1321898469]
+shape = SubResource("CircleShape2D_5cpb7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
