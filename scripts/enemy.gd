@@ -8,6 +8,7 @@ var blood = preload("res://scenes/visual affects/blood.tscn")
 var coin  = preload("res://scenes/coin.tscn")
 var inside = false
 var combo = preload("res://scenes/combo.tscn")
+var power_up = preload("res://scenes/power_up.tscn")
 var can_damage = true
 var player_guy = null
 var target = "interest"
@@ -165,3 +166,7 @@ func loot_drops():
 			var C_II = coin.instantiate()
 			C_II.global_position = global_position+Vector2(randi_range(-20,20),randi_range(-20,20))
 			get_tree().root.add_child(C_II)
+	if chance == 2:
+		var power_up_instance = power_up.instantiate()
+		get_tree().root.add_child(power_up_instance)
+		power_up_instance.global_position = global_position

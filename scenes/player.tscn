@@ -165,6 +165,9 @@ wait_time = 0.2
 wait_time = 0.126
 one_shot = true
 
+[node name="power_up" type="Timer" parent="." unique_id=304393096]
+wait_time = 11.831999999999999
+
 [connection signal="body_entered" from="enemy_detect" to="." method="_on_enemy_detect_body_entered"]
 [connection signal="body_exited" from="enemy_detect" to="." method="_on_enemy_detect_body_exited"]
 [connection signal="timeout" from="shoot_cooldown" to="." method="_on_shoot_cooldown_timeout"]
@@ -173,3 +176,4 @@ one_shot = true
 [connection signal="timeout" from="camera_shake_2" to="." method="_on_camera_shake_2_timeout"]
 [connection signal="timeout" from="dash_visuals" to="." method="_on_dash_visuals_timeout"]
 [connection signal="timeout" from="delete_bullet" to="." method="_on_delete_bullet_timeout"]
+[connection signal="timeout" from="power_up" to="." method="_on_power_up_timeout"]

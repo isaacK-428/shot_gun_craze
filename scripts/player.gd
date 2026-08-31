@@ -164,3 +164,14 @@ func _on_delete_bullet_timeout() -> void:
 			body.delete_bullet()
 func get_coin(number):
 	coins+=1
+func get_power_up(type: int):
+	$power_up.start()
+	if type == 1:
+		damage = 5
+	if type == 2:
+		take_damage(randi_range(1,2)*-1)
+	print("power up ",type)
+
+
+func _on_power_up_timeout() -> void:
+	damage = 1
