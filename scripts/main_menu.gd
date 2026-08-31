@@ -6,8 +6,9 @@ var normal_float = preload("res://normal_hover.tres")
 var float_active = normal_float
 #preload("res://active_float.tres")
 var maps = [
-	preload("res://scenes/maps/defualt_map.tscn"),
-	preload("res://scenes/maps/house_map.tscn")
+	preload("res://scenes/maps/courtyard.tscn"),
+	preload("res://scenes/maps/house_map.tscn"),
+	preload("res://scenes/maps/harbour.tscn")
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -74,3 +75,7 @@ func _on_house_pressed() -> void:
 
 func _on_courtyard_pressed() -> void:
 	get_tree().change_scene_to_packed(maps[0])
+
+
+func _on_docks_pressed() -> void:
+	get_tree().change_scene_to_packed(maps[2])

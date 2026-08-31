@@ -181,3 +181,8 @@ func _on_timer_2_timeout() -> void:
 	$Sprite2D2.hide()
 	$Timer2.queue_free()
 	set_physics_process(true)
+
+
+func _on_water_detect_body_entered(body: Node2D) -> void:
+	if body.is_in_group("water"):
+		die()

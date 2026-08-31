@@ -28,7 +28,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if last_coins!=coins:
 		$Camera2D/HUD.change_coins(coins)
-	print($power_up.time_left,"  ",$shoot_cooldown.wait_time,"    ",damage)
+
 	$Camera2D.rotation = move_toward($Camera2D.rotation, 0, 5 * delta)
 	hud.change_credits(cheese.credits)
 	cheese.player_pos = global_position
@@ -124,6 +124,8 @@ func take_damage(amount):
 		die()
 func die():
 	set_physics_process(false)
+	await get_tree().create_timer(2.0).timeout
+	get_tree().reload_current_scene()
 func gun_changed(gun: String):
 	if gun == "pistol":
 		damage = 1
@@ -184,7 +186,6 @@ func _on_power_up_timeout() -> void:
 	damage = 1
 	print("timeout")
 func change_sprite(D: Vector2) -> void:
-	print(D)
 	if D == Vector2.ZERO:
 		return # Keep current sprite if not moving
 		
@@ -193,32 +194,26 @@ func change_sprite(D: Vector2) -> void:
 	var y = roundi(D.y)
 	match [x, y]:
 		[0, -1]:
-			print("Up")
 			$Node2D.rotation_degrees = 270
 		[0, 1]:
-			print("Down")
 			$Node2D.rotation_degrees = 90
 		[-1, 0]:
-			print("Left")
 			$Node2D.rotation_degrees = 180
 		[1, 0]:
-			print("Right")
 			$Node2D.rotation_degrees = 0
 		[-1, -1]:
-			print("Left/Up")
 			$Node2D.rotation_degrees = 225
 		[1, -1]:
-			print("Right/Up")
 			$Node2D.rotation_degrees = 315
 		[-1, 1]:
-			print("Left/Down")
 			$Node2D.rotation_degrees = 135
 		[1, 1]:
-			print("Right/Down")
 			$Node2D.rotation_degrees = 45
 	
 
 
 func _on_water_detect_body_entered(body: Node2D) -> void:
+	print("collide")
 	if body.is_in_group("water"):
+		print("water")
 		die()

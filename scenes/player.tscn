@@ -48,7 +48,7 @@ scale_curve = SubResource("CurveTexture_ur7pv")
 color_ramp = SubResource("GradientTexture1D_fjrip")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlg0r"]
-radius = 11.338748
+radius = 15.541171
 
 [node name="player" type="CharacterBody2D" unique_id=156242723]
 scale = Vector2(1.16, 1.16)
@@ -139,7 +139,6 @@ scale = Vector2(27.7, 27.7)
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gun/Area2D" unique_id=1542087091]
-visible = false
 polygon = PackedVector2Array(4, -1, 4, 1, 0, 0)
 
 [node name="shoot_cooldown" type="Timer" parent="." unique_id=204453789]
@@ -179,6 +178,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="water_detect" unique_id=1024977599]
 shape = SubResource("CircleShape2D_qlg0r")
+debug_color = Color(0.89301246, 0.0002310276, 0.7870965, 0.41960785)
 
 [connection signal="body_entered" from="enemy_detect" to="." method="_on_enemy_detect_body_entered"]
 [connection signal="body_exited" from="enemy_detect" to="." method="_on_enemy_detect_body_exited"]
