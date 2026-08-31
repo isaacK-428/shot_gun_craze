@@ -14,4 +14,4 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	body.get_coin(1)
 	queue_free()
-	print(body)
+	print(str(body)+"body")
