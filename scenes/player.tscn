@@ -68,7 +68,7 @@ shape = SubResource("RectangleShape2D_3vyb7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1011669799]
 ignore_rotation = false
-zoom = Vector2(0.54, 0.54)
+zoom = Vector2(1.44, 1.44)
 
 [node name="HUD" parent="Camera2D" unique_id=1822620139 instance=ExtResource("4_dqkch")]
 offset_left = -249.0

@@ -17,7 +17,7 @@ colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1)
 gradient = SubResource("Gradient_j7my0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig136"]
-size = Vector2(64, 64)
+size = Vector2(133.33333, 120)
 
 [node name="power_up" type="Area2D" unique_id=1819289513]
 scale = Vector2(0.15, 0.15)
@@ -31,6 +31,7 @@ texture = SubResource("GradientTexture2D_j7my0")
 texture = SubResource("GradientTexture2D_ig136")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1395166870]
+position = Vector2(1.5894572e-06, 0)
 shape = SubResource("RectangleShape2D_ig136")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -6,3 +6,5 @@ res://scenes/enemy.tscn
 res://scripts/enemy.gd
 res://scenes/main_scene.tscn
 res://scripts/main_scene.gd
+res://scenes/hud.tscn
+res://scripts/hud.gd
