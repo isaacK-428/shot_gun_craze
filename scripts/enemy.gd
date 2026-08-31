@@ -22,6 +22,7 @@ var bullet = preload("res://scenes/bullet.tscn")
 
 
 func _ready():
+	set_physics_process(false)
 	randomize()
 	special_enemy_stats()
 	interest = get_tree().get_nodes_in_group("interest_point").pick_random().global_position
@@ -48,7 +49,9 @@ func _physics_process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	$Timer.wait_time = randf_range(0.4,0.85)
-	$CollisionShape2D.disabled = false
+	#$CollisionShape2D.disabled = false
+	#$Sprite2D.show()
+	#$Sprite2D2.hide()
 	player = cheese.player_pos
 	agent.target_position = player
 	if !near_player:
@@ -170,3 +173,11 @@ func loot_drops():
 		var power_up_instance = power_up.instantiate()
 		get_tree().root.add_child(power_up_instance)
 		power_up_instance.global_position = global_position
+
+
+func _on_timer_2_timeout() -> void:
+	$CollisionShape2D.disabled = false
+	$Sprite2D.show()
+	$Sprite2D2.hide()
+	$Timer2.queue_free()
+	set_physics_process(true)

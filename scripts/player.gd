@@ -26,6 +26,7 @@ func _ready() -> void:
 	hud.change_health(health)
 	gun_changed(weapon_equiped)
 func _physics_process(delta: float) -> void:
+	print($power_up.time_left,"  ",$shoot_cooldown.wait_time,"    ",damage)
 	$Camera2D.rotation = move_toward($Camera2D.rotation, 0, 5 * delta)
 	hud.change_credits(cheese.credits)
 	cheese.player_pos = global_position
@@ -165,7 +166,8 @@ func _on_delete_bullet_timeout() -> void:
 func get_coin(number):
 	coins+=1
 func get_power_up(type: int):
-	$power_up.start()
+	$power_up.stop()
+	$power_up.start(5.0)
 	if type == 1:
 		damage = 5
 	if type == 2:
@@ -175,3 +177,4 @@ func get_power_up(type: int):
 
 func _on_power_up_timeout() -> void:
 	damage = 1
+	print("timeout")
