@@ -5,7 +5,6 @@ var coins = 0
 @onready var gun: Marker2D = $gun
 @onready var shoot_cooldown: Timer = $shoot_cooldown
 @onready var hud: Control = $Camera2D/HUD
-@onready var sprite: Sprite2D = $Sprite2D
 
 var dash_visual = preload("res://scenes/visual affects/dash_visuals.tscn")
 var dash = false
@@ -53,6 +52,8 @@ func move(delta):
 		var D_V_I = dash_visual.instantiate()
 		D_V_I.global_position = global_position
 		$bullet_container.add_child(D_V_I)
+	if dir!=Vector2.ZERO:
+		change_sprite(dir)
 			
 	velocity=Vector2.ZERO
 	velocity+=dir*speed
@@ -178,3 +179,69 @@ func get_power_up(type: int):
 func _on_power_up_timeout() -> void:
 	damage = 1
 	print("timeout")
+func change_sprite(D: Vector2) -> void:
+	print(D)
+	if D == Vector2.ZERO:
+		return # Keep current sprite if not moving
+		
+	# Round to nearest grid direction (-1, 0, or 1)
+	var x = roundi(D.x)
+	var y = roundi(D.y)
+	match [x, y]:
+		[0, -1]:
+			print("Up")
+			$Node2D.rotation_degrees = 270
+		[0, 1]:
+			print("Down")
+			$Node2D.rotation_degrees = 90
+		[-1, 0]:
+			print("Left")
+			$Node2D.rotation_degrees = 180
+		[1, 0]:
+			print("Right")
+			$Node2D.rotation_degrees = 0
+		[-1, -1]:
+			print("Left/Up")
+			$Node2D.rotation_degrees = 225
+		[1, -1]:
+			print("Right/Up")
+			$Node2D.rotation_degrees = 315
+		[-1, 1]:
+			print("Left/Down")
+			$Node2D.rotation_degrees = 135
+		[1, 1]:
+			print("Right/Down")
+			$Node2D.rotation_degrees = 45
+	#match [x, y]:
+		#[0, -1]:
+			#print("Up")
+			#$Node2D.rotation_degrees = 270
+			## sprite.texture = load("res://sprites/tank_up.png")
+		#[0, 1]:
+			#print("Down")
+			#$Node2D.rotation_degrees = 90
+			## sprite.texture = load("res://sprites/tank_down.png")
+		#[-1, 0]:
+			#print("Left")
+			#$Node2D.rotation_degrees = 180
+			## sprite.texture = load("res://sprites/tank_left.png")
+		#[1, 0]:
+			#print("Right")
+			#$Node2D.rotation_degrees = 0
+			## sprite.texture = load("res://sprites/tank_right.png")
+		#[-1, -1]:
+			#print("Left/Up")
+			#$Node2D.rotation_degrees = 270
+			## sprite.texture = load("res://sprites/tank_upleft.png")
+		#[1, -1]:
+			#print("Right/Up")
+			#$Node2D.rotation_degrees = 270
+			## sprite.texture = load("res://sprites/tank_upright.png")
+		#[-1, 1]:
+			#print("Left/Down")
+			#$Node2D.rotation_degrees = 270
+			## sprite.texture = load("res://sprites/tank_d	ownleft.png")
+		#[1, 1]:
+			#print("Right/Down")
+			#$Node2D.rotation_degrees = 270
+			## sprite.texture = load("res://sprites/tank_downright.png")

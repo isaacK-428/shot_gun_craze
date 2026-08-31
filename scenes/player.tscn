@@ -2,16 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ciqydj1bkerl0" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://cc2w7hg5ld028" path="res://assets/pistol.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://f275l2jc22dp" path="res://assets/final_tank.png" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://ca531ot8xgbxn" path="res://assets/machine gun.png" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://chva06vyshj1y" path="res://scenes/hud.tscn" id="4_dqkch"]
-
-[sub_resource type="Gradient" id="Gradient_u8vuu"]
-offsets = PackedFloat32Array(0, 0.98493975)
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3vyb7"]
-gradient = SubResource("Gradient_u8vuu")
-fill_to = Vector2(0.9978261, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(22, 22)
@@ -55,20 +48,26 @@ scale_curve = SubResource("CurveTexture_ur7pv")
 color_ramp = SubResource("GradientTexture1D_fjrip")
 
 [node name="player" type="CharacterBody2D" unique_id=156242723]
+scale = Vector2(1.16, 1.16)
 collision_mask = 12
 script = ExtResource("1_3vyb7")
 health = 500
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=215723152]
-scale = Vector2(0.34, 0.34)
-texture = SubResource("GradientTexture2D_3vyb7")
+[node name="Node2D" type="Node2D" parent="." unique_id=1034708963]
+
+[node name="right" type="Sprite2D" parent="Node2D" unique_id=215723152]
+position = Vector2(4, -1.7484558e-07)
+rotation = 1.5707964
+scale = Vector2(0.026612902, 0.023945266)
+texture = ExtResource("2_qlg0r")
+offset = Vector2(8.58, 41.12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=927503892]
 shape = SubResource("RectangleShape2D_3vyb7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1011669799]
 ignore_rotation = false
-zoom = Vector2(1.44, 1.44)
+zoom = Vector2(1.42, 1.42)
 
 [node name="HUD" parent="Camera2D" unique_id=1822620139 instance=ExtResource("4_dqkch")]
 offset_left = -249.0
@@ -80,6 +79,7 @@ offset_bottom = -143.0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_detect" unique_id=2049194667]
+visible = false
 shape = SubResource("CircleShape2D_3vyb7")
 
 [node name="gun" type="Marker2D" parent="." unique_id=1253989236]
@@ -87,13 +87,14 @@ shape = SubResource("CircleShape2D_3vyb7")
 [node name="Node2D" type="Node2D" parent="gun" unique_id=1855255673]
 
 [node name="pistol" type="Sprite2D" parent="gun/Node2D" unique_id=937892413]
+visible = false
 position = Vector2(3, 6)
 scale = Vector2(0.023, 0.018)
 texture = ExtResource("2_g2els")
 
 [node name="machine_gun" type="Sprite2D" parent="gun/Node2D" unique_id=416521371]
-position = Vector2(3, 10.999999)
-scale = Vector2(0.023, 0.018)
+position = Vector2(4.2253523, 3.5211258)
+scale = Vector2(0.013, 0.01)
 texture = ExtResource("3_qhqgy")
 
 [node name="Line2D2" type="Line2D" parent="gun/Node2D" unique_id=121229160]
@@ -135,6 +136,7 @@ scale = Vector2(27.7, 27.7)
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gun/Area2D" unique_id=1542087091]
+visible = false
 polygon = PackedVector2Array(4, -1, 4, 1, 0, 0)
 
 [node name="shoot_cooldown" type="Timer" parent="." unique_id=204453789]
