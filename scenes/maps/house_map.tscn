@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dmjpu32frimxm" path="res://scenes/enemy_spawner.tscn" id="5_lc3ey"]
 [ext_resource type="PackedScene" uid="uid://bumyycpihha8h" path="res://scenes/interest_point.tscn" id="6_ocko7"]
 
-[node name="house_map" type="Node2D" unique_id=1647013442]
+[node name="defualt_map" type="Node2D" unique_id=1647013442]
 script = ExtResource("1_4dmfg")
 
 [node name="tile_map" parent="." unique_id=1029105637 instance=ExtResource("2_2b2o2")]
@@ -20,6 +20,48 @@ z_index = 101
 [node name="player" parent="." unique_id=156242723 instance=ExtResource("4_1lhhg")]
 health = 20
 weapon_equiped = "shot gun"
+
+[node name="perks" type="Control" parent="player" unique_id=1316172198]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="player/perks" unique_id=70876950]
+layout_mode = 0
+offset_left = -245.68968
+offset_top = -133.62071
+offset_right = 248.27592
+offset_bottom = 135.34486
+
+[node name="Button" type="Button" parent="player/perks" unique_id=2094265376]
+z_index = 11
+layout_mode = 0
+offset_left = -17.241383
+offset_top = 89.6552
+offset_right = 19.758617
+offset_bottom = 120.6552
+text = "GO!"
+
+[node name="Button2" type="Button" parent="player/perks" unique_id=2058703112]
+z_index = 11
+layout_mode = 0
+offset_left = 49.137936
+offset_top = 89.6552
+offset_right = 86.13794
+offset_bottom = 120.6552
+text = "GO!"
+
+[node name="Button3" type="Button" parent="player/perks" unique_id=527036199]
+z_index = 11
+layout_mode = 0
+offset_left = -86.20691
+offset_top = 89.6552
+offset_right = -49.20691
+offset_bottom = 120.6552
+text = "GO!"
 
 [node name="enemy_spawn_container" type="Node" parent="." unique_id=495950726]
 
@@ -43,3 +85,7 @@ position = Vector2(-163, -29)
 
 [node name="interest_point3" parent="." unique_id=997267898 instance=ExtResource("6_ocko7")]
 position = Vector2(-252, 380)
+
+[connection signal="pressed" from="player/perks/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="player/perks/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="player/perks/Button3" to="." method="_on_button_3_pressed"]

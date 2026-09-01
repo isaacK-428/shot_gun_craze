@@ -18,8 +18,9 @@ func new_wave(Wave):
 	if can_wave == true && Wave!=0:
 		#if Wave!=1:
 			#$Label.text = "Wave " + str(Wave-1)
-		if Wave!=1:
-			$Label.text = "Wave " + str(Wave-1)
+		#if Wave!=1:
+		if 1==1:
+			$Label.text = "Wave " + str(Wave)
 			$Label.show()
 			var tween = create_tween()
 			tween.set_parallel(true)

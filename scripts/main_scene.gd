@@ -9,6 +9,7 @@ var waiting_for_perk = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	randomize()
 	d = cheese.difficulty
 	await get_tree().create_timer(2.0).timeout
@@ -17,6 +18,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(wave_n)
 	
 	#if Input.is_action_just_pressed("restart"):
 		#get_tree().reload_current_scene()
@@ -55,9 +57,13 @@ func WTF():
 		$player/perks.show()
 		$player/perks/Panel.show()
 		$player/perks/Button.show()
+		$player/perks/Button2.show()
+		$player/perks/Button3.show()
 		var deletes = get_tree().get_nodes_in_group("bullet")
 		for i in deletes:
 			i.queue_free()
+	else:
+		pass
 		#wave(wave_n)
 	#wave(wave_n)
 
@@ -71,9 +77,22 @@ func WTF():
 
 
 func _on_button_pressed() -> void:
+	hide_UI()
+
+
+func _on_button_2_pressed() -> void:
+	hide_UI()
+
+
+func _on_button_3_pressed() -> void:
+	hide_UI()
+func hide_UI():
 	cheese.choose_perks = false
 	wave(wave_n)
 	#$player/perks.hide()
 	$player/perks/Panel.hide()
 	$player/perks/Button.hide()
+	$player/perks/Button2.hide()
+	$player/perks/Button3.hide()
+	
 	waiting_for_perk == false

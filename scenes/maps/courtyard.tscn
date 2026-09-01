@@ -22,6 +22,7 @@ health = 20
 weapon_equiped = "shot gun"
 
 [node name="perks" type="Control" parent="player" unique_id=1914402013]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -38,10 +39,28 @@ offset_bottom = 135.34486
 [node name="Button" type="Button" parent="player/perks" unique_id=261758271]
 z_index = 11
 layout_mode = 0
-offset_left = 23.275864
-offset_top = -57.758625
-offset_right = 60.275864
-offset_bottom = -26.758625
+offset_left = -17.241383
+offset_top = 89.6552
+offset_right = 19.758617
+offset_bottom = 120.6552
+text = "GO!"
+
+[node name="Button2" type="Button" parent="player/perks" unique_id=2093742038]
+z_index = 11
+layout_mode = 0
+offset_left = 49.137936
+offset_top = 89.6552
+offset_right = 86.13794
+offset_bottom = 120.6552
+text = "GO!"
+
+[node name="Button3" type="Button" parent="player/perks" unique_id=1034363159]
+z_index = 11
+layout_mode = 0
+offset_left = -86.20691
+offset_top = 89.6552
+offset_right = -49.20691
+offset_bottom = 120.6552
 text = "GO!"
 
 [node name="enemy_spawn_container" type="Node" parent="." unique_id=495950726]
@@ -68,3 +87,5 @@ position = Vector2(-562, 178)
 position = Vector2(498, 173)
 
 [connection signal="pressed" from="player/perks/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="player/perks/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="player/perks/Button3" to="." method="_on_button_3_pressed"]

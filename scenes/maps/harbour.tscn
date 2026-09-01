@@ -23,6 +23,48 @@ position = Vector2(572, -658.00006)
 health = 20
 weapon_equiped = "shot gun"
 
+[node name="perks" type="Control" parent="player" unique_id=259043188]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="player/perks" unique_id=1709171423]
+layout_mode = 0
+offset_left = -245.68968
+offset_top = -133.62071
+offset_right = 248.27592
+offset_bottom = 135.34486
+
+[node name="Button" type="Button" parent="player/perks" unique_id=1719282220]
+z_index = 11
+layout_mode = 0
+offset_left = -17.241383
+offset_top = 89.6552
+offset_right = 19.758617
+offset_bottom = 120.6552
+text = "GO!"
+
+[node name="Button2" type="Button" parent="player/perks" unique_id=1627974154]
+z_index = 11
+layout_mode = 0
+offset_left = 49.137936
+offset_top = 89.6552
+offset_right = 86.13794
+offset_bottom = 120.6552
+text = "GO!"
+
+[node name="Button3" type="Button" parent="player/perks" unique_id=656931804]
+z_index = 11
+layout_mode = 0
+offset_left = -86.20691
+offset_top = 89.6552
+offset_right = -49.20691
+offset_bottom = 120.6552
+text = "GO!"
+
 [node name="enemy_spawn_container" type="Node" parent="." unique_id=495950726]
 
 [node name="enemy_spawner" parent="enemy_spawn_container" unique_id=1160840973 instance=ExtResource("5_re20j")]
@@ -54,3 +96,7 @@ position = Vector2(566, 27)
 
 [node name="interest_point3" parent="." unique_id=997267898 instance=ExtResource("6_rlgnk")]
 position = Vector2(1574, -861)
+
+[connection signal="pressed" from="player/perks/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="player/perks/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="player/perks/Button3" to="." method="_on_button_3_pressed"]

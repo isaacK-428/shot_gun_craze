@@ -21,7 +21,7 @@ var bullet = preload("res://scenes/bullet.tscn")
 @export var player = Vector2.RIGHT
 @export var enemy_type: String = "normal"
 @onready var gun: Marker2D = $Marker2D
-
+#take_damage()
 
 func _ready():
 	set_physics_process(false)
