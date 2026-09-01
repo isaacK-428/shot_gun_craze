@@ -43,6 +43,8 @@ func spawn_enemy():
 			E_I.enemy_type = "ADHD"
 		6:
 			E_I.enemy_type = "shooter"
+		7:
+			E_I.enemy_type = "bomber"
 	if boss_chance == 50:
 		E_I.enemy_type = "BOSS"
 	node.add_child(E_I)

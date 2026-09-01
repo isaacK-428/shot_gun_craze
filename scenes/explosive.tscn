@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://yggk7r37uqff"]
+
+[ext_resource type="Script" uid="uid://yeuquhixqajj" path="res://scripts/explosive.gd" id="1_y3c5q"]
+
+[sub_resource type="Gradient" id="Gradient_1v508"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.86083525, 0.4391086, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y3c5q"]
+gradient = SubResource("Gradient_1v508")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2ns3"]
+size = Vector2(18, 18)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y3c5q"]
+radius = 143.01399
+
+[node name="explosive" type="Area2D" unique_id=577313024]
+script = ExtResource("1_y3c5q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=223110738]
+scale = Vector2(0.27, 0.27)
+texture = SubResource("GradientTexture2D_y3c5q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1084603855]
+shape = SubResource("RectangleShape2D_o2ns3")
+
+[node name="Timer" type="Timer" parent="." unique_id=877264624]
+wait_time = 2.085
+one_shot = true
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=499037647]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=311620711]
+visible = false
+shape = SubResource("CircleShape2D_y3c5q")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

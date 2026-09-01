@@ -9,6 +9,7 @@ var coin  = preload("res://scenes/coin.tscn")
 var inside = false
 var combo = preload("res://scenes/combo.tscn")
 var power_up = preload("res://scenes/power_up.tscn")
+var bomb = preload("res://scenes/explosive.tscn")
 var can_damage = true
 var player_guy = null
 var target = "interest"
@@ -29,7 +30,7 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	recoil_amount.move_toward(Vector2.ZERO,2200.0*delta)
-	if enemy_type == "shooter":
+	if enemy_type == "shooter" || enemy_type == "bomber":
 		gun.look_at(cheese.player_pos)
 	#print(inside,"   ",can_damage)
 	if inside:
@@ -67,7 +68,7 @@ func _on_timer_timeout() -> void:
 func take_damage(amount):
 	health-=amount
 	if health<=0:
-		die()
+		die.call_deferred()
 func die():
 	loot_drops()
 	cheese.total_alive_enemies-=1
@@ -117,6 +118,13 @@ func special_enemy_stats():
 		speed = 20
 		health = 2
 		return
+	if enemy_type == "bomber":
+		speed = 70  
+		health = 6
+		$ADHD_timer.queue_free()
+		$Area2D.queue_free()
+		$bullet_container.queue_free()
+		return
 	$ADHD_timer.queue_free()
 	$Area2D.queue_free()
 	$Marker2D.queue_free()
@@ -153,6 +161,14 @@ func _on_shoot_timer_timeout() -> void:
 		B_I.bullet_damage=1
 		get_tree().root.add_child(B_I)
 		#recoil_amount = Vector2.RIGHT.rotated(gun.rotation + PI) * 7
+	if enemy_type == "bomber":
+		var EX_I = bomb.instantiate()
+		EX_I.global_position = global_position
+		EX_I.direction = Vector2.RIGHT.rotated(gun.rotation)
+		EX_I.global_rotation = gun.rotation
+		EX_I.rotation_degrees+=randi_range(-20,20)
+		
+		get_tree().root.add_child(EX_I)
 func spawn_blood():
 	for i in 10:
 		var blood_instance = blood.instantiate()

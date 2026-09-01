@@ -6,13 +6,16 @@ var last_coins
 @onready var gun: Marker2D = $gun
 @onready var shoot_cooldown: Timer = $shoot_cooldown
 @onready var hud: Control = $Camera2D/HUD
-
+var change_perks = false
 var dash_visual = preload("res://scenes/visual affects/dash_visuals.tscn")
 var dash = false
+var actual_melee_cooldown = true
+var invincibilty_frame = false
 var can_shoot = true
 var dir = Vector2.ZERO
 var damage = 1
 var credits = 0
+var can_melee = true
 var can_dash = true
 var recoil_amount = Vector2.ZERO
 var camera_shake_amount = 5
@@ -26,6 +29,8 @@ func _ready() -> void:
 	hud.change_health(health)
 	gun_changed(weapon_equiped)
 func _physics_process(delta: float) -> void:
+	perks()
+	melee_attack(delta)
 	if last_coins!=coins:
 		$Camera2D/HUD.change_coins(coins)
 
@@ -99,7 +104,6 @@ func shoot(delta):
 					var collider = ray.get_collider()
 					var collision_point = ray.get_collision_point()
 					if collider.has_method("take_damage"):
-						$delete_bullet.start()
 						collider.take_damage(damage)
 						var S_G_I = shot_gun_particles_1.instantiate()
 						$bullet_container.add_child(S_G_I)
@@ -118,14 +122,20 @@ func _on_enemy_detect_body_exited(body: Node2D) -> void:
 func _on_shoot_cooldown_timeout() -> void:
 	can_shoot = true
 func take_damage(amount):
-	health-=amount
-	hud.change_health(health)
-	if health<=0:
-		die()
+	if invincibilty_frame==false:
+		$invinsibilty_frame.start()
+		invincibilty_frame=true
+		health-=amount
+		hud.change_health(health)
+		if health<=0:
+			die()
 func die():
 	set_physics_process(false)
 	await get_tree().create_timer(2.0).timeout
-	get_tree().reload_current_scene()
+	#var object = get_tree().get_nodes_in_group("delete")
+	#for i in object:
+		#i.queue_free()
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 func gun_changed(gun: String):
 	if gun == "pistol":
 		damage = 1
@@ -165,11 +175,6 @@ func _on_dash_visuals_timeout() -> void:
 	pass # Replace with function body.
 
 
-func _on_delete_bullet_timeout() -> void:
-	var bodies = $gun/Area2D.get_overlapping_bodies()
-	for body in bodies:
-		if body.has_method("delete_bullet"):
-			body.delete_bullet()
 func get_coin(number):
 	coins+=1
 func get_power_up(type: int):
@@ -217,3 +222,41 @@ func _on_water_detect_body_entered(body: Node2D) -> void:
 	if body.is_in_group("water"):
 		print("water")
 		die()
+
+
+func _on_invinsibilty_frame_timeout() -> void:
+	invincibilty_frame=false
+
+
+func _on_melee_cooldown_timeout() -> void:
+	can_melee = true
+	$Marker2D.hide()
+	$test.start()
+	
+func melee_attack(delta):
+	if can_melee == true:
+		if Input.is_action_just_pressed("melee_attack")&&actual_melee_cooldown==true:
+			$actual_melee_cooldown2.start()
+			actual_melee_cooldown = false
+			can_melee=false
+			$melee_cooldown.start()
+			$Marker2D.show()
+			$Marker2D/Area2D/CollisionShape2D.disabled = false
+	else:
+		$Marker2D.rotate(30*delta)
+		
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	body.take_damage(5)
+
+
+func _on_test_timeout() -> void:
+	$Marker2D/Area2D/CollisionShape2D.disabled = true
+
+
+func _on_actual_melee_cooldown_2_timeout() -> void:
+	actual_melee_cooldown = true
+func perks():
+	if change_perks == true:
+		$perks.show()

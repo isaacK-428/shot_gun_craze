@@ -22,6 +22,8 @@ func _process(delta: float) -> void:
 	if get_tree().get_nodes_in_group("enemy").is_empty():
 		#await get_tree().create_timer(2.0).timeout
 		#wave(wave_n)
+		$player.change_perks = true
+		set_process(false)
 		WTF()
 		for enemy in get_tree().get_nodes_in_group("enemy"):
 			enemy.speed*=1.5
@@ -47,4 +49,16 @@ func wave(wave_number):
 			#var spawner = enemy_spawn_container.get_children().pick_random()
 			#spawner.spawn_enemy()
 func WTF():
+	if wave_n!=1:
+		$player/perks.show()
+		$player/perks/Panel.show()
+		$player/perks/Button.show()
+		wave(wave_n)
+	#wave(wave_n)
+
+
+func _on_button_pressed() -> void:
 	wave(wave_n)
+	$player/perks.hide()
+	$player/perks/Panel.hide()
+	$player/perks/Button.hide()

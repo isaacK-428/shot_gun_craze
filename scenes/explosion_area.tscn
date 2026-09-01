@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dw6hobfqcxpdj"]
+
+[ext_resource type="Script" uid="uid://c7aaq7jp5olvj" path="res://scripts/explosion_area.gd" id="1_k1l10"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7haw"]
+radius = 59.008472
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k1l10"]
+radius = 216.66795
+
+[node name="explosion_area" type="Area2D" unique_id=513908508]
+scale = Vector2(0.69, 0.69)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_k1l10")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980672962]
+shape = SubResource("CircleShape2D_b7haw")
+
+[node name="outer_area" type="Area2D" parent="." unique_id=501167817]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="outer_area" unique_id=1845255737]
+shape = SubResource("CircleShape2D_k1l10")
+
+[node name="Timer" type="Timer" parent="." unique_id=1825271277]
+wait_time = 0.513
+one_shot = true
+autostart = true
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1622349528]
+
+[node name="start" type="Timer" parent="." unique_id=1116721077]
+wait_time = 0.321
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="outer_area" to="." method="_on_outer_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="start" to="." method="_on_start_timeout"]

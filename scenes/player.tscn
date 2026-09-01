@@ -48,9 +48,17 @@ scale_curve = SubResource("CurveTexture_ur7pv")
 color_ramp = SubResource("GradientTexture1D_fjrip")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlg0r"]
-radius = 15.541171
+radius = 12.95974
 
-[node name="player" type="CharacterBody2D" unique_id=156242723]
+[sub_resource type="Gradient" id="Gradient_qlg0r"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tuyoq"]
+gradient = SubResource("Gradient_qlg0r")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
+size = Vector2(65, 8)
+
+[node name="player" type="CharacterBody2D" unique_id=156242723 groups=["player"]]
 scale = Vector2(1.16, 1.16)
 collision_mask = 12
 script = ExtResource("1_3vyb7")
@@ -134,13 +142,6 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_dqkch")
 
-[node name="Area2D" type="Area2D" parent="gun" unique_id=541969626]
-scale = Vector2(27.7, 27.7)
-collision_mask = 8
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gun/Area2D" unique_id=1542087091]
-polygon = PackedVector2Array(4, -1, 4, 1, 0, 0)
-
 [node name="shoot_cooldown" type="Timer" parent="." unique_id=204453789]
 wait_time = 0.111
 one_shot = true
@@ -165,10 +166,6 @@ one_shot = true
 [node name="dash_visuals" type="Timer" parent="." unique_id=750127365]
 wait_time = 0.2
 
-[node name="delete_bullet" type="Timer" parent="." unique_id=687762981]
-wait_time = 0.126
-one_shot = true
-
 [node name="power_up" type="Timer" parent="." unique_id=304393096]
 wait_time = 2.229
 one_shot = true
@@ -180,6 +177,42 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_qlg0r")
 debug_color = Color(0.89301246, 0.0002310276, 0.7870965, 0.41960785)
 
+[node name="invinsibilty_frame" type="Timer" parent="." unique_id=1487028847]
+wait_time = 0.301
+one_shot = true
+
+[node name="melee_cooldown" type="Timer" parent="." unique_id=1100060487]
+wait_time = 0.23
+one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=781330022]
+scale = Vector2(0.8620691, 0.8620691)
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D" unique_id=2012715161]
+position = Vector2(29, 1.9073486e-06)
+scale = Vector2(0.99999994, 0.10937506)
+texture = SubResource("GradientTexture2D_tuyoq")
+
+[node name="Area2D" type="Area2D" parent="Marker2D" unique_id=1789411482]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Area2D" unique_id=1756767106]
+position = Vector2(29.499996, -1.4305112e-06)
+shape = SubResource("RectangleShape2D_fjrip")
+
+[node name="test" type="Timer" parent="." unique_id=1829556082]
+wait_time = 0.079
+one_shot = true
+
+[node name="actual_melee_cooldown" type="Timer" parent="." unique_id=259276841]
+wait_time = 1.1429999999999998
+one_shot = true
+
+[node name="actual_melee_cooldown2" type="Timer" parent="." unique_id=1166626250]
+wait_time = 4.966
+one_shot = true
+
 [connection signal="body_entered" from="enemy_detect" to="." method="_on_enemy_detect_body_entered"]
 [connection signal="body_exited" from="enemy_detect" to="." method="_on_enemy_detect_body_exited"]
 [connection signal="timeout" from="shoot_cooldown" to="." method="_on_shoot_cooldown_timeout"]
@@ -187,6 +220,10 @@ debug_color = Color(0.89301246, 0.0002310276, 0.7870965, 0.41960785)
 [connection signal="timeout" from="dash_cool_down" to="." method="_on_dash_cool_down_timeout"]
 [connection signal="timeout" from="camera_shake_2" to="." method="_on_camera_shake_2_timeout"]
 [connection signal="timeout" from="dash_visuals" to="." method="_on_dash_visuals_timeout"]
-[connection signal="timeout" from="delete_bullet" to="." method="_on_delete_bullet_timeout"]
 [connection signal="timeout" from="power_up" to="." method="_on_power_up_timeout"]
 [connection signal="body_entered" from="water_detect" to="." method="_on_water_detect_body_entered"]
+[connection signal="timeout" from="invinsibilty_frame" to="." method="_on_invinsibilty_frame_timeout"]
+[connection signal="timeout" from="melee_cooldown" to="." method="_on_melee_cooldown_timeout"]
+[connection signal="body_entered" from="Marker2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="test" to="." method="_on_test_timeout"]
+[connection signal="timeout" from="actual_melee_cooldown2" to="." method="_on_actual_melee_cooldown_2_timeout"]

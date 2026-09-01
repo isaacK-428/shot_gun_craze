@@ -18,3 +18,12 @@ res://scenes/maps/defualt_map.tscn
 res://scenes/layer_2.tscn
 res://scenes/maps/courtyard.tscn
 res://scenes/maps/harbour.tscn
+res://scenes/explosive.tscn
+res://scripts/explosive.gd
+res://scenes/explosion_area.tscn
+res://scripts/explosion_area.gd
+res://scenes/enemy_spawner.tscn
+res://scenes/visual affects/dash_visuals.tscn
+res://scripts/perks.gd
+res://scenes/load.tscn
+res://scripts/load.gd

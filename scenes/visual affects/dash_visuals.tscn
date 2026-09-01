@@ -16,6 +16,7 @@ texture = SubResource("GradientTexture2D_3vyb7")
 script = ExtResource("1_achba")
 
 [node name="Timer" type="Timer" parent="." unique_id=1245584250]
+wait_time = 2.085
 one_shot = true
 autostart = true
 
