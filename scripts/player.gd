@@ -106,12 +106,13 @@ func shoot(delta):
 				if ray.is_colliding():
 					var collider = ray.get_collider()
 					var collision_point = ray.get_collision_point()
-					if collider.has_method("take_damage"):
-						collider.take_damage(damage)
-						var S_G_I = shot_gun_particles_1.instantiate()
-						$bullet_container.add_child(S_G_I)
-						S_G_I.global_position=collision_point
-						S_G_I.emitting = true
+					if collider!=null:
+						if collider.has_method("take_damage"):
+							collider.take_damage(damage)
+							var S_G_I = shot_gun_particles_1.instantiate()
+							$bullet_container.add_child(S_G_I)
+							S_G_I.global_position=collision_point
+							S_G_I.emitting = true
 func _on_enemy_detect_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
 		body.near_player=true
@@ -131,7 +132,7 @@ func take_damage(amount):
 		health-=amount
 		hud.change_health(health)
 		if health<=0:
-			die()
+			self.die()
 func die():
 	set_physics_process(false)
 	await get_tree().create_timer(2.0).timeout

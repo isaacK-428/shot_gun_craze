@@ -4,6 +4,7 @@ var enemy_target_range= 40
 var speed= 60
 var health = 3
 var credits = 5
+var Root = null
 var blood = preload("res://scenes/visual affects/blood.tscn")
 var coin  = preload("res://scenes/coin.tscn")
 var inside = false
@@ -159,16 +160,8 @@ func _on_shoot_timer_timeout() -> void:
 		B_I.global_rotation = gun.rotation
 		B_I.jump(5,cheese.delta2)
 		B_I.bullet_damage=1
-		get_tree().root.add_child(B_I)
+		Root.add_child(B_I)
 		#recoil_amount = Vector2.RIGHT.rotated(gun.rotation + PI) * 7
-	if enemy_type == "bomber":
-		var EX_I = bomb.instantiate()
-		EX_I.global_position = global_position
-		EX_I.direction = Vector2.RIGHT.rotated(gun.rotation)
-		EX_I.global_rotation = gun.rotation
-		EX_I.rotation_degrees+=randi_range(-20,20)
-		
-		get_tree().root.add_child(EX_I)
 func spawn_blood():
 	for i in 10:
 		var blood_instance = blood.instantiate()
@@ -177,7 +170,7 @@ func spawn_blood():
 		#blood_instance.direction.y+randi_range(-360,360)
 		blood_instance.direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
 		blood_instance.direction = blood_instance.direction.normalized()
-		get_tree().root.add_child(blood_instance)
+		Root.add_child(blood_instance)
 func loot_drops():
 	var chance = randi_range(0,8)
 	if chance==1:

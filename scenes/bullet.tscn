@@ -46,7 +46,7 @@ color = Color(0.85514134, 1.7519593e-05, 0.3299527, 1)
 color_ramp = SubResource("GradientTexture1D_eoqba")
 alpha_curve = SubResource("CurveTexture_y25gk")
 
-[node name="bullet" type="Area2D" unique_id=190197655]
+[node name="bullet" type="Area2D" unique_id=190197655 groups=["bullet"]]
 rotation = 1.5707964
 scale = Vector2(0.16, 0.16)
 collision_layer = 8

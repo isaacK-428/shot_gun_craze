@@ -15,6 +15,7 @@ func spawn_enemy():
 	var boss_chance = randi_range(1,100)
 	E_I.global_position.x=global_position.x+randi_range(-spawn_range,spawn_range)
 	E_I.global_position.y=global_position.y+randi_range(-spawn_range,spawn_range)
+	E_I.Root = $"../.."
 	var type = randi_range(1,6)
 	#if type==1:
 		#E_I.enemy_type = "normal"

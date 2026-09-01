@@ -54,7 +54,10 @@ func WTF():
 		cheese.choose_perks = true
 		$player/perks.show()
 		$player/perks/Panel.show()
-		$player/perks/Button2.show()
+		$player/perks/Button.show()
+		var deletes = get_tree().get_nodes_in_group("bullet")
+		for i in deletes:
+			i.queue_free()
 		#wave(wave_n)
 	#wave(wave_n)
 
@@ -63,10 +66,14 @@ func WTF():
 
 
 
-func _on_button_2_pressed() -> void:
+
+
+
+
+func _on_button_pressed() -> void:
 	cheese.choose_perks = false
 	wave(wave_n)
 	#$player/perks.hide()
 	$player/perks/Panel.hide()
-	$player/perks/Button2.hide()
+	$player/perks/Button.hide()
 	waiting_for_perk == false

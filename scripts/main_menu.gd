@@ -4,6 +4,7 @@ var active = preload("res://active.tres")
 var normal = preload("res://normal.tres")
 var normal_float = preload("res://normal_hover.tres")
 var float_active = normal_float
+var cheese2 = preload("res://scenes/load.tscn")
 #preload("res://active_float.tres")
 var maps = [
 	preload("res://scenes/maps/courtyard.tscn"),
@@ -12,7 +13,13 @@ var maps = [
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var deletes = get_tree().get_nodes_in_group("delete")
+	#for i in deletes:
+		#i.queue_free()		
+	for i in deletes:
+		# Only delete nodes in the "delete" group that are attached to the root
+		if i.get_parent() == get_tree().root:
+			i.queue_free()																																															
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,6 +47,7 @@ func _on_play_random_pressed() -> void:
 	if maps:
 		cheese.difficulty = difficulty
 		var scene = maps.pick_random()
+		play_now()
 		get_tree().change_scene_to_packed(scene)
 func change_visuals(D):
 	if D == 1:
@@ -69,13 +77,19 @@ func change_visuals(D):
 
 
 func _on_house_pressed() -> void:
+	play_now()
 	get_tree().change_scene_to_packed(maps[1])
 
 
 
 func _on_courtyard_pressed() -> void:
+	play_now()
 	get_tree().change_scene_to_packed(maps[0])
 
 
 func _on_docks_pressed() -> void:
+	play_now()
 	get_tree().change_scene_to_packed(maps[2])
+func play_now():
+	pass
+		

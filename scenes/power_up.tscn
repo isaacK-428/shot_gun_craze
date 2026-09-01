@@ -19,7 +19,7 @@ gradient = SubResource("Gradient_j7my0")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig136"]
 size = Vector2(133.33333, 120)
 
-[node name="power_up" type="Area2D" unique_id=1819289513]
+[node name="power_up" type="Area2D" unique_id=1819289513 groups=["delete"]]
 scale = Vector2(0.15, 0.15)
 collision_layer = 32
 script = ExtResource("1_j7my0")
