@@ -16,3 +16,6 @@ res://scripts/enemy_spawner.gd
 res://scripts/interest_point.gd
 res://scenes/maps/house_map.tscn
 res://scenes/maps/harbour.tscn
+res://scenes/maps/idk.tscn
+res://scenes/load.tscn
+res://scenes/perk_scene.tscn

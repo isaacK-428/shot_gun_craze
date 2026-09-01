@@ -9,7 +9,8 @@ var cheese2 = preload("res://scenes/load.tscn")
 var maps = [
 	preload("res://scenes/maps/courtyard.tscn"),
 	preload("res://scenes/maps/house_map.tscn"),
-	preload("res://scenes/maps/harbour.tscn")
+	preload("res://scenes/maps/harbour.tscn"),
+	preload("res://scenes/maps/idk.tscn")
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -93,3 +94,8 @@ func _on_docks_pressed() -> void:
 func play_now():
 	pass
 		
+
+
+func _on_cave_pressed() -> void:
+	play_now()
+	get_tree().change_scene_to_packed(maps[3])

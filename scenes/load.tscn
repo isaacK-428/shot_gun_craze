@@ -6,7 +6,7 @@
 script = ExtResource("1_2qpnl")
 
 [node name="Timer" type="Timer" parent="." unique_id=877847228]
-wait_time = 1.0699999999999998
+wait_time = 1.8259999999999998
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

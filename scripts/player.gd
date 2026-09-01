@@ -66,7 +66,8 @@ func move(delta):
 	if dir!=Vector2.ZERO:
 		change_sprite(dir)
 	if cheese.choose_perks==true:
-		dir = Vector2.ZERO		
+		dir = Vector2.ZERO
+		recoil_amount = Vector2(0,0)		
 	velocity=Vector2.ZERO
 	velocity+=dir*speed
 	velocity+=recoil_amount
@@ -252,7 +253,8 @@ func melee_attack(delta):
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	body.take_damage(5)
+	if $melee_cooldown.time_left>0.0:
+		body.take_damage(5)
 
 
 func _on_test_timeout() -> void:

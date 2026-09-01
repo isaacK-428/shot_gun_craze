@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://uyeppvqjuhq8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsru8"]
+bg_color = Color(0.6, 0, 0, 1)
+
+[node name="perk_scene" type="Panel" unique_id=1666691520]
+offset_left = -49.0
+offset_top = -75.0
+offset_right = 49.0
+offset_bottom = 75.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qsru8")

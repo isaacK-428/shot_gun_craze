@@ -22,12 +22,12 @@ var bullet = preload("res://scenes/bullet.tscn")
 @export var enemy_type: String = "normal"
 @onready var gun: Marker2D = $Marker2D
 #take_damage()
-
 func _ready():
 	set_physics_process(false)
 	randomize()
 	special_enemy_stats()
 	interest = get_tree().get_nodes_in_group("interest_point").pick_random().global_position
+	health*=2
 
 func _physics_process(delta: float) -> void:
 	recoil_amount.move_toward(Vector2.ZERO,2200.0*delta)

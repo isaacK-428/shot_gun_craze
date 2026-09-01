@@ -134,6 +134,17 @@ theme_override_styles/pressed = ExtResource("2_bqqt6")
 theme_override_styles/hover = ExtResource("4_8ln24")
 text = "docks"
 
+[node name="cave" type="Button" parent="." unique_id=647530302]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 200.0
+offset_right = 774.0
+offset_bottom = 253.0
+theme_override_styles/normal = ExtResource("3_wu84c")
+theme_override_styles/pressed = ExtResource("2_bqqt6")
+theme_override_styles/hover = ExtResource("4_8ln24")
+text = "Cave"
+
 [node name="courtyard" type="Button" parent="." unique_id=425096054]
 layout_mode = 0
 offset_left = 592.0
@@ -152,4 +163,5 @@ text = "courtyard"
 [connection signal="pressed" from="settings" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="house" to="." method="_on_house_pressed"]
 [connection signal="pressed" from="docks" to="." method="_on_docks_pressed"]
+[connection signal="pressed" from="cave" to="." method="_on_cave_pressed"]
 [connection signal="pressed" from="courtyard" to="." method="_on_courtyard_pressed"]

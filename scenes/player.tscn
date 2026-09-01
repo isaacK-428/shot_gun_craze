@@ -211,7 +211,7 @@ wait_time = 1.1429999999999998
 one_shot = true
 
 [node name="actual_melee_cooldown2" type="Timer" parent="." unique_id=1166626250]
-wait_time = 4.966
+wait_time = 1.4929999999999999
 one_shot = true
 
 [connection signal="body_entered" from="enemy_detect" to="." method="_on_enemy_detect_body_entered"]
