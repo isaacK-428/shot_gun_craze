@@ -4,6 +4,7 @@ var enemy_N = 2
 var wave_n = 1
 var d = null
 var this_wave_enemies = null
+var waiting_for_perk = false
 @onready var enemy_spawn_container: Node = $enemy_spawn_container
 
 # Called when the node enters the scene tree for the first time.
@@ -19,13 +20,14 @@ func _process(delta: float) -> void:
 	
 	#if Input.is_action_just_pressed("restart"):
 		#get_tree().reload_current_scene()
-	if get_tree().get_nodes_in_group("enemy").is_empty():
+	if get_tree().get_nodes_in_group("enemy").is_empty()&&waiting_for_perk == false:
+		waiting_for_perk == true
 		#await get_tree().create_timer(2.0).timeout
 		#wave(wave_n)
 		#$player.change_perks = true
 		WTF()
-		for enemy in get_tree().get_nodes_in_group("enemy"):
-			enemy.speed*=1.5
+		#for enemy in get_tree().get_nodes_in_group("enemy"):
+			#enemy.speed*=1.5
 		
 func wave(wave_number):
 	#await get_tree().create_timer(0.5).timeout
@@ -49,15 +51,22 @@ func wave(wave_number):
 			#spawner.spawn_enemy()
 func WTF():
 	if wave_n!=1:
+		cheese.choose_perks = true
 		$player/perks.show()
 		$player/perks/Panel.show()
-		$player/perks/Button.show()
+		$player/perks/Button2.show()
 		#wave(wave_n)
 	#wave(wave_n)
 
 
-func _on_button_pressed() -> void:
+
+
+
+
+func _on_button_2_pressed() -> void:
+	cheese.choose_perks = false
 	wave(wave_n)
-	$player/perks.hide()
+	#$player/perks.hide()
 	$player/perks/Panel.hide()
-	$player/perks/Button.hide()
+	$player/perks/Button2.hide()
+	waiting_for_perk == false

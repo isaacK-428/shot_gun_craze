@@ -16,15 +16,22 @@ func change_credits(credits):
 	$score.text = "score: "+ str(credits)
 func new_wave(Wave):
 	if can_wave == true && Wave!=0:
+		#if Wave!=1:
+			#$Label.text = "Wave " + str(Wave-1)
 		if Wave!=1:
 			$Label.text = "Wave " + str(Wave-1)
+			$Label.show()
+			var tween = create_tween()
+			tween.set_parallel(true)
+			$Label.modulate.a = 1.0
+			tween.tween_property($Label, "modulate:a", 0.0, 1.0)
 		else:
-			$Label.text = "Start"
-		$Label.show()
-		var tween = create_tween()
-		tween.set_parallel(true)
-		$Label.modulate.a = 1.0
-		tween.tween_property($Label, "modulate:a", 0.0, 1.0)
+			$Label.text = "Wave " + str(Wave)
+			$Label.show()
+			var tween = create_tween()
+			tween.set_parallel(true)
+			$Label.modulate.a = 1.0
+			tween.tween_property($Label, "modulate:a", 0.0, 1.0)
 
 
 func _on_timer_timeout() -> void:

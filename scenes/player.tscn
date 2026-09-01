@@ -56,7 +56,7 @@ radius = 12.95974
 gradient = SubResource("Gradient_qlg0r")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
-size = Vector2(65, 8)
+size = Vector2(82, 8)
 
 [node name="player" type="CharacterBody2D" unique_id=156242723 groups=["player"]]
 scale = Vector2(1.16, 1.16)
@@ -186,11 +186,12 @@ wait_time = 0.23
 one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=781330022]
+visible = false
 scale = Vector2(0.8620691, 0.8620691)
 
 [node name="Sprite2D" type="Sprite2D" parent="Marker2D" unique_id=2012715161]
-position = Vector2(29, 1.9073486e-06)
-scale = Vector2(0.99999994, 0.10937506)
+position = Vector2(38, 1.9073486e-06)
+scale = Vector2(1.2812499, 0.10937506)
 texture = SubResource("GradientTexture2D_tuyoq")
 
 [node name="Area2D" type="Area2D" parent="Marker2D" unique_id=1789411482]
@@ -198,7 +199,7 @@ collision_layer = 32
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Area2D" unique_id=1756767106]
-position = Vector2(29.499996, -1.4305112e-06)
+position = Vector2(37.999996, -1.4305112e-06)
 shape = SubResource("RectangleShape2D_fjrip")
 
 [node name="test" type="Timer" parent="." unique_id=1829556082]

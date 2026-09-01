@@ -16,3 +16,8 @@ func fade_away(duration: float = 1.0):
 	# Play all subsequent property tweaks at the same time 
 	tween.set_parallel(true) 
 	tween.tween_property($".", "modulate:a", 0.0, duration) 
+
+
+
+func _on_timer_timeout() -> void:
+	queue_free()

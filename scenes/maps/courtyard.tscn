@@ -26,6 +26,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="player/perks" unique_id=2071942516]
 layout_mode = 0
@@ -34,12 +35,13 @@ offset_top = -133.62071
 offset_right = 248.27592
 offset_bottom = 135.34486
 
-[node name="Button" type="Button" parent="player/perks" unique_id=890391679]
+[node name="Button2" type="Button" parent="player/perks" unique_id=261758271]
+z_index = 11
 layout_mode = 0
-offset_left = 22.413797
-offset_top = -15.5172415
-offset_right = 59.413795
-offset_bottom = 15.4827585
+offset_left = 23.275864
+offset_top = -57.758625
+offset_right = 60.275864
+offset_bottom = -26.758625
 text = "GO!"
 
 [node name="enemy_spawn_container" type="Node" parent="." unique_id=495950726]
@@ -65,4 +67,4 @@ position = Vector2(-562, 178)
 [node name="interest_point3" parent="." unique_id=997267898 instance=ExtResource("6_n25pp")]
 position = Vector2(498, 173)
 
-[connection signal="pressed" from="player/perks/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="player/perks/Button2" to="." method="_on_button_2_pressed"]

@@ -38,7 +38,8 @@ func _physics_process(delta: float) -> void:
 	hud.change_credits(cheese.credits)
 	cheese.player_pos = global_position
 	move(delta)
-	shoot(delta)
+	if cheese.choose_perks==false:
+		shoot(delta)
 	last_coins = coins
 func move(delta):
 	if can_dash==true:
@@ -48,22 +49,24 @@ func move(delta):
 			$dash_cool_down.start()
 			speed = 1600
 	if speed!=1600:
-		dir = Vector2.ZERO
-		if Input.is_action_pressed("go_left"):
-			dir.x -=1
-		if Input.is_action_pressed("go_right"):
-			dir.x +=1
-		if Input.is_action_pressed("go_up"):
-			dir.y -=1
-		if Input.is_action_pressed("go_down"):
-			dir.y +=1
+		if cheese.choose_perks==false:
+			dir = Vector2.ZERO
+			if Input.is_action_pressed("go_left"):
+				dir.x -=1
+			if Input.is_action_pressed("go_right"):
+				dir.x +=1
+			if Input.is_action_pressed("go_up"):
+				dir.y -=1
+			if Input.is_action_pressed("go_down"):
+				dir.y +=1
 	else:
 		var D_V_I = dash_visual.instantiate()
 		D_V_I.global_position = global_position
 		$bullet_container.add_child(D_V_I)
 	if dir!=Vector2.ZERO:
 		change_sprite(dir)
-			
+	if cheese.choose_perks==true:
+		dir = Vector2.ZERO		
 	velocity=Vector2.ZERO
 	velocity+=dir*speed
 	velocity+=recoil_amount

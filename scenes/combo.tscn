@@ -9,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_gtdbx")
 
 [node name="Label" type="Label" parent="." unique_id=1104172822]
@@ -16,3 +17,9 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Combo: 1"
+
+[node name="Timer" type="Timer" parent="." unique_id=1328626214]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
