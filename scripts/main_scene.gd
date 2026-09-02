@@ -14,7 +14,7 @@ var I3= null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	cheese.start_level()
 	randomize()
 	d = cheese.difficulty
 	await get_tree().create_timer(2.0).timeout
@@ -23,7 +23,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(wave_n)
 	
 	#if Input.is_action_just_pressed("restart"):
 		#get_tree().reload_current_scene()
@@ -42,7 +41,6 @@ func wave(wave_number):
 	wave_n+=1
 	var number = enemy_N
 	cheese.total_alive_enemies = enemy_N
-	print(d)
 	#await get_tree().create_timer(2.0).timeout
 	for i in enemy_N:
 		var spawner = enemy_spawn_container.get_children().pick_random()

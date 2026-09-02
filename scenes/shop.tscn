@@ -33,13 +33,21 @@ offset_right = 620.0
 offset_bottom = 214.0
 text = "spike ball"
 
-[node name="ability_3" type="Button" parent="." unique_id=1458684070]
+[node name="frost" type="Button" parent="." unique_id=1458684070]
 layout_mode = 0
 offset_left = 651.0
 offset_top = 151.0
 offset_right = 751.0
 offset_bottom = 214.0
-text = "ability 3"
+text = "frost"
+
+[node name="fireball" type="Button" parent="." unique_id=671297152]
+layout_mode = 0
+offset_left = 394.0
+offset_top = 263.0
+offset_right = 494.0
+offset_bottom = 326.0
+text = "fireball"
 
 [node name="coins_label" type="Label" parent="." unique_id=63073806]
 layout_mode = 0
@@ -50,7 +58,24 @@ offset_bottom = 62.0
 theme_override_font_sizes/font_size = 33
 text = "coins: 0"
 
+[node name="Label" type="Label" parent="." unique_id=1730708719]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 219.0
+offset_right = 472.0
+offset_bottom = 242.0
+text = "1                              7                             10"
+
+[node name="Label2" type="Label" parent="." unique_id=1946098913]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 332.0
+offset_right = 714.0
+offset_bottom = 355.0
+text = "20                              70                             20"
+
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="dash" to="." method="_on_dash_pressed"]
 [connection signal="pressed" from="spike_ball" to="." method="_on_spike_ball_pressed"]
-[connection signal="pressed" from="ability_3" to="." method="_on_ability_3_pressed"]
+[connection signal="pressed" from="frost" to="." method="_on_ability_3_pressed"]
+[connection signal="pressed" from="fireball" to="." method="_on_fireball_pressed"]

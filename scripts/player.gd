@@ -2,6 +2,13 @@ extends CharacterBody2D
 
 var coins = 0
 var last_coins
+var equipped_ability = "dash"
+var total_abilites = [
+	"dash",
+	"spike ball",
+	"freeze",
+	"fireball"
+]
 @export var speed = 500
 @onready var gun: Marker2D = $gun
 @onready var shoot_cooldown: Timer = $shoot_cooldown
@@ -25,11 +32,12 @@ var shot_gun_lines = preload("res://scenes/visual affects/shotgun_visuals.tscn")
 var shot_gun_particles_1 = preload("res://scenes/shot_gun_particles_hit.tscn")
 @export var weapon_equiped: String = "pistol"
 func _ready() -> void:
+	equipped_ability = cheese.equipped_ability
+	print(equipped_ability)
 	randomize()
 	hud.change_health(health)
 	gun_changed(weapon_equiped)
 func _physics_process(delta: float) -> void:
-	perks()
 	melee_attack(delta)
 	if last_coins!=coins:
 		$Camera2D/HUD.change_coins(coins)
@@ -44,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	last_coins = coins
 func move(delta):
 	if can_dash==true:
-		if Input.is_action_just_pressed("dash"):
+		if Input.is_action_just_pressed("dash") &&  equipped_ability == total_abilites[0]:
 			can_dash = false
 			$dash.start()
 			$dash_cool_down.start()
@@ -172,7 +180,8 @@ func _on_dash_timeout() -> void:
 	dash=false
 	speed = 500
 func _on_dash_cool_down_timeout() -> void:
-	can_dash = true
+	if equipped_ability == total_abilites[0]:
+		can_dash = true
 func _on_camera_shake_2_timeout() -> void:
 	$Camera2D.rotation_degrees+=(randi_range(-(camera_shake_amount/2),camera_shake_amount/2))
 
@@ -190,7 +199,6 @@ func get_power_up(type: int):
 		damage = 5
 	if type == 2:
 		take_damage(randi_range(1,2)*-1)
-	print("power up ",type)
 
 
 func _on_power_up_timeout() -> void:
@@ -224,9 +232,7 @@ func change_sprite(D: Vector2) -> void:
 
 
 func _on_water_detect_body_entered(body: Node2D) -> void:
-	print("collide")
 	if body.is_in_group("water"):
-		print("water")
 		die()
 
 
@@ -264,6 +270,3 @@ func _on_test_timeout() -> void:
 
 func _on_actual_melee_cooldown_2_timeout() -> void:
 	actual_melee_cooldown = true
-func perks():
-	if change_perks == true:
-		$perks.show()

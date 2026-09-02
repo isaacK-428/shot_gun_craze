@@ -8,6 +8,22 @@ var credits = 0
 var delta2 = 1
 var choose_perks = false
 var coins = 0
+var equipped_ability = "dash"
+var owned_abilites = [
+	"dash"
+]
+var total_abilites = [
+	"dash",
+	"spike ball",
+	"freeze",
+	"fireball"
+]
+var coin_costs = [
+	0,
+	7,
+	10,
+	20
+]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -29,3 +45,5 @@ func change_credits(amount):
 func _on_timer_timeout() -> void:
 	can_combo=false
 	combo_amount = 0
+func start_level():
+	pass
