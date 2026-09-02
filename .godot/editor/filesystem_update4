@@ -4,3 +4,5 @@ res://scenes/perk_scene.tscn
 res://scripts/perk_scene.gd
 res://scenes/maps/courtyard.tscn
 res://scripts/player.gd
+res://scenes/hud.tscn
+res://scripts/hud.gd

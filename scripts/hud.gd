@@ -11,7 +11,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 func change_health(health):
-	$health.text = "Health: "+ str(health)
+	$health.text = "Health: "+ str(round(health))
 func change_credits(credits):
 	$score.text = "score: "+ str(credits)
 func new_wave(Wave):

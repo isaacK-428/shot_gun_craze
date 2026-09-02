@@ -129,4 +129,9 @@ func hide_UI():
 	waiting_for_perk == false
 func apply_perk(instance):
 	player.speed*=instance.speed_multiplier
-	player.armour_division = instance.armour_division
+	player.armour_division*= instance.armour_division
+	player.make_gun_bigger(instance.gun_size_multiplier)
+	player.take_damage(-instance.health_addittion)
+	player.divide_melee_timer(instance.melee_attack_cooldown_division)
+	player.damage*=instance.damage_multiplier
+	player.divide_fire_rate(instance.fire_rate_division)

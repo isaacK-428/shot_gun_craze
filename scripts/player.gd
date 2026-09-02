@@ -131,7 +131,7 @@ func take_damage(amount):
 	if invincibilty_frame==false:
 		$invinsibilty_frame.start()
 		invincibilty_frame=true
-		health-=amount
+		health-=(amount/armour_division)
 		hud.change_health(health)
 		if health<=0:
 			self.die()
@@ -267,3 +267,9 @@ func _on_actual_melee_cooldown_2_timeout() -> void:
 func perks():
 	if change_perks == true:
 		$perks.show()
+func make_gun_bigger(amount):
+	$gun.scale*=amount
+func divide_melee_timer(amount):
+	$actual_melee_cooldown2.wait_time/=amount
+func divide_fire_rate(amount):
+	$shoot_cooldown.wait_time/=amount
