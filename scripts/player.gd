@@ -15,6 +15,7 @@ var can_shoot = true
 var dir = Vector2.ZERO
 var damage = 1
 var credits = 0
+var armour_division: float = 1
 var can_melee = true
 var can_dash = true
 var recoil_amount = Vector2.ZERO

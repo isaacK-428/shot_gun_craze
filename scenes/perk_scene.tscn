@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://uyeppvqjuhq8"]
 
+[ext_resource type="Script" uid="uid://ccnh0jb7g5t8t" path="res://scripts/perk_scene.gd" id="1_tk5jj"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsru8"]
 bg_color = Color(0.6, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_tk5jj"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kglg6"]
+gradient = SubResource("Gradient_tk5jj")
 
 [node name="perk_scene" type="Panel" unique_id=1666691520]
 offset_left = -49.0
@@ -9,3 +16,16 @@ offset_top = -75.0
 offset_right = 49.0
 offset_bottom = 75.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qsru8")
+script = ExtResource("1_tk5jj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2136308513]
+position = Vector2(48.000004, 48.000004)
+scale = Vector2(0.734375, 0.734375)
+texture = SubResource("GradientTexture2D_kglg6")
+
+[node name="Label" type="Label" parent="." unique_id=129081017]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 69.0
+offset_bottom = 23.0
+text = "Blank"

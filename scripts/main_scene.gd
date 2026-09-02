@@ -1,4 +1,5 @@
 extends Node2D
+@onready var player: CharacterBody2D = $player
 
 var enemy_N = 2
 var stop_WTF = false
@@ -95,19 +96,25 @@ func WTF():
 
 
 func _on_button_pressed() -> void:
+	apply_perk(I1)
 	hide_UI()
 
 
 func _on_button_2_pressed() -> void:
+	apply_perk(I2)
 	hide_UI()
 
 
 func _on_button_3_pressed() -> void:
+	apply_perk(I3)
 	hide_UI()
 func hide_UI():
-	$perk_scene.queue_free()
-	$perk_scene2.queue_free()
-	$perk_scene3.queue_free()
+	#$perk_scene.queue_free()
+	#$perk_scene2.queue_free()
+	#$perk_scene3.queue_free()
+	I1.delete_node=true
+	I2.delete_node=true
+	I3.delete_node=true
 	for i in get_tree().get_nodes_in_group("perk"):
 		i.queue_free()
 	stop_WTF = false
@@ -120,3 +127,6 @@ func hide_UI():
 	$player/perks/Button3.hide()
 	
 	waiting_for_perk == false
+func apply_perk(instance):
+	player.speed*=instance.speed_multiplier
+	player.armour_division = instance.armour_division
