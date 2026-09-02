@@ -6,3 +6,12 @@ res://scenes/maps/courtyard.tscn
 res://scripts/player.gd
 res://scenes/hud.tscn
 res://scripts/hud.gd
+res://scenes/enemy_death.tscn
+res://scripts/enemy_spawner.gd
+res://scripts/main_menu.gd
+res://scenes/shop.tscn
+res://scenes/main_menu.tscn
+res://scripts/shop.gd
+res://scenes/maps/idk.tscn
+res://scenes/load.tscn
+res://scripts/load.gd

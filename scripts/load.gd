@@ -7,6 +7,7 @@ var total_alive_enemies = null
 var credits = 0
 var delta2 = 1
 var choose_perks = false
+var coins = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

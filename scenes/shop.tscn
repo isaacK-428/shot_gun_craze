@@ -1,17 +1,56 @@
 [gd_scene format=3 uid="uid://lxsx3rqaxjrj"]
 
-[node name="shop" type="Control" unique_id=921544785]
+[ext_resource type="Script" uid="uid://k0so8skiaami" path="res://scripts/shop.gd" id="1_lx5au"]
+
+[node name="shop" type="Control" unique_id=394189612]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lx5au")
 
-[node name="Label" type="Label" parent="." unique_id=218387502]
+[node name="back" type="Button" parent="." unique_id=897055877]
 layout_mode = 0
-offset_left = 1038.0
-offset_top = 309.0
-offset_right = 1149.0
-offset_bottom = 349.0
-text = "credits: 0"
+offset_right = 95.0
+offset_bottom = 53.0
+text = "Back"
+
+[node name="dash" type="Button" parent="." unique_id=2143680070]
+layout_mode = 0
+offset_left = 395.0
+offset_top = 151.0
+offset_right = 495.0
+offset_bottom = 214.0
+text = "Dash"
+
+[node name="spike_ball" type="Button" parent="." unique_id=1099263356]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 151.0
+offset_right = 620.0
+offset_bottom = 214.0
+text = "spike ball"
+
+[node name="ability_3" type="Button" parent="." unique_id=1458684070]
+layout_mode = 0
+offset_left = 651.0
+offset_top = 151.0
+offset_right = 751.0
+offset_bottom = 214.0
+text = "ability 3"
+
+[node name="coins_label" type="Label" parent="." unique_id=63073806]
+layout_mode = 0
+offset_left = 1029.0
+offset_top = 2.0
+offset_right = 1148.0
+offset_bottom = 62.0
+theme_override_font_sizes/font_size = 33
+text = "coins: 0"
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="dash" to="." method="_on_dash_pressed"]
+[connection signal="pressed" from="spike_ball" to="." method="_on_spike_ball_pressed"]
+[connection signal="pressed" from="ability_3" to="." method="_on_ability_3_pressed"]

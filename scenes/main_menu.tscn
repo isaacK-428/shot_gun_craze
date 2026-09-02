@@ -156,6 +156,14 @@ theme_override_styles/pressed = ExtResource("2_bqqt6")
 theme_override_styles/hover = ExtResource("4_8ln24")
 text = "courtyard"
 
+[node name="Button" type="Button" parent="." unique_id=1357617519]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 388.0
+offset_right = 192.0
+offset_bottom = 419.0
+text = "Shop"
+
 [connection signal="pressed" from="difficulties/easy" to="." method="easy"]
 [connection signal="pressed" from="difficulties/medium" to="." method="medium"]
 [connection signal="pressed" from="difficulties/hard" to="." method="hard"]
@@ -165,3 +173,4 @@ text = "courtyard"
 [connection signal="pressed" from="docks" to="." method="_on_docks_pressed"]
 [connection signal="pressed" from="cave" to="." method="_on_cave_pressed"]
 [connection signal="pressed" from="courtyard" to="." method="_on_courtyard_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

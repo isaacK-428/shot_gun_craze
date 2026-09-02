@@ -1,7 +1,9 @@
+Label
+Button
+GPUParticles2D
 Panel
 Marker2D
 Timer
-Button
 Control
 Sprite2D
 CollisionShape2D

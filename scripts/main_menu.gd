@@ -4,7 +4,7 @@ var active = preload("res://active.tres")
 var normal = preload("res://normal.tres")
 var normal_float = preload("res://normal_hover.tres")
 var float_active = normal_float
-var cheese2 = preload("res://scenes/load.tscn")
+var shop = preload("res://scenes/shop.tscn")
 #preload("res://active_float.tres")
 var maps = [
 	preload("res://scenes/maps/courtyard.tscn"),
@@ -99,3 +99,7 @@ func play_now():
 func _on_cave_pressed() -> void:
 	play_now()
 	get_tree().change_scene_to_packed(maps[3])
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_packed(shop)

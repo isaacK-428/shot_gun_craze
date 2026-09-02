@@ -17,20 +17,6 @@ func spawn_enemy():
 	E_I.global_position.y=global_position.y+randi_range(-spawn_range,spawn_range)
 	E_I.Root = $"../.."
 	var type = randi_range(1,6)
-	#if type==1:
-		#E_I.enemy_type = "normal"
-	#elif type == 2:
-		#E_I.enemy_type = "fast"
-	#elif type ==3:
-		#E_I.enemy_type = "tank"
-	#elif type ==4:
-		#E_I.enemy_type = "demon"
-	#elif type == 5:
-		#E_I.enemy_type = "ADHD"
-	#elif type == 6:
-		#E_I.enemy_type = "shooter"
-	#else:
-		#pass
 	match type:
 		1:
 			E_I.enemy_type = "normal"

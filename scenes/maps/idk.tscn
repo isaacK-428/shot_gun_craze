@@ -67,20 +67,8 @@ text = "GO!"
 
 [node name="enemy_spawn_container" type="Node" parent="." unique_id=495950726]
 
-[node name="enemy_spawner" parent="enemy_spawn_container" unique_id=1160840973 instance=ExtResource("5_jank7")]
-position = Vector2(459, 594)
-
 [node name="enemy_spawner3" parent="enemy_spawn_container" unique_id=989948718 instance=ExtResource("5_jank7")]
 position = Vector2(396, -330)
-
-[node name="enemy_spawner4" parent="enemy_spawn_container" unique_id=1616027656 instance=ExtResource("5_jank7")]
-position = Vector2(-20, -798)
-
-[node name="enemy_spawner5" parent="enemy_spawn_container" unique_id=1153204759 instance=ExtResource("5_jank7")]
-position = Vector2(630, -1008)
-
-[node name="enemy_spawner6" parent="enemy_spawn_container" unique_id=1712994456 instance=ExtResource("5_jank7")]
-position = Vector2(33, 262)
 
 [node name="interest_point" parent="." unique_id=426563752 instance=ExtResource("6_qbtdj")]
 position = Vector2(933, -401)
@@ -95,7 +83,7 @@ position = Vector2(-244, 48)
 position = Vector2(614, 15)
 
 [node name="interest_point5" parent="." unique_id=1161056997 instance=ExtResource("6_qbtdj")]
-position = Vector2(806, 152)
+position = Vector2(-41, -1014)
 
 [node name="interest_point6" parent="." unique_id=1893889065 instance=ExtResource("6_qbtdj")]
 position = Vector2(-322, -535)

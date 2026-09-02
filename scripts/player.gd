@@ -33,6 +33,7 @@ func _physics_process(delta: float) -> void:
 	melee_attack(delta)
 	if last_coins!=coins:
 		$Camera2D/HUD.change_coins(coins)
+		cheese.coins+=1
 
 	$Camera2D.rotation = move_toward($Camera2D.rotation, 0, 5 * delta)
 	hud.change_credits(cheese.credits)
