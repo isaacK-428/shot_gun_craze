@@ -26,7 +26,7 @@ func _ready() -> void:
 	coins = cheese.coins
 	cheese.coins = coins
 	coins_label.text = "Coins: "+str(coins)
-	coins = 20
+	coins = 40
 	
 
 
@@ -66,7 +66,7 @@ func manage_ability(index):
 		buy_ability(index)
 func change_ability(index):
 	equipped_ability = total_abilites[index]
-	print(equipped_ability)
+	#print(equipped_ability)
 func buy_ability(index):
 	if coin_costs[index]<=coins:
 		coins-=coin_costs[index]

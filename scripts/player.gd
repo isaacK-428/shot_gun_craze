@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var coins = 0
 var last_coins
+var can_fireball = true
 var equipped_ability = "dash"
 var total_abilites = [
 	"dash",
@@ -13,9 +14,14 @@ var total_abilites = [
 @onready var gun: Marker2D = $gun
 @onready var shoot_cooldown: Timer = $shoot_cooldown
 @onready var hud: Control = $Camera2D/HUD
+@onready var frost_ability_timer: Timer = $frost_ability_timer
+@onready var fireball_timer: Timer = $fireball_timer
+
+
 var change_perks = false
 var dash_visual = preload("res://scenes/visual affects/dash_visuals.tscn")
 var dash = false
+var can_frost = true
 var actual_melee_cooldown = true
 var invincibilty_frame = false
 var can_shoot = true
@@ -30,6 +36,7 @@ var camera_shake_amount = 5
 var bullet = preload("res://scenes/bullet.tscn")
 var shot_gun_lines = preload("res://scenes/visual affects/shotgun_visuals.tscn")
 var shot_gun_particles_1 = preload("res://scenes/shot_gun_particles_hit.tscn")
+var fireball = preload("res://scenes/fireball.tscn")
 @export var weapon_equiped: String = "pistol"
 func _ready() -> void:
 	equipped_ability = cheese.equipped_ability
@@ -37,7 +44,10 @@ func _ready() -> void:
 	randomize()
 	hud.change_health(health)
 	gun_changed(weapon_equiped)
+	if !equipped_ability == total_abilites[1]: #spike ball
+		$Marker2D2.queue_free()
 func _physics_process(delta: float) -> void:
+	abilites(delta)
 	melee_attack(delta)
 	if last_coins!=coins:
 		$Camera2D/HUD.change_coins(coins)
@@ -261,7 +271,7 @@ func melee_attack(delta):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if $melee_cooldown.time_left>0.0:
-		body.take_damage(5)
+		body.take_damage(damage*2.5)
 
 
 func _on_test_timeout() -> void:
@@ -270,3 +280,42 @@ func _on_test_timeout() -> void:
 
 func _on_actual_melee_cooldown_2_timeout() -> void:
 	actual_melee_cooldown = true
+func abilites(delta):
+	print(can_fireball)
+	if equipped_ability == total_abilites[1]: #spike ball
+		$Marker2D2.rotate(delta*2)
+	if equipped_ability == total_abilites[2]: #frost
+		if Input.is_action_just_pressed("dash"):
+			if can_frost == true:
+				can_frost = false
+				frost_ability_timer.start()
+				for i in get_tree().get_nodes_in_group("enemy"):
+					i.frost_self(randf_range(2,5))
+	if equipped_ability == total_abilites[3]:
+		if can_fireball == true&&Input.is_action_just_pressed("dash"):
+			can_fireball = false
+			fireball_timer.start()
+			var fireball_instance = fireball.instantiate() 
+			fireball_instance.direction = Vector2.RIGHT.rotated(gun.rotation)
+			fireball_instance.global_position=global_position
+			$bullet_container.add_child(fireball_instance)
+			
+
+
+
+func _on_spike_ball_body_entered(body: Node2D) -> void:
+	if body.has_method("take_damage"):
+		body.take_damage(damage)
+		var S_G_I = shot_gun_particles_1.instantiate()
+		S_G_I.global_position = body.global_position
+		$bullet_container.add_child(S_G_I)
+		S_G_I.emitting = true
+		
+
+
+func _on_frost_ability_timer_timeout() -> void:
+	can_frost=true
+
+
+func _on_fireball_timer_timeout() -> void:
+	can_fireball = true

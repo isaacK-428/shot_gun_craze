@@ -7,3 +7,10 @@ res://scenes/shop.tscn
 res://scripts/shop.gd
 res://scenes/enemy.tscn
 res://scripts/coin.gd
+res://scripts/main_menu.gd
+res://scenes/shot_gun_particles_hit.tscn
+res://scenes/bullet.tscn
+res://scripts/bullet.gd
+res://scripts/enemy.gd
+res://scripts/fireball.gd
+res://scenes/fireball.tscn

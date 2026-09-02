@@ -15,12 +15,15 @@ var can_damage = true
 var player_guy = null
 var target = "interest"
 var interest = null
+var frosted = false
 var recoil_amount = Vector2.ZERO
 var bullet = preload("res://scenes/bullet.tscn")
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
 @export var player = Vector2.RIGHT
 @export var enemy_type: String = "normal"
 @onready var gun: Marker2D = $Marker2D
+@onready var freeze_timer: Timer = $freeze_timer
+
 #take_damage()
 func _ready():
 	set_physics_process(false)
@@ -45,6 +48,8 @@ func _physics_process(delta: float) -> void:
 		dir = Vector2.ZERO
 	if dir!=Vector2.ZERO:
 		velocity = (dir*speed)+recoil_amount
+	if frosted==true:
+		velocity = Vector2.ZERO
 		
 	move_and_slide()
 
@@ -177,7 +182,7 @@ func loot_drops():
 		for i in randi_range(0,3):
 			var C_II = coin.instantiate()
 			C_II.global_position = global_position+Vector2(randi_range(-20,20),randi_range(-20,20))
-			get_tree().root.add_child(C_II)
+			get_parent().add_child(C_II)
 	if chance == 2:
 		var power_up_instance = power_up.instantiate()
 		get_tree().root.add_child(power_up_instance)
@@ -195,3 +200,10 @@ func _on_timer_2_timeout() -> void:
 func _on_water_detect_body_entered(body: Node2D) -> void:
 	if body.is_in_group("water"):
 		die()
+func frost_self(length):
+	frosted = true
+	freeze_timer.start(length)
+
+
+func _on_freeze_timer_timeout() -> void:
+	frosted = false

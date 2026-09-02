@@ -39,3 +39,5 @@ func _on_timer_timeout() -> void:
 	delete_bullet()
 func delete_bullet():
 	queue_free()
+func take_damage():
+	queue_free()

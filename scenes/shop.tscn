@@ -51,10 +51,10 @@ text = "fireball"
 
 [node name="coins_label" type="Label" parent="." unique_id=63073806]
 layout_mode = 0
-offset_left = 1029.0
-offset_top = 2.0
-offset_right = 1148.0
-offset_bottom = 62.0
+offset_left = 905.0
+offset_top = 39.0
+offset_right = 1024.0
+offset_bottom = 99.0
 theme_override_font_sizes/font_size = 33
 text = "coins: 0"
 

@@ -99,6 +99,8 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="water_detect" unique_id=1621966087]
 shape = SubResource("CircleShape2D_5uy6h")
 
+[node name="freeze_timer" type="Timer" parent="." unique_id=630135005]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]
 [connection signal="body_exited" from="player_detect" to="." method="_on_player_detect_body_exited"]
@@ -108,3 +110,4 @@ shape = SubResource("CircleShape2D_5uy6h")
 [connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="body_entered" from="water_detect" to="." method="_on_water_detect_body_entered"]
+[connection signal="timeout" from="freeze_timer" to="." method="_on_freeze_timer_timeout"]
