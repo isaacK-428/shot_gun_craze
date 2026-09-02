@@ -21,63 +21,6 @@ z_index = 0
 health = 20
 weapon_equiped = "shot gun"
 
-[node name="perks" type="Control" parent="player" unique_id=1914402013]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
-
-[node name="Panel" type="Panel" parent="player/perks" unique_id=2071942516]
-layout_mode = 0
-offset_left = -318.10345
-offset_top = -237.93105
-offset_right = 304.31042
-offset_bottom = 221.55177
-
-[node name="Button" type="Button" parent="player/perks" unique_id=261758271]
-z_index = 11
-layout_mode = 0
-offset_left = -17.241383
-offset_top = 89.6552
-offset_right = 19.758617
-offset_bottom = 120.6552
-text = "GO!"
-
-[node name="Button2" type="Button" parent="player/perks" unique_id=2093742038]
-z_index = 11
-layout_mode = 0
-offset_left = 49.137936
-offset_top = 89.6552
-offset_right = 86.13794
-offset_bottom = 120.6552
-text = "GO!"
-
-[node name="Button3" type="Button" parent="player/perks" unique_id=1034363159]
-z_index = 11
-layout_mode = 0
-offset_left = -86.20691
-offset_top = 89.6552
-offset_right = -49.20691
-offset_bottom = 120.6552
-text = "GO!"
-
-[node name="Marker2D2" type="Marker2D" parent="player" unique_id=1932616790]
-position = Vector2(-143.10345, -69.82759)
-scale = Vector2(1.0000001, 1.0000001)
-gizmo_extents = 39.5
-
-[node name="Marker2D3" type="Marker2D" parent="player" unique_id=805719848]
-position = Vector2(-36.206898, -69.12068)
-scale = Vector2(1.0000001, 1.0000001)
-gizmo_extents = 39.5
-
-[node name="Marker2D4" type="Marker2D" parent="player" unique_id=307416875]
-position = Vector2(68.965515, -69.12068)
-scale = Vector2(1.0000001, 1.0000001)
-gizmo_extents = 39.5
-
 [node name="enemy_spawn_container" type="Node" parent="." unique_id=495950726]
 
 [node name="enemy_spawner" parent="enemy_spawn_container" unique_id=1160840973 instance=ExtResource("5_jupbj")]
@@ -100,7 +43,3 @@ position = Vector2(318, -303)
 
 [node name="interest_point3" parent="." unique_id=997267898 instance=ExtResource("6_n25pp")]
 position = Vector2(486, 167)
-
-[connection signal="pressed" from="player/perks/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="player/perks/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="player/perks/Button3" to="." method="_on_button_3_pressed"]

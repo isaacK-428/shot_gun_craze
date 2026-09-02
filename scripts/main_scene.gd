@@ -59,29 +59,12 @@ func wave(wave_number):
 func WTF():
 	if wave_n!=1 && stop_WTF == false:
 		stop_WTF = true
-		cheese.choose_perks = true
-		$player/perks.show()
-		$player/perks/Panel.show()
-		$player/perks/Button.show()
-		$player/perks/Button2.show()
-		$player/perks/Button3.show()
-		var instance_1 = perk_scene.instantiate()
-		var instance_2 = perk_scene.instantiate()
-		var instance_3 = perk_scene.instantiate()
-		instance_1.global_position =$player/Marker2D2 .global_position
-		instance_2.global_position = $player/Marker2D3 .global_position
-		instance_3.global_position =$player/Marker2D4 .global_position
-		add_child(instance_1)
-		add_child(instance_2)
-		add_child(instance_3)
-		I1 = instance_1
-		I2 = instance_2
-		I3 = instance_3
 		var deletes = get_tree().get_nodes_in_group("bullet")
 		for i in deletes:
 			i.queue_free()
 	else:
 		pass
+		wave(wave_n)
 		#wave(wave_n)
 	#wave(wave_n)
 
@@ -105,9 +88,6 @@ func _on_button_2_pressed() -> void:
 func _on_button_3_pressed() -> void:
 	hide_UI()
 func hide_UI():
-	$perk_scene.queue_free()
-	$perk_scene2.queue_free()
-	$perk_scene3.queue_free()
 	for i in get_tree().get_nodes_in_group("perk"):
 		i.queue_free()
 	stop_WTF = false

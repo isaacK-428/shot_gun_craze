@@ -72,7 +72,7 @@ theme_override_font_sizes/font_size = 39
 text = "Wave 1"
 
 [node name="Timer" type="Timer" parent="." unique_id=1276960508]
-wait_time = 0.202
+wait_time = 0.001
 one_shot = true
 autostart = true
 
