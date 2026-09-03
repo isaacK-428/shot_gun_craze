@@ -1,15 +1,18 @@
 extends Area2D
 @export var type: int = 1
+@onready var health: Sprite2D = $health
+@onready var strength: Sprite2D = $strength
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Sprite2D.hide()
-	$Sprite2D2.hide()
-	type = randi_range(1,2)
+	strength.hide()
+	health.hide()
+	#type = randi_range(1,5)
 	if type == 1:
-		$Sprite2D.show()
-	if type == 2:
-		$Sprite2D2.show()
+		strength.show()
+	if type >=2:
+		health.show()
+		type = 2
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

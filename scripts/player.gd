@@ -6,6 +6,14 @@ var last_coins
 @onready var gun: Marker2D = $gun
 @onready var shoot_cooldown: Timer = $shoot_cooldown
 @onready var hud: Control = $Camera2D/HUD
+#<<<<<<< Updated upstream
+#=======
+@onready var frost_ability_timer: Timer = $frost_ability_timer
+@onready var fireball_timer: Timer = $fireball_timer
+@onready var rage_sprite: Sprite2D = $Node2D/rage_sprite
+
+
+#>>>>>>> Stashed changes
 var change_perks = false
 var dash_visual = preload("res://scenes/visual affects/dash_visuals.tscn")
 var dash = false
@@ -188,6 +196,7 @@ func get_power_up(type: int):
 	$power_up.start(5.0)
 	if type == 1:
 		damage = 5
+		rage_sprite.show()
 	if type == 2:
 		take_damage(randi_range(1,2)*-1)
 	print("power up ",type)
@@ -196,6 +205,7 @@ func get_power_up(type: int):
 func _on_power_up_timeout() -> void:
 	damage = 1
 	print("timeout")
+	rage_sprite.hide()
 func change_sprite(D: Vector2) -> void:
 	if D == Vector2.ZERO:
 		return # Keep current sprite if not moving

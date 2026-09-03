@@ -182,7 +182,7 @@ func loot_drops():
 		var power_up_instance = power_up.instantiate()
 		get_tree().root.add_child(power_up_instance)
 		power_up_instance.global_position = global_position
-
+		power_up_instance.type = randi_range(1,5)
 
 func _on_timer_2_timeout() -> void:
 	$CollisionShape2D.disabled = false

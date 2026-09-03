@@ -1,13 +1,21 @@
 extends Control
 
 var can_wave = false
-# Called when the node enters the scene tree for the first time.
+#<<<<<<< Updated upstream
+## Called when the node enters the scene tree for the first time.
+#=======
+@onready var off: Sprite2D = $off
+@onready var on: Sprite2D = $on
+@onready var on_melee: Sprite2D = $on_melee
+@onready var off_melee: Sprite2D = $off_melee
+
+
+#>>>>>>> Stashed changes
 func _ready() -> void:
 	new_wave(1)
 	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 func change_health(health):

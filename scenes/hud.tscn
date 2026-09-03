@@ -2,6 +2,35 @@
 
 [ext_resource type="Script" uid="uid://bkq5c2scgdmqc" path="res://scripts/hud.gd" id="1_ahhtf"]
 
+<<<<<<< Updated upstream
+=======
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ahhtf"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.13333334, 0.7882353, 0, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="Gradient" id="Gradient_ahhtf"]
+offsets = PackedFloat32Array(0.021084337)
+colors = PackedColorArray(0.13166673, 0.79, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oo0fn"]
+gradient = SubResource("Gradient_ahhtf")
+
+[sub_resource type="Gradient" id="Gradient_oo0fn"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5ysmq"]
+gradient = SubResource("Gradient_oo0fn")
+
+>>>>>>> Stashed changes
 [node name="HUD" type="Control" unique_id=1822620139]
 layout_mode = 3
 anchors_preset = 15

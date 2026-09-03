@@ -20,14 +20,16 @@ gradient = SubResource("Gradient_j7my0")
 size = Vector2(133.33333, 120)
 
 [node name="power_up" type="Area2D" unique_id=1819289513 groups=["delete"]]
+z_index = 5
 scale = Vector2(0.15, 0.15)
 collision_layer = 32
 script = ExtResource("1_j7my0")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1210873577]
+[node name="strength" type="Sprite2D" parent="." unique_id=1210873577]
 texture = SubResource("GradientTexture2D_j7my0")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=83544206]
+[node name="health" type="Sprite2D" parent="." unique_id=83544206]
+visible = false
 texture = SubResource("GradientTexture2D_ig136")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1395166870]

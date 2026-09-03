@@ -13,6 +13,7 @@ gradient = SubResource("Gradient_kahox")
 size = Vector2(146.66666, 106.666664)
 
 [node name="coin" type="Area2D" unique_id=552814797]
+z_index = 4
 scale = Vector2(0.15, 0.15)
 collision_layer = 32
 script = ExtResource("1_rwqht")
