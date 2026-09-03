@@ -255,7 +255,7 @@ scale = Vector2(1.0000004, 1.0000004)
 shape = SubResource("RectangleShape2D_ur7pv")
 
 [node name="frost_ability_timer" type="Timer" parent="." unique_id=387795551]
-wait_time = 3.327
+wait_time = 11.068
 one_shot = true
 
 [node name="fireball_timer" type="Timer" parent="." unique_id=1529643793]

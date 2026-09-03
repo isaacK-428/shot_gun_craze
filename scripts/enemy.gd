@@ -11,6 +11,7 @@ var inside = false
 var combo = preload("res://scenes/combo.tscn")
 var power_up = preload("res://scenes/power_up.tscn")
 var bomb = preload("res://scenes/explosive.tscn")
+var hit_particles = preload("res://scenes/shot_gun_particles_hit.tscn")
 var can_damage = true
 var player_guy = null
 var target = "interest"
@@ -23,11 +24,11 @@ var bullet = preload("res://scenes/bullet.tscn")
 @export var enemy_type: String = "normal"
 @onready var gun: Marker2D = $Marker2D
 @onready var freeze_timer: Timer = $freeze_timer
+@onready var container: Node = $bullet_container
 
 #take_damage()
 func _ready():
 	set_physics_process(false)
-	randomize()
 	special_enemy_stats()
 	interest = get_tree().get_nodes_in_group("interest_point").pick_random().global_position
 	health*=2
@@ -72,6 +73,10 @@ func _on_timer_timeout() -> void:
 				agent.target_position=interest
 
 func take_damage(amount):
+	var hit = hit_particles.instantiate()
+	hit.global_position = global_position
+	hit.emitting = true
+	get_parent().add_child(hit)
 	health-=amount
 	if health<=0:
 		die.call_deferred()

@@ -2,6 +2,32 @@
 
 [ext_resource type="Script" uid="uid://bkq5c2scgdmqc" path="res://scripts/hud.gd" id="1_ahhtf"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ahhtf"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.32468322, 0.19693977, 0.38733226, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="Gradient" id="Gradient_ahhtf"]
+offsets = PackedFloat32Array(0.021084337)
+colors = PackedColorArray(0.13166673, 0.79, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oo0fn"]
+gradient = SubResource("Gradient_ahhtf")
+
+[sub_resource type="Gradient" id="Gradient_oo0fn"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5ysmq"]
+gradient = SubResource("Gradient_oo0fn")
+
 [node name="HUD" type="Control" unique_id=1822620139]
 layout_mode = 3
 anchors_preset = 15
@@ -75,5 +101,35 @@ text = "Wave 1"
 wait_time = 0.001
 one_shot = true
 autostart = true
+
+[node name="Panel" type="Panel" parent="." unique_id=299993717]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 230.0
+offset_right = 498.0
+offset_bottom = 282.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ahhtf")
+
+[node name="on" type="Sprite2D" parent="." unique_id=856494613]
+position = Vector2(473, 256)
+scale = Vector2(0.59375, 0.59375)
+texture = SubResource("GradientTexture2D_oo0fn")
+
+[node name="off" type="Sprite2D" parent="." unique_id=845757094]
+visible = false
+position = Vector2(473, 256)
+scale = Vector2(0.59375, 0.59375)
+texture = SubResource("GradientTexture2D_5ysmq")
+
+[node name="on_melee" type="Sprite2D" parent="." unique_id=1826862028]
+position = Vector2(428, 256)
+scale = Vector2(0.59375, 0.59375)
+texture = SubResource("GradientTexture2D_oo0fn")
+
+[node name="off_melee" type="Sprite2D" parent="." unique_id=1915022493]
+visible = false
+position = Vector2(428, 256)
+scale = Vector2(0.59375, 0.59375)
+texture = SubResource("GradientTexture2D_5ysmq")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

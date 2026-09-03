@@ -14,3 +14,8 @@ res://scripts/bullet.gd
 res://scripts/enemy.gd
 res://scripts/fireball.gd
 res://scenes/fireball.tscn
+res://scenes/hud.tscn
+res://scripts/hud.gd
+res://scenes/maps/idk.tscn
+res://scenes/maps/house_map.tscn
+res://scenes/maps/harbour.tscn

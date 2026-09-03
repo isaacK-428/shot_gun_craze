@@ -1,12 +1,13 @@
+Panel
+Sprite2D
+HSlider
 Timer
 CollisionShape2D
 Area2D
 GPUParticles2D
-Sprite2D
 Marker2D
 Label
 Button
-Panel
 Control
 Polygon2D
 Line2D

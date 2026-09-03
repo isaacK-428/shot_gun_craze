@@ -3,6 +3,7 @@ extends CharacterBody2D
 var coins = 0
 var last_coins
 var can_fireball = true
+var ability_ready = true
 var equipped_ability = "dash"
 var total_abilites = [
 	"dash",
@@ -47,6 +48,7 @@ func _ready() -> void:
 	if !equipped_ability == total_abilites[1]: #spike ball
 		$Marker2D2.queue_free()
 func _physics_process(delta: float) -> void:
+	print(ability_ready)
 	abilites(delta)
 	melee_attack(delta)
 	if last_coins!=coins:
@@ -189,9 +191,13 @@ func gun_changed(gun: String):
 func _on_dash_timeout() -> void:
 	dash=false
 	speed = 500
+	ability_ready = false
+	hud.change_ready(ability_ready)
 func _on_dash_cool_down_timeout() -> void:
 	if equipped_ability == total_abilites[0]:
 		can_dash = true
+		ability_ready = true
+		hud.change_ready(ability_ready)
 func _on_camera_shake_2_timeout() -> void:
 	$Camera2D.rotation_degrees+=(randi_range(-(camera_shake_amount/2),camera_shake_amount/2))
 
@@ -261,6 +267,7 @@ func melee_attack(delta):
 			$actual_melee_cooldown2.start()
 			actual_melee_cooldown = false
 			can_melee=false
+			hud.change_melee_ready(can_melee)
 			$melee_cooldown.start()
 			$Marker2D.show()
 			$Marker2D/Area2D/CollisionShape2D.disabled = false
@@ -280,12 +287,14 @@ func _on_test_timeout() -> void:
 
 func _on_actual_melee_cooldown_2_timeout() -> void:
 	actual_melee_cooldown = true
+	hud.change_melee_ready(can_melee)
 func abilites(delta):
-	print(can_fireball)
 	if equipped_ability == total_abilites[1]: #spike ball
 		$Marker2D2.rotate(delta*2)
 	if equipped_ability == total_abilites[2]: #frost
 		if Input.is_action_just_pressed("dash"):
+			ability_ready = false
+			hud.change_ready(ability_ready)
 			if can_frost == true:
 				can_frost = false
 				frost_ability_timer.start()
@@ -293,6 +302,8 @@ func abilites(delta):
 					i.frost_self(randf_range(2,5))
 	if equipped_ability == total_abilites[3]:
 		if can_fireball == true&&Input.is_action_just_pressed("dash"):
+			ability_ready = false
+			hud.change_ready(ability_ready)
 			can_fireball = false
 			fireball_timer.start()
 			var fireball_instance = fireball.instantiate() 
@@ -315,7 +326,11 @@ func _on_spike_ball_body_entered(body: Node2D) -> void:
 
 func _on_frost_ability_timer_timeout() -> void:
 	can_frost=true
+	ability_ready = true
+	hud.change_ready(ability_ready)
 
 
 func _on_fireball_timer_timeout() -> void:
 	can_fireball = true
+	ability_ready = true
+	hud.change_ready(ability_ready)

@@ -1,6 +1,13 @@
 extends Control
 
 var can_wave = false
+@onready var slider: HSlider = $HSlider
+@onready var off: Sprite2D = $off
+@onready var on: Sprite2D = $on
+@onready var on_melee: Sprite2D = $on_melee
+@onready var off_melee: Sprite2D = $off_melee
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	new_wave(1)
@@ -39,3 +46,17 @@ func _on_timer_timeout() -> void:
 	can_wave = true
 func change_coins(amount):
 	$coins.text = "Coins:" + str(amount)
+func change_ready(ready):
+	if ready == true:
+		on.show()
+		off.hide()
+	else:
+		on.hide()
+		off.show()
+func change_melee_ready(ready):
+	on_melee.hide()
+	off_melee.hide()
+	if ready == true:
+		on_melee.show()
+	else:
+		off_melee.show()
