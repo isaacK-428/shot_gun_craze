@@ -212,9 +212,9 @@ func get_power_up(type: int):
 	$power_up.stop()
 	$power_up.start(5.0)
 	if type == 1:
-		damage = 5
-	if type == 2:
 		take_damage(randi_range(1,2)*-1)
+	if type == 2:
+		damage = 5
 
 
 func _on_power_up_timeout() -> void:

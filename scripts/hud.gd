@@ -1,7 +1,6 @@
 extends Control
 
 var can_wave = false
-@onready var slider: HSlider = $HSlider
 @onready var off: Sprite2D = $off
 @onready var on: Sprite2D = $on
 @onready var on_melee: Sprite2D = $on_melee
