@@ -26,7 +26,6 @@ func _ready() -> void:
 	coins = cheese.coins
 	cheese.coins = coins
 	coins_label.text = "Coins: "+str(coins)
-	coins = 40
 	
 
 

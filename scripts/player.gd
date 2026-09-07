@@ -17,6 +17,11 @@ var total_abilites = [
 @onready var hud: Control = $Camera2D/HUD
 @onready var frost_ability_timer: Timer = $frost_ability_timer
 @onready var fireball_timer: Timer = $fireball_timer
+@onready var shoot_sound: AudioStreamPlayer = $shoot
+@onready var melee_swing_sound: AudioStreamPlayer = $melee_swing
+@onready var power_up_heal_sound: AudioStreamPlayer = $power_up_heal
+@onready var power_up_strength_sound: AudioStreamPlayer = $power_up_strength
+@onready var move_sound: AudioStreamPlayer = $move
 
 
 var change_perks = false

@@ -66,6 +66,16 @@ gradient = SubResource("Gradient_fjrip")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ur7pv"]
 size = Vector2(19.442299, 18.479092)
 
+[sub_resource type="Gradient" id="Gradient_smehm"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.7078313)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ur7pv"]
+gradient = SubResource("Gradient_smehm")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="player" type="CharacterBody2D" unique_id=156242723 groups=["player"]]
 scale = Vector2(1.16, 1.16)
 collision_mask = 12
@@ -261,6 +271,21 @@ one_shot = true
 [node name="fireball_timer" type="Timer" parent="." unique_id=1529643793]
 wait_time = 8.450999999999999
 one_shot = true
+
+[node name="shoot" type="AudioStreamPlayer" parent="." unique_id=1993835508]
+
+[node name="melee_swing" type="AudioStreamPlayer" parent="." unique_id=159031743]
+
+[node name="power_up_heal" type="AudioStreamPlayer" parent="." unique_id=1167678177]
+
+[node name="power_up_strength" type="AudioStreamPlayer" parent="." unique_id=1168255368]
+
+[node name="move" type="AudioStreamPlayer" parent="." unique_id=483770522]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1267145944]
+scale = Vector2(2.35, 2.35)
+energy = 1.2
+texture = SubResource("GradientTexture2D_ur7pv")
 
 [connection signal="body_entered" from="enemy_detect" to="." method="_on_enemy_detect_body_entered"]
 [connection signal="body_exited" from="enemy_detect" to="." method="_on_enemy_detect_body_exited"]

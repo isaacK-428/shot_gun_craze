@@ -1,3 +1,9 @@
+AnimationPlayer
+CanvasModulate
+PointLight2D
+DirectionalLight2D
+LightOccluder2D
+AudioStreamPlayer
 Panel
 Sprite2D
 HSlider
@@ -6,9 +12,3 @@ CollisionShape2D
 Area2D
 GPUParticles2D
 Marker2D
-Label
-Button
-Control
-Polygon2D
-Line2D
-Node2D

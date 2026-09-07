@@ -4,14 +4,14 @@
 
 [sub_resource type="Gradient" id="Gradient_a6us8"]
 offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.54509807, 0.3647059, 1, 1)
+colors = PackedColorArray(0.91, 0.3791667, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_j7my0"]
 gradient = SubResource("Gradient_a6us8")
 
 [sub_resource type="Gradient" id="Gradient_j7my0"]
-offsets = PackedFloat32Array(0.012048192, 1)
-colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1)
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.36244923, 0.40725544, 0.14572513, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ig136"]
 gradient = SubResource("Gradient_j7my0")
@@ -19,20 +19,184 @@ gradient = SubResource("Gradient_j7my0")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig136"]
 size = Vector2(133.33333, 120)
 
+[sub_resource type="Animation" id="Animation_j7my0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("strength:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("strength:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("strength:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("GradientTexture2D_j7my0")]
+}
+
+[sub_resource type="Gradient" id="Gradient_ig136"]
+offsets = PackedFloat32Array(0.019444445)
+colors = PackedColorArray(0.84175146, 0.40124944, 0.7097181, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6iuya"]
+gradient = SubResource("Gradient_ig136")
+
+[sub_resource type="Animation" id="Animation_uk6or"]
+resource_name = "pulse"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("strength:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("strength:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5456653),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.54, 1.54)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("strength:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.53333336),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("GradientTexture2D_6iuya")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bmfpq"]
+_data = {
+&"RESET": SubResource("Animation_j7my0"),
+&"pulse": SubResource("Animation_uk6or")
+}
+
+[sub_resource type="Gradient" id="Gradient_smehm"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.7078313)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uk6or"]
+gradient = SubResource("Gradient_smehm")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Animation" id="Animation_6iuya"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("health:texture:gradient")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("Gradient_j7my0")]
+}
+
+[sub_resource type="Gradient" id="Gradient_uk6or"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.14850274, 0.48048007, 0.67297226, 1)
+
+[sub_resource type="Animation" id="Animation_bmfpq"]
+resource_name = "idle"
+length = 1.0333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("health:texture:gradient")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5045926),
+"transitions": PackedFloat32Array(1.0717733, 2.297392),
+"update": 1,
+"values": [SubResource("Gradient_j7my0"), SubResource("Gradient_uk6or")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l224l"]
+_data = {
+&"RESET": SubResource("Animation_6iuya"),
+&"idle": SubResource("Animation_bmfpq")
+}
+
 [node name="power_up" type="Area2D" unique_id=1819289513 groups=["delete"]]
 scale = Vector2(0.15, 0.15)
 collision_layer = 32
 script = ExtResource("1_j7my0")
 
 [node name="strength" type="Sprite2D" parent="." unique_id=1210873577]
+visible = false
 texture = SubResource("GradientTexture2D_j7my0")
 
 [node name="health" type="Sprite2D" parent="." unique_id=83544206]
-visible = false
 texture = SubResource("GradientTexture2D_ig136")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1395166870]
+visible = false
 position = Vector2(1.5894572e-06, 0)
 shape = SubResource("RectangleShape2D_ig136")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1667309011]
+libraries/ = SubResource("AnimationLibrary_bmfpq")
+autoplay = &"pulse"
+
+[node name="strength_light" type="PointLight2D" parent="." unique_id=1826844122]
+scale = Vector2(2.35, 2.35)
+energy = 1.2
+texture = SubResource("GradientTexture2D_uk6or")
+
+[node name="health_light" type="PointLight2D" parent="." unique_id=11401580]
+scale = Vector2(2.35, 2.35)
+color = Color(2.6471912e-06, 0.64401746, 0.27078792, 1)
+energy = 1.2
+texture = SubResource("GradientTexture2D_uk6or")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1178630295]
+libraries/ = SubResource("AnimationLibrary_l224l")
+autoplay = &"idle"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
