@@ -17,3 +17,5 @@ res://scenes/visual affects/blood.tscn
 res://scripts/blood.gd
 res://scenes/visual affects/blood_2.gd
 res://scripts/main_scene.gd
+res://scenes/bullet.tscn
+res://scripts/bullet.gd

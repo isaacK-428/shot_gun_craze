@@ -1,9 +1,11 @@
 extends Area2D
+@onready var sprite: Sprite2D = $Sprite2D
 
 var speed = 50
 var direction = null
 var bullet_damage = 0.3
 var active = true
+var asleep = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -38,6 +40,17 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	delete_bullet()
 func delete_bullet():
-	queue_free()
+	despawn()
 func take_damage():
-	queue_free()
+	despawn()
+func despawn():
+	set_process(false)
+	self.add_to_group("asleep_bullet")
+	sprite.hide()
+func spawn():
+	active = true
+	set_process(true)
+	if self.is_in_group("asleep_bullet"):
+		self.remove_from_group("asleep_bullet")
+	sprite.show()
+	

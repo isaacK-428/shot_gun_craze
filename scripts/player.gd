@@ -55,11 +55,11 @@ func _ready() -> void:
 	if !equipped_ability == total_abilites[1]: #spike ball
 		$Marker2D2.queue_free()
 func _physics_process(delta: float) -> void:
+	print(get_tree().get_nodes_in_group("asleep_bullet").size(), "     ",get_tree().get_nodes_in_group("bullet").size())
 	if on_enemy == true:
 		$CanvasModulate.show()
 	else:
 		$CanvasModulate.hide()
-	print(ability_ready)
 	abilites(delta)
 	melee_attack(delta)
 	if last_coins!=coins:

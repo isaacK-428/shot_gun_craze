@@ -143,8 +143,6 @@ func special_enemy_stats():
 	$Marker2D.queue_free()
 	$shoot_timer.queue_free()
 	$bullet_container.queue_free()
-
-
 func _on_adhd_timer_timeout() -> void:
 	if enemy_type == "ADHD":
 		if target == "player":
@@ -164,15 +162,26 @@ func change_interest():
 
 func _on_shoot_timer_timeout() -> void:
 	if enemy_type == "shooter":
-		var B_I = bullet.instantiate()
-		B_I.global_position = global_position
-		B_I.direction = Vector2.RIGHT.rotated(gun.rotation)
-		B_I.rotation_degrees+=randi_range(-20,20)
-		B_I.direction = B_I.direction.normalized()
-		B_I.global_rotation = gun.rotation
-		B_I.jump(5,cheese.delta2)
-		B_I.bullet_damage=1
-		Root.add_child(B_I)
+		if get_tree().get_nodes_in_group("asleep_bullet").size() == 0:
+			var B_I = bullet.instantiate()
+			B_I.global_position = global_position
+			B_I.direction = Vector2.RIGHT.rotated(gun.rotation)
+			B_I.rotation_degrees+=randi_range(-20,20)
+			B_I.direction = B_I.direction.normalized()
+			B_I.global_rotation = gun.rotation
+			B_I.jump(5,cheese.delta2)
+			B_I.bullet_damage=1
+			Root.add_child(B_I)
+		else:
+			var bullet = get_tree().get_first_node_in_group("asleep_bullet")
+			bullet.spawn()
+			bullet.global_position = global_position
+			bullet.direction = Vector2.RIGHT.rotated(gun.rotation)
+			bullet.rotation_degrees+=randi_range(-20,20)
+			bullet.rotation_degrees =  bullet.rotation_degrees#.normalized()
+			bullet.global_rotation = gun.rotation
+			bullet.jump(5,cheese.delta2)
+			bullet.bullet_damage=1
 		#recoil_amount = Vector2.RIGHT.rotated(gun.rotation + PI) * 7
 func spawn_blood():
 	for i in 10:
