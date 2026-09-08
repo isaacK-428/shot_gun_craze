@@ -95,9 +95,11 @@ func die():
 func _on_player_detect_body_entered(body: Node2D) -> void:
 	inside = true
 	player_guy = body
+	body.on_enemy=true
 func _on_player_detect_body_exited(body: Node2D) -> void:
 	inside = false
 	player_guy = null
+	body.on_enemy=false
 func _on_player_damage_timeout() -> void:
 	can_damage = true
 func special_enemy_stats():
@@ -176,8 +178,7 @@ func spawn_blood():
 	for i in 10:
 		var blood_instance = blood.instantiate()
 		blood_instance.global_position = global_position
-		#blood_instance.direction.x+randi_range(-360,360)
-		#blood_instance.direction.y+randi_range(-360,360)
+
 		blood_instance.direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
 		blood_instance.direction = blood_instance.direction.normalized()
 		Root.add_child(blood_instance)

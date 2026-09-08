@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c36tsbfpew08s"]
 
-[ext_resource type="Script" uid="uid://5n73mdw861r8" path="res://scripts/blood.gd" id="1_fuol1"]
+[ext_resource type="Script" uid="uid://dkoo4c48pxjjy" path="res://scenes/visual affects/blood_2.gd" id="1_i8xpw"]
 
 [sub_resource type="Gradient" id="Gradient_ptkrj"]
 offsets = PackedFloat32Array(0)
@@ -12,16 +12,25 @@ gradient = SubResource("Gradient_ptkrj")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8xpw"]
 size = Vector2(8, 8)
 
-[node name="blood" type="RigidBody2D" unique_id=1201055058]
+[node name="blood" type="Node2D" unique_id=715928809]
 z_index = -98
-collision_layer = 32
-collision_mask = 4
-gravity_scale = 0.0
-script = ExtResource("1_fuol1")
+script = ExtResource("1_i8xpw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=580147087]
 scale = Vector2(0.12, 0.12)
 texture = SubResource("GradientTexture2D_fuol1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1500787543]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=915936433]
+collision_layer = 32
+collision_mask = 4
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1500787543]
 shape = SubResource("RectangleShape2D_i8xpw")
+
+[node name="Timer" type="Timer" parent="." unique_id=1186577682]
+wait_time = 1.3059999999999998
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

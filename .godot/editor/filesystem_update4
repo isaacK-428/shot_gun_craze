@@ -1,0 +1,19 @@
+res://scenes/maps/courtyard.tscn
+res://scenes/player.tscn
+res://scripts/player.gd
+res://scenes/tile_map.tscn
+res://scenes/enemy.tscn
+res://scenes/maps/house_map.tscn
+res://scenes/maps/idk.tscn
+res://scenes/maps/harbour.tscn
+res://scenes/main_menu.tscn
+res://scenes/power_up.tscn
+res://scenes/canvas_modulate.tscn
+res://scenes/visual affects/shotgun_visuals.tscn
+res://scripts/shotgun_visuals.gd
+res://scripts/enemy.gd
+res://scenes/hud.tscn
+res://scenes/visual affects/blood.tscn
+res://scripts/blood.gd
+res://scenes/visual affects/blood_2.gd
+res://scripts/main_scene.gd

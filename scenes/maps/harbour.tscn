@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://urw3dtjpdxq5" path="res://scenes/player.tscn" id="4_v550g"]
 [ext_resource type="PackedScene" uid="uid://dmjpu32frimxm" path="res://scenes/enemy_spawner.tscn" id="5_re20j"]
 [ext_resource type="PackedScene" uid="uid://bumyycpihha8h" path="res://scenes/interest_point.tscn" id="6_rlgnk"]
+[ext_resource type="PackedScene" uid="uid://bk1l3sx7l3dl" path="res://scenes/canvas_modulate.tscn" id="7_wdqxk"]
 
 [node name="defualt_map" type="Node2D" unique_id=1647013442]
 script = ExtResource("1_18uil")
@@ -54,3 +55,7 @@ position = Vector2(612, -873)
 
 [node name="interest_point3" parent="." unique_id=997267898 instance=ExtResource("6_rlgnk")]
 position = Vector2(1574, -861)
+
+[node name="CanvasModulate" parent="." unique_id=1536183115 instance=ExtResource("7_wdqxk")]
+
+[node name="dead_bullet_container" type="Node" parent="." unique_id=698486428]

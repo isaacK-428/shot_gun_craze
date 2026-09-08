@@ -29,6 +29,7 @@ colors = PackedColorArray(1, 0, 0, 1)
 gradient = SubResource("Gradient_oo0fn")
 
 [node name="HUD" type="Control" unique_id=1822620139]
+light_mask = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

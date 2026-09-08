@@ -3,6 +3,7 @@ extends Node2D
 @onready var line1: Line2D = $Line2D2
 @onready var line2: Line2D = $Line2D3
 @onready var line3: Line2D = $Line2D4
+@onready var light: PointLight2D = $PointLight2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,7 +12,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if light:
+		light.energy-=10*delta
+		if light.energy<=0:
+			light.queue_free()
 
 
 func _on_timer_timeout() -> void:

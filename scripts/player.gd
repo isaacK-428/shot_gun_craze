@@ -4,6 +4,7 @@ var coins = 0
 var last_coins
 var can_fireball = true
 var ability_ready = true
+var on_enemy = false
 var equipped_ability = "dash"
 var total_abilites = [
 	"dash",
@@ -45,6 +46,7 @@ var shot_gun_particles_1 = preload("res://scenes/shot_gun_particles_hit.tscn")
 var fireball = preload("res://scenes/fireball.tscn")
 @export var weapon_equiped: String = "pistol"
 func _ready() -> void:
+	$PointLight2D.shadow_enabled = true
 	equipped_ability = cheese.equipped_ability
 	print(equipped_ability)
 	randomize()
@@ -53,6 +55,10 @@ func _ready() -> void:
 	if !equipped_ability == total_abilites[1]: #spike ball
 		$Marker2D2.queue_free()
 func _physics_process(delta: float) -> void:
+	if on_enemy == true:
+		$CanvasModulate.show()
+	else:
+		$CanvasModulate.hide()
 	print(ability_ready)
 	abilites(delta)
 	melee_attack(delta)
