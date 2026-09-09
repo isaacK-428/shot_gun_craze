@@ -34,4 +34,3 @@ res://scripts/settings.gd
 res://scenes/water.tscn
 res://scenes/top_layer.tscn
 res://scenes/UI/hud.tscn
-res://scenes/game_over_screen.tscn

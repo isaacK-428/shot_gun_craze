@@ -153,9 +153,6 @@ agent_radius = 0.0
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5ie0g"]
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ac4p3"]
-polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kk51x"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 7.140625, -32, 32, -32)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
@@ -465,7 +462,6 @@ texture_region_size = Vector2i(64, 64)
 10:5/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_47enk")
 10:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, -32, 32, 32, -32, 32)
 9:5/0 = 0
-9:5/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ac4p3")
 9:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, -32, 32, 32, -32, 32)
 9:6/0 = 0
 9:6/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_jx7lj")
