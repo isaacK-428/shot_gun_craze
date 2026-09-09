@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	
 	#if Input.is_action_just_pressed("restart"):
 		#get_tree().reload_current_scene()
-	if get_tree().get_nodes_in_group("enemy").is_empty()&&waiting_for_perk == false:
+	if get_tree().get_nodes_in_group("enemy").is_empty()&&waiting_for_perk == false&&cheese.stop_waves==false:
 		waiting_for_perk == true
 		#await get_tree().create_timer(2.0).timeout
 		#wave(wave_n)

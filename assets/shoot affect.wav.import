@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b1xk3c4c00slh"
+path="res://.godot/imported/shoot affect.wav-af6516588be347f89518d1516b326392.sample"
+
+[deps]
+
+source_file="res://assets/shoot affect.wav"
+dest_files=["res://.godot/imported/shoot affect.wav-af6516588be347f89518d1516b326392.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

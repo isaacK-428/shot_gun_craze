@@ -1,3 +1,4 @@
+DirectionalLight2D
 Panel
 CanvasModulate
 LightOccluder2D
@@ -10,5 +11,4 @@ Node2D
 Sprite2D
 StaticBody2D
 AnimationPlayer
-DirectionalLight2D
 AudioStreamPlayer

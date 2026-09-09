@@ -114,6 +114,7 @@ func shoot(delta):
 	if Input.is_action_pressed("shoot")&&can_shoot==true:
 		can_shoot=false
 		shoot_cooldown.start()
+		shoot_sound.play()
 		if weapon_equiped!="shot gun":
 			var B_I = bullet.instantiate()
 			B_I.global_position = global_position
@@ -167,12 +168,18 @@ func take_damage(amount):
 		if health<=0:
 			self.die()
 func die():
+	cheese.stop_waves=true
+	$CanvasModulate.hide()
 	set_physics_process(false)
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(0.3).timeout
 	#var object = get_tree().get_nodes_in_group("delete")
 	#for i in object:
 		#i.queue_free()
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	#get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
+	$game_over_screen.show()
+	for i in get_tree().get_nodes_in_group("enemy"):
+		i.queue_free()
+		
 func gun_changed(gun: String):
 	if gun == "pistol":
 		damage = 1

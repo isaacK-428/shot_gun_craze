@@ -5,7 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://f275l2jc22dp" path="res://assets/visual/final_tank.png" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://ca531ot8xgbxn" path="res://assets/visual/machine gun.png" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://chva06vyshj1y" path="res://scenes/UI/hud.tscn" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://b1xk3c4c00slh" path="res://assets/shoot affect.wav" id="6_smehm"]
 [ext_resource type="Texture2D" uid="uid://b4g3iirll3lxe" path="res://scenes/textures/light.tres" id="6_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://b2b4dvvpw1568" path="res://scenes/game_over_screen.tscn" id="7_fjrip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(22, 22)
@@ -273,6 +275,7 @@ wait_time = 8.450999999999999
 one_shot = true
 
 [node name="shoot" type="AudioStreamPlayer" parent="." unique_id=1993835508]
+stream = ExtResource("6_smehm")
 
 [node name="melee_swing" type="AudioStreamPlayer" parent="." unique_id=159031743]
 
@@ -299,6 +302,10 @@ texture = SubResource("GradientTexture2D_y4r1p")
 [node name="bullet_visual_cooldown" type="Timer" parent="." unique_id=1352815108]
 wait_time = 0.201
 one_shot = true
+
+[node name="game_over_screen" parent="." unique_id=1579867362 instance=ExtResource("7_fjrip")]
+visible = false
+scale = Vector2(0.52, 0.52)
 
 [connection signal="body_entered" from="enemy_detect" to="." method="_on_enemy_detect_body_entered"]
 [connection signal="body_exited" from="enemy_detect" to="." method="_on_enemy_detect_body_exited"]
