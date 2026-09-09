@@ -42,7 +42,7 @@ var camera_shake_amount = 5
 @export var health = 20
 var bullet = preload("res://scenes/bullet.tscn")
 var shot_gun_lines = preload("res://scenes/visual affects/shotgun_visuals.tscn")
-var shot_gun_particles_1 = preload("res://scenes/shot_gun_particles_hit.tscn")
+var shot_gun_particles_1 = preload("res://scenes/visual affects/shot_gun_particles_hit.tscn")
 var fireball = preload("res://scenes/fireball.tscn")
 @export var weapon_equiped: String = "pistol"
 func _ready() -> void:
@@ -345,3 +345,9 @@ func _on_fireball_timer_timeout() -> void:
 	can_fireball = true
 	ability_ready = true
 	hud.change_ready(ability_ready)
+
+
+func _on_bullet_visual_cooldown_timeout() -> void:
+	on_enemy = false
+func start_bullet_visual():
+	$bullet_visual_cooldown.start()

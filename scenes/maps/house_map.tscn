@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://urw3dtjpdxq5" path="res://scenes/player.tscn" id="4_1lhhg"]
 [ext_resource type="PackedScene" uid="uid://dmjpu32frimxm" path="res://scenes/enemy_spawner.tscn" id="5_lc3ey"]
 [ext_resource type="PackedScene" uid="uid://bumyycpihha8h" path="res://scenes/interest_point.tscn" id="6_ocko7"]
-[ext_resource type="PackedScene" uid="uid://bk1l3sx7l3dl" path="res://scenes/canvas_modulate.tscn" id="7_2b2o2"]
+[ext_resource type="PackedScene" uid="uid://bk1l3sx7l3dl" path="res://scenes/visual affects/darken.tscn" id="7_2b2o2"]
 
 [node name="defualt_map" type="Node2D" unique_id=1647013442]
 script = ExtResource("1_4dmfg")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca531ot8xgbxn"
-path="res://.godot/imported/machine gun.png-ce42221edfd2a670a5b316b4148344d5.ctex"
+uid="uid://j8x1uobj7jq7"
+path="res://.godot/imported/pixil-frame-0.png-13809a1c9295beaed56ddeb60c796eec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/machine gun.png"
-dest_files=["res://.godot/imported/machine gun.png-ce42221edfd2a670a5b316b4148344d5.ctex"]
+source_file="res://assets/visual/pixil-frame-0.png"
+dest_files=["res://.godot/imported/pixil-frame-0.png-13809a1c9295beaed56ddeb60c796eec.ctex"]
 
 [params]
 

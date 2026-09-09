@@ -17,7 +17,7 @@ var coin_costs = [
 	20
 ]
 var coins = 0
-var main_menu = preload("res://scenes/main_menu.tscn")
+var main_menu = preload("res://scenes/UI/main_menu.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	owned_abilites=cheese.owned_abilites
@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 
 func _on_back_pressed() -> void:
 	cheese.coins = coins
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
 	cheese.owned_abilites=owned_abilites
 	cheese.coin_costs=coin_costs
 	cheese.total_abilites=total_abilites

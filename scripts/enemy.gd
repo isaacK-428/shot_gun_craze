@@ -8,10 +8,9 @@ var Root = null
 var blood = preload("res://scenes/visual affects/blood.tscn")
 var coin  = preload("res://scenes/coin.tscn")
 var inside = false
-var combo = preload("res://scenes/combo.tscn")
+var combo = preload("res://scenes/visual affects/combo.tscn")
 var power_up = preload("res://scenes/power_up.tscn")
-var bomb = preload("res://scenes/explosive.tscn")
-var hit_particles = preload("res://scenes/shot_gun_particles_hit.tscn")
+var hit_particles = preload("res://scenes/visual affects/shot_gun_particles_hit.tscn")
 var can_damage = true
 var player_guy = null
 var target = "interest"
@@ -95,7 +94,8 @@ func die():
 func _on_player_detect_body_entered(body: Node2D) -> void:
 	inside = true
 	player_guy = body
-	body.on_enemy=true
+	if enemy_type!="shooter":
+		body.on_enemy=true
 func _on_player_detect_body_exited(body: Node2D) -> void:
 	inside = false
 	player_guy = null
@@ -202,23 +202,17 @@ func loot_drops():
 		var power_up_instance = power_up.instantiate()
 		get_tree().root.add_child(power_up_instance)
 		power_up_instance.global_position = global_position
-
-
 func _on_timer_2_timeout() -> void:
 	$CollisionShape2D.disabled = false
 	$Sprite2D.show()
 	$Sprite2D2.hide()
 	$Timer2.queue_free()
 	set_physics_process(true)
-
-
 func _on_water_detect_body_entered(body: Node2D) -> void:
 	if body.is_in_group("water"):
 		die()
 func frost_self(length):
 	frosted = true
 	freeze_timer.start(length)
-
-
 func _on_freeze_timer_timeout() -> void:
 	frosted = false

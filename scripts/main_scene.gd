@@ -6,12 +6,10 @@ var wave_n = 1
 var d = null
 var this_wave_enemies = null
 var waiting_for_perk = false
-var perk_scene = preload("res://scenes/perk_scene.tscn")
 var I1 = null
 var I2 = null
 var I3= null
 @onready var enemy_spawn_container: Node = $enemy_spawn_container
-@onready var dead_bullet_container: Node = $dead_bullet_container
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

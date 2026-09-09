@@ -1,5 +1,8 @@
 extends Area2D
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var light: PointLight2D = $PointLight2D
+@onready var visual: Sprite2D = $Sprite2D
+@onready var gpu_part: GPUParticles2D = $GPUParticles2D
 
 var speed = 50
 var direction = null
@@ -29,11 +32,19 @@ func _on_body_entered(body: Node2D) -> void:
 	if active:
 		if has_overlapping_bodies():
 			for i in get_overlapping_bodies():
-				if body is TileMap or body is TileMapLayer:
+				if body.is_in_group("normal_map"):
 					active = false
+					light.enabled = false
+					sprite.hide()
 				if body.has_method("take_damage"):
+					if body.has_method("start_bullet_visual"):
+						body.on_enemy = true
+						body.start_bullet_visual()
 					body.take_damage(bullet_damage)
 					active = false
+					sprite.hide()
+					light.enabled = false
+					
 					return
 
 
@@ -44,10 +55,16 @@ func delete_bullet():
 func take_damage():
 	despawn()
 func despawn():
+	gpu_part.emitting = false
 	set_process(false)
 	self.add_to_group("asleep_bullet")
 	sprite.hide()
+	active = false
+	sprite.hide()
+	light.enabled = false
 func spawn():
+	gpu_part.emitting = true
+	light.enabled = true
 	active = true
 	set_process(true)
 	if self.is_in_group("asleep_bullet"):

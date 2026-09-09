@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c36tsbfpew08s"]
 
-[ext_resource type="Script" uid="uid://dkoo4c48pxjjy" path="res://scenes/visual affects/blood_2.gd" id="1_i8xpw"]
+[ext_resource type="Script" uid="uid://dkoo4c48pxjjy" path="res://scripts/blood.gd" id="1_i8xpw"]
 
 [sub_resource type="Gradient" id="Gradient_ptkrj"]
 offsets = PackedFloat32Array(0)
@@ -33,4 +33,14 @@ wait_time = 1.3059999999999998
 one_shot = true
 autostart = true
 
+[node name="blood_fade_away" type="Timer" parent="." unique_id=614487254]
+wait_time = 16.517
+autostart = true
+
+[node name="delete" type="Timer" parent="." unique_id=1478608549]
+wait_time = 7.928
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="blood_fade_away" to="." method="_on_blood_fade_away_timeout"]
+[connection signal="timeout" from="delete" to="." method="_on_delete_timeout"]

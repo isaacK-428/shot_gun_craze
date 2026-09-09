@@ -1,0 +1,11 @@
+[gd_resource type="GradientTexture2D" format=3 uid="uid://b4g3iirll3lxe"]
+
+[sub_resource type="Gradient" id="Gradient_smehm"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.67168677)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[resource]
+gradient = SubResource("Gradient_smehm")
+fill = 1
+fill_from = Vector2(0.5, 0.5)

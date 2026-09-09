@@ -1,6 +1,6 @@
 extends Control
 
-var main_menu = preload("res://scenes/main_menu.tscn")
+var main_menu = preload("res://scenes/UI/main_menu.tscn")
 var bus_Master= AudioServer.get_bus_index("Master")
 var bus_Music= AudioServer.get_bus_index("Music")
 var bus_SFX= AudioServer.get_bus_index("SFX")

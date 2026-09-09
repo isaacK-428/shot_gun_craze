@@ -19,3 +19,15 @@ res://scenes/visual affects/blood_2.gd
 res://scripts/main_scene.gd
 res://scenes/bullet.tscn
 res://scripts/bullet.gd
+res://scenes/torch.tscn
+res://scripts/torch.gd
+res://default_bus_layout.tres
+res://scenes/gpu_particles_2d.tscn
+res://scenes/visual affects/shot_gun_particles_hit.tscn
+res://scenes/visual affects/enemy_death.tscn
+res://scenes/UI/main_menu.tscn
+res://scripts/main_menu.gd
+res://scripts/shop.gd
+res://scenes/UI/shop.tscn
+res://scenes/UI/settings.tscn
+res://scripts/settings.gd

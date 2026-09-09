@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ww2k6wvxy87m"]
 
 [ext_resource type="Script" uid="uid://sctxadjlvvs" path="res://scripts/bullet.gd" id="1_mkf8s"]
+[ext_resource type="Texture2D" uid="uid://b4g3iirll3lxe" path="res://scenes/textures/light.tres" id="2_y25gk"]
 
 [sub_resource type="Gradient" id="Gradient_h1aey"]
 offsets = PackedFloat32Array(0, 0.63554215)
@@ -73,6 +74,12 @@ process_material = SubResource("ParticleProcessMaterial_26lx3")
 [node name="Timer" type="Timer" parent="." unique_id=1392002853]
 wait_time = 0.353
 one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1210347827]
+scale = Vector2(4.99, 4.99)
+energy = 0.32
+shadow_enabled = true
+texture = ExtResource("2_y25gk")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

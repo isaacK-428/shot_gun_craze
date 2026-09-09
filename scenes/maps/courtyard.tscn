@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dmjpu32frimxm" path="res://scenes/enemy_spawner.tscn" id="5_jupbj"]
 [ext_resource type="PackedScene" uid="uid://bumyycpihha8h" path="res://scenes/interest_point.tscn" id="6_n25pp"]
 [ext_resource type="PackedScene" uid="uid://trr2cu205jtd" path="res://scenes/power_up.tscn" id="7_0ih4i"]
-[ext_resource type="PackedScene" uid="uid://bk1l3sx7l3dl" path="res://scenes/canvas_modulate.tscn" id="8_yvald"]
+[ext_resource type="PackedScene" uid="uid://bk1l3sx7l3dl" path="res://scenes/visual affects/darken.tscn" id="8_yvald"]
+[ext_resource type="PackedScene" uid="uid://3oi83patfsmf" path="res://scenes/torch.tscn" id="9_6njbu"]
 
 [node name="defualt_map" type="Node2D" unique_id=1647013442]
 script = ExtResource("1_wwbxq")
@@ -52,3 +53,7 @@ position = Vector2(40, 87)
 [node name="CanvasModulate" parent="." unique_id=1536183115 instance=ExtResource("8_yvald")]
 
 [node name="dead_bullet_container" type="Node" parent="." unique_id=1262624249]
+
+[node name="torch" parent="." unique_id=950448114 instance=ExtResource("9_6njbu")]
+position = Vector2(62, -253)
+power = 3.19

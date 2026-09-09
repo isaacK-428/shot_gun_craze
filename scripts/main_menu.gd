@@ -1,11 +1,10 @@
 extends Control
 var difficulty = 1
-var active = preload("res://active.tres")
-var normal = preload("res://normal.tres")
-var normal_float = preload("res://normal_hover.tres")
+var active = preload("res://themes/active.tres")
+var normal = preload("res://themes/normal.tres")
+var normal_float = preload("res://themes/normal_hover.tres")
 var float_active = normal_float
-var shop = preload("res://scenes/shop.tscn")
-#preload("res://active_float.tres")
+var shop = preload("res://scenes/UI/shop.tscn")
 var maps = [
 	preload("res://scenes/maps/courtyard.tscn"),
 	preload("res://scenes/maps/house_map.tscn"),
@@ -41,7 +40,7 @@ func hard() -> void:
 
 func _on_button_2_pressed() -> void:
 	print("settings")
-	get_tree().change_scene_to_file("res://scenes/settings.tscn")
+	get_tree().change_scene_to_file("res://scenes/UI/settings.tscn")
 
 
 func _on_play_random_pressed() -> void:
@@ -102,4 +101,4 @@ func _on_cave_pressed() -> void:
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/shop.tscn")
+	get_tree().change_scene_to_packed(shop)

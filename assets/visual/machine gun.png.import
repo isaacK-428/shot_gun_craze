@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u5q5aqwokw4u"
-path="res://.godot/imported/whwywywyw.png-c1f125f68d330924c1ecefe5ed502e87.ctex"
+uid="uid://ca531ot8xgbxn"
+path="res://.godot/imported/machine gun.png-6a1ac4418a50f1c09bffed2c73ac982b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/whwywywyw.png"
-dest_files=["res://.godot/imported/whwywywyw.png-c1f125f68d330924c1ecefe5ed502e87.ctex"]
+source_file="res://assets/visual/machine gun.png"
+dest_files=["res://.godot/imported/machine gun.png-6a1ac4418a50f1c09bffed2c73ac982b.ctex"]
 
 [params]
 

@@ -50,6 +50,7 @@ end_cap_mode = 2
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=442676064]
 scale = Vector2(36.48, 36.48)
+energy = 0.2
 texture = SubResource("GradientTexture2D_mt5ol")
 
 [node name="Timer" type="Timer" parent="." unique_id=1810208634]
