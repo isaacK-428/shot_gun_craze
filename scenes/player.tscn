@@ -97,6 +97,8 @@ ignore_rotation = false
 zoom = Vector2(1.83, 1.83)
 
 [node name="HUD" parent="Camera2D" unique_id=1822620139 instance=ExtResource("4_dqkch")]
+visibility_layer = 2
+z_index = 16
 offset_left = -249.0
 offset_top = -143.0
 offset_right = -249.0

@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bscg21iobvh8t" path="res://scripts/main_scene.gd" id="1_wtsjf"]
 [ext_resource type="PackedScene" uid="uid://bvy3b8qb81f76" path="res://scenes/tile_map.tscn" id="2_rnaij"]
-[ext_resource type="PackedScene" uid="uid://oo44jalssfgl" path="res://scenes/layer_2.tscn" id="3_h3xc6"]
+[ext_resource type="PackedScene" uid="uid://oo44jalssfgl" path="res://scenes/water.tscn" id="3_h3xc6"]
 [ext_resource type="PackedScene" uid="uid://urw3dtjpdxq5" path="res://scenes/player.tscn" id="4_s36qc"]
 [ext_resource type="PackedScene" uid="uid://dmjpu32frimxm" path="res://scenes/enemy_spawner.tscn" id="5_6qxox"]
-[ext_resource type="PackedScene" uid="uid://b6ackm33kskw" path="res://scenes/pick_up_weapon.tscn" id="6_gthg3"]
+[ext_resource type="PackedScene" path="res://scenes/pick_up_weapon.tscn" id="6_gthg3"]
 [ext_resource type="PackedScene" uid="uid://bumyycpihha8h" path="res://scenes/interest_point.tscn" id="7_ntc4i"]
 [ext_resource type="PackedScene" uid="uid://it3arkm2k7kj" path="res://scenes/enemy.tscn" id="8_rnaij"]
 

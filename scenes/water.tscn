@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://oo44jalssfgl"]
 
-[ext_resource type="Texture2D" uid="uid://crq4yjxkotomq" path="res://assets/visual/spritesheet_tiles.png" id="1_b61n4"]
+[ext_resource type="Texture2D" uid="uid://crq4yjxkotomq" path="res://assets/visual/spritesheet_tiles.png" id="1_bdk6y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_57qly"]
-texture = ExtResource("1_b61n4")
+texture = ExtResource("1_bdk6y")
 separation = Vector2i(10, 10)
 texture_region_size = Vector2i(64, 64)
 21:6/0 = 0

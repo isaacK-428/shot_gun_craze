@@ -31,3 +31,6 @@ res://scripts/shop.gd
 res://scenes/UI/shop.tscn
 res://scenes/UI/settings.tscn
 res://scripts/settings.gd
+res://scenes/water.tscn
+res://scenes/top_layer.tscn
+res://scenes/UI/hud.tscn
