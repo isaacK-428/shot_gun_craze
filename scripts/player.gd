@@ -27,6 +27,7 @@ var total_abilites = [
 
 var change_perks = false
 var dash_visual = preload("res://scenes/visual affects/dash_visuals.tscn")
+var main_scene = preload("res://scenes/UI/main_menu.tscn")
 var dash = false
 var can_frost = true
 var actual_melee_cooldown = true
@@ -172,7 +173,7 @@ func die():
 	#var object = get_tree().get_nodes_in_group("delete")
 	#for i in object:
 		#i.queue_free()
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_packed(main_scene)
 func gun_changed(gun: String):
 	if gun == "pistol":
 		damage = 1

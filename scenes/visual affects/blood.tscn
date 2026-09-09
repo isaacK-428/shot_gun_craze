@@ -34,7 +34,7 @@ one_shot = true
 autostart = true
 
 [node name="blood_fade_away" type="Timer" parent="." unique_id=614487254]
-wait_time = 16.517
+wait_time = 30.126
 autostart = true
 
 [node name="delete" type="Timer" parent="." unique_id=1478608549]

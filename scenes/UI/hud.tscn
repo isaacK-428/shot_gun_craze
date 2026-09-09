@@ -8,6 +8,9 @@ bg_color = Color(0.69135684, 0.6913568, 0.69135684, 1)
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rd3kb"]
 light_mode = 1
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c4vmg"]
+light_mode = 1
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ahhtf"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 2
@@ -105,6 +108,7 @@ offset_bottom = 29.0
 
 [node name="Label" type="Label" parent="." unique_id=2000290945]
 visible = false
+material = SubResource("CanvasItemMaterial_c4vmg")
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

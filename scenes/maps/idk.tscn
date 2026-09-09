@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bvy3b8qb81f76" path="res://scenes/tile_map.tscn" id="2_5fm25"]
 [ext_resource type="PackedScene" uid="uid://oo44jalssfgl" path="res://scenes/water.tscn" id="3_4ae5l"]
 [ext_resource type="PackedScene" uid="uid://urw3dtjpdxq5" path="res://scenes/player.tscn" id="4_1hov8"]
+[ext_resource type="PackedScene" uid="uid://clekuvilw51ga" path="res://scenes/top_layer.tscn" id="4_jank7"]
 [ext_resource type="PackedScene" uid="uid://dmjpu32frimxm" path="res://scenes/enemy_spawner.tscn" id="5_jank7"]
 [ext_resource type="PackedScene" uid="uid://bumyycpihha8h" path="res://scenes/interest_point.tscn" id="6_qbtdj"]
 [ext_resource type="PackedScene" uid="uid://bk1l3sx7l3dl" path="res://scenes/visual affects/darken.tscn" id="7_5fm25"]
@@ -19,6 +20,8 @@ tile_map_data = PackedByteArray("AAD8//v/AwAKAAAAAAD9//v/AwAKAAAAAAD+//v/AwALAAU
 [node name="layer 2" parent="tile_map" unique_id=2021952899 instance=ExtResource("3_4ae5l")]
 modulate = Color(1, 1, 1, 0.45882353)
 z_index = 0
+
+[node name="top_layer" parent="tile_map" unique_id=940255971 instance=ExtResource("4_jank7")]
 
 [node name="player" parent="." unique_id=156242723 instance=ExtResource("4_1hov8")]
 health = 20

@@ -39,6 +39,7 @@ offset_right = 885.0
 offset_bottom = 307.0
 max_value = 1.0
 step = 0.01
+value = 0.65
 
 [node name="music" type="HSlider" parent="." unique_id=1557515879]
 layout_mode = 0
@@ -48,6 +49,7 @@ offset_right = 885.0
 offset_bottom = 376.0
 max_value = 1.0
 step = 0.01
+value = 0.25
 
 [node name="SFX" type="HSlider" parent="." unique_id=1630511722]
 layout_mode = 0
@@ -57,6 +59,7 @@ offset_right = 885.0
 offset_bottom = 446.0
 max_value = 1.0
 step = 0.01
+value = 0.73
 
 [node name="Label2" type="Label" parent="." unique_id=1027756260]
 layout_mode = 0
