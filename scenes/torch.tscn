@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3oi83patfsmf"]
 
-[ext_resource type="Texture2D" uid="uid://b4g3iirll3lxe" path="res://assets/textures/light.tres" id="1_d4v33"]
+[ext_resource type="Texture2D" uid="uid://b4g3iirll3lxe" path="res://scenes/textures/light.tres" id="1_d4v33"]
 [ext_resource type="Script" uid="uid://07qtpiju5t88" path="res://scripts/torch.gd" id="2_my26j"]
 
 [node name="torch" type="PointLight2D" unique_id=950448114]

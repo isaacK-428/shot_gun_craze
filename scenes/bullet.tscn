@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ww2k6wvxy87m"]
 
 [ext_resource type="Script" uid="uid://sctxadjlvvs" path="res://scripts/bullet.gd" id="1_mkf8s"]
-[ext_resource type="Texture2D" uid="uid://b4g3iirll3lxe" path="res://assets/textures/light.tres" id="2_y25gk"]
+[ext_resource type="Texture2D" uid="uid://b4g3iirll3lxe" path="res://scenes/textures/light.tres" id="2_y25gk"]
 
 [sub_resource type="Gradient" id="Gradient_h1aey"]
 offsets = PackedFloat32Array(0, 0.63554215)

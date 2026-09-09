@@ -12,8 +12,6 @@ var total_abilites = [
 	"freeze",
 	"fireball"
 ]
-@onready var game_over_screen: Control = $game_over_screen
-
 @export var speed = 500
 @onready var gun: Marker2D = $gun
 @onready var shoot_cooldown: Timer = $shoot_cooldown
@@ -49,8 +47,6 @@ var shot_gun_particles_1 = preload("res://scenes/visual affects/shot_gun_particl
 var fireball = preload("res://scenes/fireball.tscn")
 @export var weapon_equiped: String = "pistol"
 func _ready() -> void:
-	gun.show()
-	$Node2D/right.show()
 	$PointLight2D.shadow_enabled = true
 	equipped_ability = cheese.equipped_ability
 	print(equipped_ability)
@@ -172,16 +168,12 @@ func take_damage(amount):
 		if health<=0:
 			self.die()
 func die():
-	gun.hide()
-	$Node2D/right.hide()
-	#$CanvasModulate.hide()
 	set_physics_process(false)
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(2.0).timeout
 	#var object = get_tree().get_nodes_in_group("delete")
 	#for i in object:
 		#i.queue_free()
-	#get_tree().change_scene_to_packed(main_scene)
-	game_over()
+	get_tree().change_scene_to_packed(main_scene)
 func gun_changed(gun: String):
 	if gun == "pistol":
 		damage = 1
@@ -341,14 +333,7 @@ func _on_spike_ball_body_entered(body: Node2D) -> void:
 		S_G_I.global_position = body.global_position
 		$bullet_container.add_child(S_G_I)
 		S_G_I.emitting = true
-func game_over():
-	game_over_screen.show()	
-	for i in get_tree().get_nodes_in_group("enemy"):
-		i.set_physics_process(false)
-		i.set_process(false)
-	cheese.is_dead=true
-	$CanvasModulate.queue_free()
-	$PointLight2D.enabled = true
+		
 
 
 func _on_frost_ability_timer_timeout() -> void:
