@@ -33,6 +33,8 @@ func _ready():
 	health*=2
 
 func _physics_process(delta: float) -> void:
+	if cheese.is_dead ==true:
+		queue_free()
 	recoil_amount.move_toward(Vector2.ZERO,2200.0*delta)
 	if enemy_type == "shooter" || enemy_type == "bomber":
 		gun.look_at(cheese.player_pos)

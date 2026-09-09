@@ -10,9 +10,11 @@ var I1 = null
 var I2 = null
 var I3= null
 @onready var enemy_spawn_container: Node = $enemy_spawn_container
+@onready var canvas_modulate: CanvasModulate = $CanvasModulate
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	canvas_modulate.show()
 	cheese.start_level()
 	randomize()
 	d = cheese.difficulty
@@ -22,9 +24,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
-	#if Input.is_action_just_pressed("restart"):
-		#get_tree().reload_current_scene()
 	if get_tree().get_nodes_in_group("enemy").is_empty()&&waiting_for_perk == false:
 		waiting_for_perk == true
 		#await get_tree().create_timer(2.0).timeout

@@ -35,3 +35,6 @@ res://scenes/water.tscn
 res://scenes/top_layer.tscn
 res://scenes/UI/hud.tscn
 res://scenes/game_over_screen.tscn
+res://scripts/game_over_screen.gd
+res://scenes/load.tscn
+res://scripts/load.gd

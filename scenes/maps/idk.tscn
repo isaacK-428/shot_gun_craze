@@ -22,10 +22,9 @@ modulate = Color(1, 1, 1, 0.45882353)
 z_index = 0
 
 [node name="top_layer" parent="tile_map" unique_id=940255971 instance=ExtResource("4_jank7")]
+tile_map_data = PackedByteArray("AAAKAP//AAAWAAkAAAAQAPv/AAATAAoAAAD6//P/AAAYAAgAAAANAPD/AAAWAAoAAAADAPv/AAAWAAoAAAD9//z/AAAXAAQAAAA=")
 
 [node name="player" parent="." unique_id=156242723 instance=ExtResource("4_1hov8")]
-health = 20
-weapon_equiped = "shot gun"
 
 [node name="enemy_spawn_container" type="Node" parent="." unique_id=495950726]
 
@@ -57,6 +56,7 @@ position = Vector2(-41, -1014)
 position = Vector2(599, -594)
 
 [node name="CanvasModulate" parent="." unique_id=1536183115 instance=ExtResource("7_5fm25")]
+visible = false
 
 [node name="torch" parent="." unique_id=950448114 instance=ExtResource("8_4ae5l")]
 position = Vector2(-216, -210)

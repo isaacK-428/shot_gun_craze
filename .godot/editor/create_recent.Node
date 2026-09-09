@@ -1,14 +1,14 @@
+PointLight2D
+AudioStreamPlayer
 Panel
 Control
 Button
 Label
 CanvasModulate
 LightOccluder2D
-PointLight2D
 TileMapLayer
 Timer
 Node
 RigidBody2D
 Node2D
 Sprite2D
-StaticBody2D

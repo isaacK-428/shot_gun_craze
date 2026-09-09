@@ -1,4 +1,5 @@
 extends Node
+var is_dead = false
 var can_combo=false
 var combo_amount = 0
 var player_pos = null
@@ -26,7 +27,8 @@ var coin_costs = [
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	is_dead=false
+	start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,3 +49,14 @@ func _on_timer_timeout() -> void:
 	combo_amount = 0
 func start_level():
 	pass
+func start():
+	is_dead = false
+	can_combo=false
+	combo_amount = 0
+	player_pos = null
+	difficulty = 1
+	total_alive_enemies = null
+	credits = 0
+	delta2 = 1
+	choose_perks = false
+	coins = 0
