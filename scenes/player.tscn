@@ -9,6 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://b4g3iirll3lxe" path="res://scenes/textures/light.tres" id="6_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://b2b4dvvpw1568" path="res://scenes/game_over_screen.tscn" id="7_fjrip"]
 
+[sub_resource type="Gradient" id="Gradient_smehm"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.82, 0.065599985, 0.065599985, 0.6666667)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ur7pv"]
+gradient = SubResource("Gradient_smehm")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(22, 22)
 
@@ -83,6 +90,16 @@ script = ExtResource("1_3vyb7")
 health = 500
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1034708963]
+
+[node name="rage" type="Sprite2D" parent="Node2D" unique_id=2002687045]
+visible = false
+scale = Vector2(1.0000002, 1.0000002)
+texture = SubResource("GradientTexture2D_ur7pv")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Node2D/rage" unique_id=172710701]
+remote_path = NodePath("..")
+update_rotation = false
+update_scale = false
 
 [node name="right" type="Sprite2D" parent="Node2D" unique_id=215723152]
 position = Vector2(4, -1.7484558e-07)
@@ -276,6 +293,7 @@ one_shot = true
 
 [node name="shoot" type="AudioStreamPlayer" parent="." unique_id=1993835508]
 stream = ExtResource("6_smehm")
+volume_db = -80.0
 
 [node name="melee_swing" type="AudioStreamPlayer" parent="." unique_id=159031743]
 

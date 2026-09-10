@@ -55,6 +55,8 @@ func _ready() -> void:
 	if !equipped_ability == total_abilites[1]: #spike ball
 		$Marker2D2.queue_free()
 func _physics_process(delta: float) -> void:
+	if damage>1:
+		$Node2D/rage.rotate(0.3*delta)
 	print(get_tree().get_nodes_in_group("asleep_bullet").size(), "     ",get_tree().get_nodes_in_group("bullet").size())
 	if on_enemy == true:
 		$CanvasModulate.show()
@@ -233,11 +235,13 @@ func get_power_up(type: int):
 		take_damage(randi_range(1,2)*-1)
 	if type == 2:
 		damage = 5
+		$Node2D/rage.show()
 
 
 func _on_power_up_timeout() -> void:
 	damage = 1
 	print("timeout")
+	$Node2D/rage.hide()
 func change_sprite(D: Vector2) -> void:
 	if D == Vector2.ZERO:
 		return # Keep current sprite if not moving

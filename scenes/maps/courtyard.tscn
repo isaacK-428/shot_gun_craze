@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dmjpu32frimxm" path="res://scenes/enemy_spawner.tscn" id="5_jupbj"]
 [ext_resource type="PackedScene" uid="uid://bumyycpihha8h" path="res://scenes/interest_point.tscn" id="6_n25pp"]
 [ext_resource type="PackedScene" uid="uid://clekuvilw51ga" path="res://scenes/top_layer.tscn" id="7_0ih4i"]
+[ext_resource type="PackedScene" uid="uid://trr2cu205jtd" path="res://scenes/power_up.tscn" id="8_6njbu"]
 [ext_resource type="PackedScene" uid="uid://bk1l3sx7l3dl" path="res://scenes/visual affects/darken.tscn" id="8_yvald"]
 
 [node name="defualt_map" type="Node2D" unique_id=1647013442]
@@ -45,5 +46,7 @@ position = Vector2(486, 167)
 [node name="dead_bullet_container" type="Node" parent="." unique_id=1262624249]
 
 [node name="player" parent="." unique_id=156242723 instance=ExtResource("4_6njbu")]
-health = 20
 weapon_equiped = "shot gun"
+
+[node name="power_up30" parent="." unique_id=1735253762 instance=ExtResource("8_6njbu")]
+position = Vector2(333, -123)

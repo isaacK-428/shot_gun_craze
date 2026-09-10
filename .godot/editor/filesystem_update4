@@ -39,3 +39,5 @@ res://scripts/game_over_screen.gd
 res://scenes/load.tscn
 res://scripts/load.gd
 res://scenes/textures/light.tres
+res://scenes/maps/arean.tscn
+res://scenes/maps/arena.tscn

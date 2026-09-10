@@ -9,7 +9,8 @@ var maps = [
 	preload("res://scenes/maps/courtyard.tscn"),
 	preload("res://scenes/maps/house_map.tscn"),
 	preload("res://scenes/maps/harbour.tscn"),
-	preload("res://scenes/maps/idk.tscn")
+	preload("res://scenes/maps/idk.tscn"),
+	preload("res://scenes/maps/arena.tscn")	
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -102,3 +103,8 @@ func _on_cave_pressed() -> void:
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_packed(shop)
+
+
+func _on_arena_pressed() -> void:
+	play_now()
+	get_tree().change_scene_to_packed(maps[4])

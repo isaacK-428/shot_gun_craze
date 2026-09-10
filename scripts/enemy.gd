@@ -24,6 +24,9 @@ var bullet = preload("res://scenes/bullet.tscn")
 @onready var gun: Marker2D = $Marker2D
 @onready var freeze_timer: Timer = $freeze_timer
 @onready var container: Node = $bullet_container
+@onready var hit_sound: AudioStreamPlayer = $hit
+@onready var death_sound: AudioStreamPlayer = $death
+
 
 #take_damage()
 func _ready():
@@ -78,7 +81,10 @@ func take_damage(amount):
 	get_parent().add_child(hit)
 	health-=amount
 	if health<=0:
+		death_sound.play()
 		die.call_deferred()
+	else:
+		hit_sound.play()
 func die():
 	loot_drops()
 	cheese.total_alive_enemies-=1
