@@ -48,7 +48,6 @@ var fireball = preload("res://scenes/fireball.tscn")
 func _ready() -> void:
 	$PointLight2D.shadow_enabled = true
 	equipped_ability = cheese.equipped_ability
-	print(equipped_ability)
 	randomize()
 	hud.change_health(health)
 	gun_changed(weapon_equiped)
@@ -57,7 +56,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if damage>1:
 		$Node2D/rage.rotate(0.3*delta)
-	print(get_tree().get_nodes_in_group("asleep_bullet").size(), "     ",get_tree().get_nodes_in_group("bullet").size())
 	if on_enemy == true:
 		$CanvasModulate.show()
 	else:
@@ -163,6 +161,7 @@ func _on_shoot_cooldown_timeout() -> void:
 	can_shoot = true
 func take_damage(amount):
 	if invincibilty_frame==false:
+		$take_damage.play()
 		$invinsibilty_frame.start()
 		invincibilty_frame=true
 		health-=amount

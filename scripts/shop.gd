@@ -1,5 +1,6 @@
 extends Control
 @onready var coins_label: Label = $coins_label
+
 var equipped_ability = "dash"
 var owned_abilites = [
 	"dash"
@@ -12,9 +13,9 @@ var total_abilites = [
 ]
 var coin_costs = [
 	0,
-	7,
 	10,
-	20
+	40,
+	70
 ]
 var coins = 0
 var main_menu = preload("res://scenes/UI/main_menu.tscn")
@@ -31,7 +32,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$Sprite2D.rotate(0.5*delta)
 
 
 func _on_back_pressed() -> void:
@@ -65,7 +66,8 @@ func manage_ability(index):
 		buy_ability(index)
 func change_ability(index):
 	equipped_ability = total_abilites[index]
-	#print(equipped_ability)
+	$Label3.text = total_abilites[index]
+	
 func buy_ability(index):
 	if coin_costs[index]<=coins:
 		coins-=coin_costs[index]
@@ -74,6 +76,11 @@ func buy_ability(index):
 		print(owned_abilites,"  ",coins)
 		change_ability(index)
 	else:
-		print("you dont have enough money for this purchase")
+		$Label4.show()
+		$Timer.start()
 func update_UI(Coin):
 	coins_label.text = "Coins: "+str(Coin)
+
+
+func _on_timer_timeout() -> void:
+	$Label4.hide()

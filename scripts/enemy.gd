@@ -38,7 +38,6 @@ func _physics_process(delta: float) -> void:
 	recoil_amount.move_toward(Vector2.ZERO,2200.0*delta)
 	if enemy_type == "shooter" || enemy_type == "bomber":
 		gun.look_at(cheese.player_pos)
-	#print(inside,"   ",can_damage)
 	if inside:
 		if can_damage == true:
 			if enemy_type!="shooter":
@@ -74,8 +73,6 @@ func _on_timer_timeout() -> void:
 				agent.target_position=interest
 
 func take_damage(amount):
-	var S_P = sound_player.instantiate()
-	get_tree().root.add_child(S_P)
 	var hit = hit_particles.instantiate()
 	hit.global_position = global_position
 	hit.emitting = true
@@ -83,10 +80,13 @@ func take_damage(amount):
 	health-=amount
 	if health<=0:
 		die.call_deferred()
+		var S_P = sound_player.instantiate()
 		S_P.sound = 2
+		get_tree().root.add_child(S_P)
 	else:
+		var S_P = sound_player.instantiate()
 		S_P.sound = 1
-	get_tree().root.add_child(S_P)
+		get_tree().root.add_child(S_P)
 func die():
 	loot_drops()
 	cheese.total_alive_enemies-=1

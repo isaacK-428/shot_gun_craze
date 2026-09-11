@@ -8,6 +8,9 @@
 [ext_resource type="AudioStream" uid="uid://b1xk3c4c00slh" path="res://assets/shoot affect.wav" id="6_smehm"]
 [ext_resource type="Texture2D" uid="uid://b4g3iirll3lxe" path="res://scenes/textures/light.tres" id="6_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://b2b4dvvpw1568" path="res://scenes/game_over_screen.tscn" id="7_fjrip"]
+[ext_resource type="AudioStream" uid="uid://cu11svh5xk7u1" path="res://assets/ahahah.wav" id="7_ur7pv"]
+[ext_resource type="AudioStream" uid="uid://od1ustgo4n0n" path="res://assets/hitHurt copy.wav" id="10_y4r1p"]
+[ext_resource type="AudioStream" uid="uid://dhmm8yc674fd0" path="res://assets/click.wav" id="11_d2wvv"]
 
 [sub_resource type="Gradient" id="Gradient_smehm"]
 offsets = PackedFloat32Array(0)
@@ -296,6 +299,10 @@ volume_db = 1.825
 bus = &"SFX"
 
 [node name="melee_swing" type="AudioStreamPlayer" parent="." unique_id=159031743]
+stream = ExtResource("7_ur7pv")
+pitch_scale = 2.25
+mix_target = 1
+bus = &"SFX"
 
 [node name="power_up_heal" type="AudioStreamPlayer" parent="." unique_id=1167678177]
 
@@ -304,7 +311,7 @@ bus = &"SFX"
 [node name="move" type="AudioStreamPlayer" parent="." unique_id=483770522]
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1267145944]
-scale = Vector2(5.44, 5.44)
+scale = Vector2(9.34, 9.34)
 energy = 1.15
 shadow_enabled = true
 shadow_filter = 1
@@ -321,10 +328,6 @@ texture = SubResource("GradientTexture2D_y4r1p")
 wait_time = 0.201
 one_shot = true
 
-[node name="game_over_screen" parent="." unique_id=1579867362 instance=ExtResource("7_fjrip")]
-visible = false
-scale = Vector2(0.52, 0.52)
-
 [node name="ColorRect" type="ColorRect" parent="." unique_id=225662646]
 z_index = -2000
 offset_left = -1187.931
@@ -332,6 +335,17 @@ offset_top = -874.138
 offset_right = 945.69006
 offset_bottom = 914.6552
 color = Color(0.53999996, 0.8619999, 1, 1)
+
+[node name="game_over_screen" parent="." unique_id=1579867362 instance=ExtResource("7_fjrip")]
+visible = false
+scale = Vector2(0.52, 0.52)
+
+[node name="take_damage" type="AudioStreamPlayer" parent="." unique_id=1420301551]
+stream = ExtResource("10_y4r1p")
+
+[node name="click" type="AudioStreamPlayer" parent="." unique_id=1661086496]
+stream = ExtResource("11_d2wvv")
+autoplay = true
 
 [connection signal="body_entered" from="enemy_detect" to="." method="_on_enemy_detect_body_entered"]
 [connection signal="body_exited" from="enemy_detect" to="." method="_on_enemy_detect_body_exited"]

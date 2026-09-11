@@ -2,8 +2,8 @@
 
 [sub_resource type="Gradient" id="Gradient_smehm"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.67168677)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.48192772, 0.9819277)
+colors = PackedColorArray(0, 0, 0, 1, 0.40833324, 0.29000002, 1, 1, 0.7, 0, 0, 1)
 
 [resource]
 gradient = SubResource("Gradient_smehm")

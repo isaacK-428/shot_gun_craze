@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://btuhcg7n0r51" path="res://themes/normal.tres" id="3_wu84c"]
 [ext_resource type="StyleBox" uid="uid://db0st4lxg6fwu" path="res://themes/normal_hover.tres" id="4_8ln24"]
 [ext_resource type="StyleBox" uid="uid://dr3stafqn7dpd" path="res://themes/pressed.tres" id="5_rtw2f"]
+[ext_resource type="AudioStream" uid="uid://dhmm8yc674fd0" path="res://assets/click.wav" id="7_bm8t2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
 bg_color = Color(0.34454858, 0.6472204, 0.7514278, 1)
@@ -91,6 +92,7 @@ theme_override_font_sizes/font_size = 27
 text = "play random map"
 
 [node name="settings" type="Button" parent="." unique_id=1390589099]
+visible = false
 layout_mode = 0
 offset_left = 1062.0
 offset_top = 9.0
@@ -100,6 +102,7 @@ text = "      "
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1168395433]
+visible = false
 position = Vector2(1120, 111)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ekxnf")
@@ -177,6 +180,37 @@ offset_top = 359.0
 offset_right = 629.0
 offset_bottom = 416.0
 text = "Shop"
+
+[node name="click" type="AudioStreamPlayer" parent="." unique_id=1589763821]
+stream = ExtResource("7_bm8t2")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=266280421]
+color = Color(0.310566, 0.3426111, 0.99995023, 1)
+polygon = PackedVector2Array(12, -23, 99, 54, 55, 126, 123, 236, 195, 252, 127, 339, 167, 393, 123, 456, 111, 553, 84, 647, -61, 660, -62, 68)
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=1232969572]
+position = Vector2(-49, 1)
+color = Color(0.5202755, 0.6020079, 1, 1)
+polygon = PackedVector2Array(12, -23, 99, 54, 33, 118, 95, 166, 98, 239, 170, 268, 123, 355, 169, 400, 136, 411, 92, 455, 110, 483, 101, 552, 91, 576, 57, 595, 83, 625, 84, 647, -61, 660, -62, 68)
+
+[node name="Label" type="Label" parent="." unique_id=2106267902]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 15.0
+offset_right = 208.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 44
+text = "Shot gun "
+
+[node name="Label2" type="Label" parent="." unique_id=541743706]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 66.0
+offset_right = 225.0
+offset_bottom = 161.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 69
+text = "RAGE!"
 
 [connection signal="pressed" from="difficulties/easy" to="." method="easy"]
 [connection signal="pressed" from="difficulties/medium" to="." method="medium"]

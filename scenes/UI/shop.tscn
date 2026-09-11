@@ -1,6 +1,18 @@
 [gd_scene format=3 uid="uid://lxsx3rqaxjrj"]
 
 [ext_resource type="Script" uid="uid://k0so8skiaami" path="res://scripts/shop.gd" id="1_lx5au"]
+[ext_resource type="StyleBox" uid="uid://db0st4lxg6fwu" path="res://themes/normal_hover.tres" id="2_7fby8"]
+[ext_resource type="AudioStream" uid="uid://dhmm8yc674fd0" path="res://assets/click.wav" id="2_7wykl"]
+[ext_resource type="StyleBox" uid="uid://btuhcg7n0r51" path="res://themes/normal.tres" id="3_dv4yl"]
+[ext_resource type="StyleBox" uid="uid://dr3stafqn7dpd" path="res://themes/pressed.tres" id="3_t7s57"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wykl"]
+bg_color = Color(0.20059997, 0.59, 0.5575499, 1)
+
+[sub_resource type="Gradient" id="Gradient_dv4yl"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t7s57"]
+gradient = SubResource("Gradient_dv4yl")
 
 [node name="shop" type="Control" unique_id=394189612]
 layout_mode = 3
@@ -10,6 +22,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lx5au")
+
+[node name="Panel" type="Panel" parent="." unique_id=1915658121]
+layout_mode = 0
+offset_right = 1162.0
+offset_bottom = 655.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7wykl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=896460230]
+texture = SubResource("GradientTexture2D_t7s57")
 
 [node name="back" type="Button" parent="." unique_id=897055877]
 layout_mode = 0
@@ -23,6 +44,9 @@ offset_left = 395.0
 offset_top = 151.0
 offset_right = 495.0
 offset_bottom = 214.0
+theme_override_styles/normal = ExtResource("3_dv4yl")
+theme_override_styles/pressed = ExtResource("3_t7s57")
+theme_override_styles/hover = ExtResource("2_7fby8")
 text = "Dash"
 
 [node name="spike_ball" type="Button" parent="." unique_id=1099263356]
@@ -31,6 +55,9 @@ offset_left = 520.0
 offset_top = 151.0
 offset_right = 620.0
 offset_bottom = 214.0
+theme_override_styles/normal = ExtResource("3_dv4yl")
+theme_override_styles/pressed = ExtResource("3_t7s57")
+theme_override_styles/hover = ExtResource("2_7fby8")
 text = "spike ball"
 
 [node name="frost" type="Button" parent="." unique_id=1458684070]
@@ -39,6 +66,9 @@ offset_left = 651.0
 offset_top = 151.0
 offset_right = 751.0
 offset_bottom = 214.0
+theme_override_styles/normal = ExtResource("3_dv4yl")
+theme_override_styles/pressed = ExtResource("3_t7s57")
+theme_override_styles/hover = ExtResource("2_7fby8")
 text = "frost"
 
 [node name="fireball" type="Button" parent="." unique_id=671297152]
@@ -47,6 +77,9 @@ offset_left = 394.0
 offset_top = 263.0
 offset_right = 494.0
 offset_bottom = 326.0
+theme_override_styles/normal = ExtResource("3_dv4yl")
+theme_override_styles/pressed = ExtResource("3_t7s57")
+theme_override_styles/hover = ExtResource("2_7fby8")
 text = "fireball"
 
 [node name="coins_label" type="Label" parent="." unique_id=63073806]
@@ -64,7 +97,7 @@ offset_left = 432.0
 offset_top = 219.0
 offset_right = 472.0
 offset_bottom = 242.0
-text = "1                              7                             10"
+text = "0                              10                             40"
 
 [node name="Label2" type="Label" parent="." unique_id=1946098913]
 layout_mode = 0
@@ -72,10 +105,37 @@ offset_left = 432.0
 offset_top = 332.0
 offset_right = 714.0
 offset_bottom = 355.0
-text = "20                              70                             20"
+text = "70                              "
+
+[node name="click" type="AudioStreamPlayer" parent="." unique_id=940121912]
+stream = ExtResource("2_7wykl")
+autoplay = true
+
+[node name="Label3" type="Label" parent="." unique_id=812848820]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 451.0
+offset_right = 651.0
+offset_bottom = 474.0
+text = "Equipped ability: dash"
+
+[node name="Label4" type="Label" parent="." unique_id=980824459]
+visible = false
+layout_mode = 0
+offset_left = 252.0
+offset_top = 493.0
+offset_right = 891.0
+offset_bottom = 532.0
+theme_override_font_sizes/font_size = 28
+text = "you dont have enough money for this purchase"
+
+[node name="Timer" type="Timer" parent="." unique_id=322696248]
+wait_time = 0.447
+one_shot = true
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="dash" to="." method="_on_dash_pressed"]
 [connection signal="pressed" from="spike_ball" to="." method="_on_spike_ball_pressed"]
 [connection signal="pressed" from="frost" to="." method="_on_ability_3_pressed"]
 [connection signal="pressed" from="fireball" to="." method="_on_fireball_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

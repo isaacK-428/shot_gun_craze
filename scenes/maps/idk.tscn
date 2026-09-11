@@ -21,7 +21,6 @@ modulate = Color(1, 1, 1, 0.45882353)
 z_index = 0
 
 [node name="player" parent="." unique_id=156242723 instance=ExtResource("4_1hov8")]
-health = 20
 weapon_equiped = "shot gun"
 
 [node name="enemy_spawn_container" type="Node" parent="." unique_id=495950726]
