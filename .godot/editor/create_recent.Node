@@ -1,3 +1,5 @@
+ColorRect
+Node2D
 AudioStreamPlayer
 AudioStreamPlayer2D
 RemoteTransform2D
@@ -11,4 +13,3 @@ CanvasModulate
 LightOccluder2D
 PointLight2D
 TileMapLayer
-Timer

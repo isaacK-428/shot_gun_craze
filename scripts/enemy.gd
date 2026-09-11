@@ -16,6 +16,7 @@ var player_guy = null
 var target = "interest"
 var interest = null
 var frosted = false
+var sound_player = preload("res://scenes/sound_affect_player.tscn")
 var recoil_amount = Vector2.ZERO
 var bullet = preload("res://scenes/bullet.tscn")
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
@@ -24,8 +25,6 @@ var bullet = preload("res://scenes/bullet.tscn")
 @onready var gun: Marker2D = $Marker2D
 @onready var freeze_timer: Timer = $freeze_timer
 @onready var container: Node = $bullet_container
-@onready var hit_sound: AudioStreamPlayer = $hit
-@onready var death_sound: AudioStreamPlayer = $death
 
 
 #take_damage()
@@ -75,16 +74,19 @@ func _on_timer_timeout() -> void:
 				agent.target_position=interest
 
 func take_damage(amount):
+	var S_P = sound_player.instantiate()
+	get_tree().root.add_child(S_P)
 	var hit = hit_particles.instantiate()
 	hit.global_position = global_position
 	hit.emitting = true
 	get_parent().add_child(hit)
 	health-=amount
 	if health<=0:
-		death_sound.play()
 		die.call_deferred()
+		S_P.sound = 2
 	else:
-		hit_sound.play()
+		S_P.sound = 1
+	get_tree().root.add_child(S_P)
 func die():
 	loot_drops()
 	cheese.total_alive_enemies-=1

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cg3q6nn07p8lt"]
+
+[ext_resource type="Script" uid="uid://olx1ufa4qspd" path="res://scripts/sound_affect_player.gd" id="1_225vi"]
+[ext_resource type="AudioStream" uid="uid://6woc3jywhpn" path="res://assets/explosion.wav" id="2_6cg5v"]
+[ext_resource type="AudioStream" uid="uid://cu11svh5xk7u1" path="res://assets/ahahah.wav" id="3_225vi"]
+
+[node name="sound_affect_player" type="Node2D" unique_id=518362356]
+script = ExtResource("1_225vi")
+
+[node name="hit" type="AudioStreamPlayer" parent="." unique_id=1389534111]
+stream = ExtResource("2_6cg5v")
+bus = &"SFX"
+
+[node name="death" type="AudioStreamPlayer" parent="." unique_id=412868598]
+stream = ExtResource("3_225vi")
+volume_db = 2.153
+bus = &"SFX"

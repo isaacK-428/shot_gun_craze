@@ -1,43 +1,7 @@
-res://scenes/maps/courtyard.tscn
-res://scenes/player.tscn
-res://scripts/player.gd
-res://scenes/tile_map.tscn
-res://scenes/enemy.tscn
-res://scenes/maps/house_map.tscn
-res://scenes/maps/idk.tscn
-res://scenes/maps/harbour.tscn
-res://scenes/main_menu.tscn
-res://scenes/power_up.tscn
-res://scenes/canvas_modulate.tscn
-res://scenes/visual affects/shotgun_visuals.tscn
-res://scripts/shotgun_visuals.gd
-res://scripts/enemy.gd
-res://scenes/hud.tscn
-res://scenes/visual affects/blood.tscn
-res://scripts/blood.gd
-res://scenes/visual affects/blood_2.gd
-res://scripts/main_scene.gd
-res://scenes/bullet.tscn
-res://scripts/bullet.gd
-res://scenes/torch.tscn
-res://scripts/torch.gd
 res://default_bus_layout.tres
-res://scenes/gpu_particles_2d.tscn
-res://scenes/visual affects/shot_gun_particles_hit.tscn
-res://scenes/visual affects/enemy_death.tscn
-res://scenes/UI/main_menu.tscn
-res://scripts/main_menu.gd
-res://scripts/shop.gd
-res://scenes/UI/shop.tscn
-res://scenes/UI/settings.tscn
-res://scripts/settings.gd
-res://scenes/water.tscn
-res://scenes/top_layer.tscn
-res://scenes/UI/hud.tscn
-res://scenes/game_over_screen.tscn
-res://scripts/game_over_screen.gd
-res://scenes/load.tscn
-res://scripts/load.gd
 res://scenes/textures/light.tres
-res://scenes/maps/arean.tscn
-res://scenes/maps/arena.tscn
+res://scenes/UI/main_menu.tscn
+res://scenes/game_over_screen.tscn
+res://scenes/sound_affect_player.tscn
+res://scripts/game_over_screen.gd
+res://scenes/player.tscn

@@ -87,7 +87,6 @@ gradient = SubResource("Gradient_ur7pv")
 scale = Vector2(1.16, 1.16)
 collision_mask = 12
 script = ExtResource("1_3vyb7")
-health = 500
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1034708963]
 
@@ -293,7 +292,8 @@ one_shot = true
 
 [node name="shoot" type="AudioStreamPlayer" parent="." unique_id=1993835508]
 stream = ExtResource("6_smehm")
-volume_db = -80.0
+volume_db = 1.825
+bus = &"SFX"
 
 [node name="melee_swing" type="AudioStreamPlayer" parent="." unique_id=159031743]
 
@@ -324,6 +324,14 @@ one_shot = true
 [node name="game_over_screen" parent="." unique_id=1579867362 instance=ExtResource("7_fjrip")]
 visible = false
 scale = Vector2(0.52, 0.52)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=225662646]
+z_index = -2000
+offset_left = -1187.931
+offset_top = -874.138
+offset_right = 945.69006
+offset_bottom = 914.6552
+color = Color(0.53999996, 0.8619999, 1, 1)
 
 [connection signal="body_entered" from="enemy_detect" to="." method="_on_enemy_detect_body_entered"]
 [connection signal="body_exited" from="enemy_detect" to="." method="_on_enemy_detect_body_exited"]

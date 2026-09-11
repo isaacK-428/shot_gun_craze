@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://it3arkm2k7kj"]
 
 [ext_resource type="Script" uid="uid://qlqfnq1l5kwr" path="res://scripts/enemy.gd" id="1_7p1mj"]
-[ext_resource type="AudioStream" uid="uid://co3waoej8ji6k" path="res://assets/hitHurt.wav" id="2_4ra3w"]
-[ext_resource type="AudioStream" uid="uid://ca5p0tkdn5alh" path="res://assets/hitHurt-2.wav" id="3_5uy6h"]
 
 [sub_resource type="Gradient" id="Gradient_7p1mj"]
 offsets = PackedFloat32Array(0, 0.039156627)
@@ -108,13 +106,6 @@ shape = SubResource("CircleShape2D_5uy6h")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=638588582]
 occluder = SubResource("OccluderPolygon2D_7p1mj")
-
-[node name="hit" type="AudioStreamPlayer" parent="." unique_id=1945530414]
-stream = ExtResource("2_4ra3w")
-
-[node name="death" type="AudioStreamPlayer" parent="." unique_id=805881079]
-stream = ExtResource("3_5uy6h")
-volume_db = 2.153
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]
