@@ -366,3 +366,4 @@ autoplay = true
 [connection signal="timeout" from="frost_ability_timer" to="." method="_on_frost_ability_timer_timeout"]
 [connection signal="timeout" from="fireball_timer" to="." method="_on_fireball_timer_timeout"]
 [connection signal="timeout" from="bullet_visual_cooldown" to="." method="_on_bullet_visual_cooldown_timeout"]
+[connection signal="reset_score" from="game_over_screen" to="." method="_on_game_over_screen_reset_score"]

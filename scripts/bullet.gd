@@ -4,7 +4,7 @@ extends Area2D
 @onready var visual: Sprite2D = $Sprite2D
 @onready var gpu_part: GPUParticles2D = $GPUParticles2D
 
-var speed = 50
+var speed = 50*1.75
 var direction = null
 var bullet_damage = 0.3
 var active = true

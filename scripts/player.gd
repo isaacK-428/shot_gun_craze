@@ -361,3 +361,8 @@ func _on_bullet_visual_cooldown_timeout() -> void:
 	on_enemy = false
 func start_bullet_visual():
 	$bullet_visual_cooldown.start()
+
+
+func _on_game_over_screen_reset_score() -> void:
+	#score = 0
+	cheese.credits = 0

@@ -1,3 +1,4 @@
+LightOccluder2D
 Sprite2D
 Polygon2D
 Label
@@ -11,4 +12,3 @@ RemoteTransform2D
 NinePatchRect
 DirectionalLight2D
 CanvasModulate
-LightOccluder2D
