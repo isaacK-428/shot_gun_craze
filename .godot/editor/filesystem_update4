@@ -1,9 +1,9 @@
 res://default_bus_layout.tres
-res://scenes/UI/main_menu.tscn
+res://scenes/UI/settings.tscn
 res://scenes/textures/light.tres
-res://scenes/player.tscn
+res://scenes/UI/shop.tscn
+res://scripts/shop.gd
+res://scripts/load.gd
+res://scripts/settings.gd
+res://scenes/UI/main_menu.tscn
 res://scripts/game_over_screen.gd
-res://scripts/player.gd
-res://scenes/bullet.tscn
-res://scripts/bullet.gd
-res://scenes/enemy.tscn

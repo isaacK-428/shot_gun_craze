@@ -9,6 +9,9 @@ var delta2 = 1
 var choose_perks = false
 var coins = 0
 var stop_waves = false
+var SFX = 20
+var MUSIC = 20
+var MASTER = 20
 var equipped_ability = "dash"
 var owned_abilites = [
 	"dash"

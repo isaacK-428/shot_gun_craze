@@ -66,14 +66,13 @@ func manage_ability(index):
 		buy_ability(index)
 func change_ability(index):
 	equipped_ability = total_abilites[index]
-	$Label3.text = total_abilites[index]
+	$Label3.text = "Euqipped Ability "+str(total_abilites[index])
 	
 func buy_ability(index):
 	if coin_costs[index]<=coins:
 		coins-=coin_costs[index]
 		owned_abilites.append(total_abilites[index])
 		update_UI(coins)
-		print(owned_abilites,"  ",coins)
 		change_ability(index)
 	else:
 		$Label4.show()

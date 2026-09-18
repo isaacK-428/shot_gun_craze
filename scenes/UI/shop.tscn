@@ -30,6 +30,7 @@ offset_bottom = 655.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7wykl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=896460230]
+position = Vector2(58, 594)
 texture = SubResource("GradientTexture2D_t7s57")
 
 [node name="back" type="Button" parent="." unique_id=897055877]
@@ -117,7 +118,7 @@ offset_left = 480.0
 offset_top = 451.0
 offset_right = 651.0
 offset_bottom = 474.0
-text = "Equipped ability: dash"
+text = "Equipped Ability: dash"
 
 [node name="Label4" type="Label" parent="." unique_id=980824459]
 visible = false

@@ -92,7 +92,6 @@ theme_override_font_sizes/font_size = 27
 text = "play random map"
 
 [node name="settings" type="Button" parent="." unique_id=1390589099]
-visible = false
 layout_mode = 0
 offset_left = 1062.0
 offset_top = 9.0
@@ -102,7 +101,6 @@ text = "      "
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1168395433]
-visible = false
 position = Vector2(1120, 111)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ekxnf")
