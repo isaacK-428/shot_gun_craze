@@ -51,6 +51,7 @@ func _on_dash_pressed() -> void:
 
 func _on_spike_ball_pressed() -> void:
 	manage_ability(1)
+	
 
 
 func _on_ability_3_pressed() -> void:
@@ -65,10 +66,12 @@ func manage_ability(index):
 	else:
 		buy_ability(index)
 func change_ability(index):
+	cheese.click_sound()
 	equipped_ability = total_abilites[index]
 	$Label3.text = "Euqipped Ability "+str(total_abilites[index])
 	
 func buy_ability(index):
+	cheese.click_sound() #change later to make separate sopunds for buying and insuffecint coins
 	if coin_costs[index]<=coins:
 		coins-=coin_costs[index]
 		owned_abilites.append(total_abilites[index])

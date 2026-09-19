@@ -9,9 +9,9 @@ var delta2 = 1
 var choose_perks = false
 var coins = 0
 var stop_waves = false
-var SFX = 20
-var MUSIC = 20
-var MASTER = 20
+var SFX = 0.2
+var MUSIC = 0.2
+var MASTER = 0.2
 var equipped_ability = "dash"
 var owned_abilites = [
 	"dash"
@@ -58,3 +58,5 @@ func start():
 	difficulty = 1
 	total_alive_enemies = null
 	stop_waves = false
+func click_sound():
+	$click.play()

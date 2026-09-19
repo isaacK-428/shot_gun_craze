@@ -34,24 +34,28 @@ func easy() -> void:
 	click_sound()
 	difficulty = 1
 	change_visuals(1)
+	cheese.click_sound()
 func medium() -> void:
 	click_sound()
 	difficulty = 2
 	change_visuals(2)
+	cheese.click_sound()
 func hard() -> void:
 	click_sound()
 	difficulty = 3
 	change_visuals(3)
+	cheese.click_sound()
 
 
 func _on_button_2_pressed() -> void:
 	click_sound()
 	print("settings")
 	get_tree().change_scene_to_file("res://scenes/UI/settings.tscn")
+	cheese.click_sound()
 
 
 func _on_play_random_pressed() -> void:
-	click_sound()
+	cheese.click_sound()
 	if maps:
 		cheese.difficulty = difficulty
 		var scene = maps.pick_random()
@@ -85,6 +89,7 @@ func change_visuals(D):
 
 
 func _on_house_pressed() -> void:
+	cheese.click_sound()
 	play_now()
 	get_tree().change_scene_to_packed(maps[1])
 	click_sound()
@@ -92,12 +97,14 @@ func _on_house_pressed() -> void:
 
 
 func _on_courtyard_pressed() -> void:
+	cheese.click_sound()
 	play_now()
 	get_tree().change_scene_to_packed(maps[0])
 	click_sound()
 
 
 func _on_docks_pressed() -> void:
+	cheese.click_sound()
 	play_now()
 	get_tree().change_scene_to_packed(maps[2])
 	click_sound()
@@ -107,19 +114,23 @@ func play_now():
 
 
 func _on_cave_pressed() -> void:
+	cheese.click_sound()
 	play_now()
 	get_tree().change_scene_to_packed(maps[3])
 	click_sound()
 
 
 func _on_button_pressed() -> void:
+	cheese.click_sound()
 	get_tree().change_scene_to_packed(shop)
 	click_sound()
 
 
 func _on_arena_pressed() -> void:
+	cheese.click_sound()
 	play_now()
 	get_tree().change_scene_to_packed(maps[4])
 	click_sound()
 func click_sound():
+	cheese.click_sound()
 	click.play.call_deferred()
