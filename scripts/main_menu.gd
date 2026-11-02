@@ -16,13 +16,15 @@ var maps = [
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	cheese.menu=true
+	cheese.music_controll()
 	var deletes = get_tree().get_nodes_in_group("delete")
 	#for i in deletes:
 		#i.queue_free()		
 	for i in deletes:
 		# Only delete nodes in the "delete" group that are attached to the root
 		if i.get_parent() == get_tree().root:
-			i.queue_free()																																															
+			i.queue_free()  
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -62,30 +64,31 @@ func _on_play_random_pressed() -> void:
 		play_now()
 		get_tree().change_scene_to_packed(scene)
 func change_visuals(D):
-	if D == 1:
-		$difficulties/easy.add_theme_stylebox_override("normal", active)
-		$difficulties/medium.add_theme_stylebox_override("normal", normal)
-		$difficulties/hard.add_theme_stylebox_override("normal", normal)
-		
-		$difficulties/easy.add_theme_stylebox_override("hover", float_active)
-		$difficulties/medium.add_theme_stylebox_override("hover", normal_float)
-		$difficulties/hard.add_theme_stylebox_override("hover", normal_float)
-	if D == 2:
-		$difficulties/easy.add_theme_stylebox_override("normal", normal)
-		$difficulties/medium.add_theme_stylebox_override("normal", active)
-		$difficulties/hard.add_theme_stylebox_override("normal", normal)
-		
-		$difficulties/medium.add_theme_stylebox_override("hover", float_active)
-		$difficulties/hard.add_theme_stylebox_override("hover", normal_float)
-		$difficulties/easy.add_theme_stylebox_override("hover", normal_float)
-	if D == 3:
-		$difficulties/easy.add_theme_stylebox_override("normal", normal)
-		$difficulties/medium.add_theme_stylebox_override("normal", normal)
-		$difficulties/hard.add_theme_stylebox_override("normal", active)
-		
-		$difficulties/hard.add_theme_stylebox_override("hover", float_active)
-		$difficulties/easy.add_theme_stylebox_override("hover", normal_float)
-		$difficulties/medium.add_theme_stylebox_override("hover", normal_float)
+	match D:
+		1:
+			$difficulties/easy.add_theme_stylebox_override("normal", active)
+			$difficulties/medium.add_theme_stylebox_override("normal", normal)
+			$difficulties/hard.add_theme_stylebox_override("normal", normal)
+			
+			$difficulties/easy.add_theme_stylebox_override("hover", float_active)
+			$difficulties/medium.add_theme_stylebox_override("hover", normal_float)
+			$difficulties/hard.add_theme_stylebox_override("hover", normal_float)
+		2:
+			$difficulties/easy.add_theme_stylebox_override("normal", normal)
+			$difficulties/medium.add_theme_stylebox_override("normal", active)
+			$difficulties/hard.add_theme_stylebox_override("normal", normal)
+			
+			$difficulties/medium.add_theme_stylebox_override("hover", float_active)
+			$difficulties/hard.add_theme_stylebox_override("hover", normal_float)
+			$difficulties/easy.add_theme_stylebox_override("hover", normal_float)
+		3:
+			$difficulties/easy.add_theme_stylebox_override("normal", normal)
+			$difficulties/medium.add_theme_stylebox_override("normal", normal)
+			$difficulties/hard.add_theme_stylebox_override("normal", active)
+			
+			$difficulties/hard.add_theme_stylebox_override("hover", float_active)
+			$difficulties/easy.add_theme_stylebox_override("hover", normal_float)
+			$difficulties/medium.add_theme_stylebox_override("hover", normal_float)
 
 
 func _on_house_pressed() -> void:

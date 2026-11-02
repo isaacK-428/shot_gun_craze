@@ -21,4 +21,8 @@ func _on_retry_pressed() -> void:
 
 func _on_main_menu_pressed() -> void:	
 	get_tree().change_scene_to_packed(main_menu)
+	get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
 	cheese.click_sound()
+func set_score(score: int,coins: int):
+	$score.text = "score "+str(score)
+	$coins.text = "coins gathered "+str(coins)

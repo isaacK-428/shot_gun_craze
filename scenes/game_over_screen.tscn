@@ -13,7 +13,7 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[node name="game_over_screen" type="Control" unique_id=1579867362]
+[node name="game_over_screen" type="Control" unique_id=1579867362 groups=["game_over"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

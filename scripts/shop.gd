@@ -13,9 +13,9 @@ var total_abilites = [
 ]
 var coin_costs = [
 	0,
-	10,
-	40,
-	70
+	20,
+	70,
+	100
 ]
 var coins = 0
 var main_menu = preload("res://scenes/UI/main_menu.tscn")

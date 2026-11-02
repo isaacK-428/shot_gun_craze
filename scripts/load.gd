@@ -12,7 +12,14 @@ var stop_waves = false
 var SFX = 0.2
 var MUSIC = 0.2
 var MASTER = 0.2
+var menu = false
 var equipped_ability = "dash"
+var normal_songs  = [
+	preload("res://assets/music/flaming balls.mp3"),
+	preload("res://assets/music/this is fire.mp3"),
+	preload("res://assets/music/Poor Lemur 2026-09-17 18_07_56.mp3"),
+	preload("res://assets/music/Tall mcnsshsvegeveve 2026-09-17 19_35_04.wav")
+]
 var owned_abilites = [
 	"dash"
 ]
@@ -35,6 +42,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(credits)
 	delta2=delta
 func change_credits(amount):
 	if can_combo:
@@ -58,5 +66,16 @@ func start():
 	difficulty = 1
 	total_alive_enemies = null
 	stop_waves = false
+	music_controll()
 func click_sound():
 	$click.play()
+func music_controll():
+	if $music_player.playing == false:
+		$music_player.stream = normal_songs.pick_random()
+		$music_player.playing = true
+	if menu == true:
+		$music_player.playing = false
+
+
+func _on_music_player_finished() -> void:
+	music_controll()

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bd82tropshi6s"
+path="res://.godot/imported/long drum track.wav-aa5b220a6e289c8894db2cb610da9ce9.sample"
+
+[deps]
+
+source_file="res://assets/music/long drum track.wav"
+dest_files=["res://.godot/imported/long drum track.wav-aa5b220a6e289c8894db2cb610da9ce9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

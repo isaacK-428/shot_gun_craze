@@ -1,10 +1,10 @@
+AudioStreamPlayer
 LightOccluder2D
 Sprite2D
 Polygon2D
 Label
 Timer
 Panel
-AudioStreamPlayer
 ColorRect
 Node2D
 AudioStreamPlayer2D

@@ -178,6 +178,7 @@ func die():
 		#i.queue_free()
 	#get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
 	$game_over_screen.show()
+	$game_over_screen.set_score(cheese.credits,coins)
 	for i in get_tree().get_nodes_in_group("enemy"):
 		i.queue_free()
 		

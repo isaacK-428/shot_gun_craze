@@ -92,6 +92,7 @@ theme_override_font_sizes/font_size = 27
 text = "play random map"
 
 [node name="settings" type="Button" parent="." unique_id=1390589099]
+visible = false
 layout_mode = 0
 offset_left = 1062.0
 offset_top = 9.0
@@ -101,6 +102,7 @@ text = "      "
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1168395433]
+visible = false
 position = Vector2(1120, 111)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ekxnf")
@@ -196,22 +198,22 @@ polygon = PackedVector2Array(12, -23, 99, 54, 33, 118, 95, 166, 98, 239, 170, 26
 
 [node name="Label" type="Label" parent="." unique_id=2106267902]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 15.0
-offset_right = 208.0
-offset_bottom = 76.0
-theme_override_font_sizes/font_size = 44
-text = "Shot gun "
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 230.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 60
+text = "Cube"
 
 [node name="Label2" type="Label" parent="." unique_id=541743706]
 layout_mode = 0
-offset_left = 28.0
+offset_left = 7.0
 offset_top = 66.0
-offset_right = 225.0
+offset_right = 303.0
 offset_bottom = 161.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 69
-text = "RAGE!"
+text = "Shotgun!"
 
 [connection signal="pressed" from="difficulties/easy" to="." method="easy"]
 [connection signal="pressed" from="difficulties/medium" to="." method="medium"]

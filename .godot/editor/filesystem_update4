@@ -1,1 +1,12 @@
 res://default_bus_layout.tres
+res://scenes/load.tscn
+res://scenes/textures/light.tres
+res://scripts/load.gd
+res://scenes/maps/house_map.tscn
+res://scripts/main_scene.gd
+res://scenes/UI/main_menu.tscn
+res://scripts/main_menu.gd
+res://scenes/game_over_screen.tscn
+res://scripts/game_over_screen.gd
+res://scenes/player.tscn
+res://scripts/player.gd

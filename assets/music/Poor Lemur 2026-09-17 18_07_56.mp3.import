@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dsab53u213ib2"
+path="res://.godot/imported/Poor Lemur 2026-09-17 18_07_56.mp3-b5f0410dc795647bcb4c81fd0c0cebff.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Poor Lemur 2026-09-17 18_07_56.mp3"
+dest_files=["res://.godot/imported/Poor Lemur 2026-09-17 18_07_56.mp3-b5f0410dc795647bcb4c81fd0c0cebff.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

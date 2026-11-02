@@ -13,6 +13,8 @@ var I3= null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	cheese.menu=false
+	cheese.music_controll()
 	cheese.start_level()
 	randomize()
 	d = cheese.difficulty
